@@ -1,10 +1,8 @@
 ---
-title: Create Lesson Content
-nav: Content
-topics: Content; Markdown; Includes
-description: >
-    This text is a "section description". Below is "section topics", followed by an example section video embed. This page details how to write content pages and add interest with includes.
-youtubeid: moJgWrD6dwg
+title: Generalized linear mixed models
+nav: Day 3
+topics: Non-normal data; Repeated Measures; Wrap-up
+description: >. 
 ---
 
 ## Content Pages
