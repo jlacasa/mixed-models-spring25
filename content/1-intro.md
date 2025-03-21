@@ -57,7 +57,7 @@ $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 
 
 Let's identify each in the following example:
 
-$$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{I}_{n \times n}),  $$ where $\mathbf{I}_{n \times n}$ is the identity matrix with $$n$$ rows and $$n$$ columns. Suppose $$n = 4$$, then $$\mathbf{I}_{4 \times 4} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1  \end{bmatrix}$$.
+$$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{I}_{n \times n}),  $$ where $$\mathbf{I}_{n \times n}$$ is the identity matrix with $$n$$ rows and $$n$$ columns. Suppose $$n = 4$$, then $$\mathbf{I}_{4 \times 4} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1  \end{bmatrix}$$.
 
 
 ### Short demonstration of different variance-covariance functions using R.  
