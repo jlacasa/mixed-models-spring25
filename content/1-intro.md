@@ -1,6 +1,7 @@
 ---
 title: Fundamentals of linear mixed models 
 nav: Day 1
+topics: Fixed effects versus random effects
 ---
 
 ### Welcome!
