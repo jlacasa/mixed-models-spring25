@@ -3,18 +3,14 @@ title: Introduction to Linear Mixed Models
 nav: Day 1
 ---
 
-`workshop-template-b` is a Jekyll project to create a simple workshop website, with a [Bootstrap](https://getbootstrap.com/)-based theme, designed for hosting on [GitHub Pages](https://pages.github.com/) (or similar static web options!).
+### Welcome!
 
-It works best for about five pages of instructions, plus home page, all written in Markdown. 
-The navigation to the main pages is exposed at top and bottom of each page for easy stepping through the lessons.
-
-### Why?
-
-Rather than making slides for a workshop, why not make a website? 
-It's easier to write, access, share, and reuse. 
-GitHub and GitHub Pages makes this pretty easy.
-
-It is a great [Open Educational Resource](https://en.wikipedia.org/wiki/Open_educational_resources) since anyone can make a copy and adapt!
+{% capture text %}
+1. 
+2. 
+3. 
+{% endcapture %}
+{% include card.html text=text header="Setup Overview" %}
 
 ## GitHub Pages 
 
