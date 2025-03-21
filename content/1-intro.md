@@ -24,8 +24,8 @@ Schedule:
 
 ## Outline for today
 
--   **Review on linear models**: Once we fully understand fixed linear models, it's just a matter of adding an extra assumption.\
--   **Review on variance-covariance matrices**: In essence, mixed models add an extra assumption to our very familiar linear model. Said assumption ends up storing the information about the random effects in the variance-covariance matrix (i.e., $$\Sigma$$ in $$\mathbf{y} \sim(\boldsymbol{\mu}, \mathbf{\Sigma})$$).\
+-   **Review on linear models**: Once we fully understand fixed linear models, it's just a matter of adding an extra assumption. 
+-   **Review on variance-covariance matrices**: In essence, mixed models add an extra assumption to our very familiar linear model. Said assumption ends up storing the information about the random effects in the variance-covariance matrix (i.e., $$\Sigma$$ in $$\mathbf{y} \sim(\boldsymbol{\mu}, \mathbf{\Sigma})$$). 
 -   **Application**: what does this all mean when we want to fit a model to our data?
 
 ## Review on linear models
@@ -85,8 +85,8 @@ We can easily come up with two models:
 **Notes on Notation**
 
 -   scalars: lowercase italic and non-bold faced, e.g., $$y$$, $$\sigma$$, $$\beta_0$$  
--   vectors: lowercase bold, e.g., $$\mathbf{y} \equiv [y_1, y_2, ..., y_n]'$, $\boldsymbol{\beta} \equiv [\beta_1, \beta_2, ..., \beta_p]'$$, $$\boldsymbol{u}  \equiv [u_1, u_2, ..., u_k]'$$ (note that their elements may be scalars)\
--   matrices: uppercase bold, e.g., $$\mathbf{X}$$, $$\Sigma$$ (note that their elements may be vectors)\
+-   vectors: lowercase bold, e.g., $$\mathbf{y} \equiv [y_1, y_2, ..., y_n]'$, $\boldsymbol{\beta} \equiv [\beta_1, \beta_2, ..., \beta_p]'$$, $$\boldsymbol{u}  \equiv [u_1, u_2, ..., u_k]'$$ (note that their elements may be scalars)  
+-   matrices: uppercase bold, e.g., $$\mathbf{X}$$, $$\Sigma$$ (note that their elements may be vectors)  
 
 | Variable | Scalar | Vector | Matrix |
 |------------------|------------------|------------------|------------------|
