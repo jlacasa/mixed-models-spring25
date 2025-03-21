@@ -34,14 +34,65 @@ One of the most popular models is the intercept-and-slope model. Why? Because it
 
 $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$ where $y_{i}$ is the observed value for the $i$th observation, $\beta_0$ is the intercept, $\beta_1$ is the slope parameter, and $\varepsilon_{i}$ is the difference between the observed ($y$) and the expected ($E(y_i)=\mu_i=\beta_0+x_i\beta_1$) and that's why we often call it "residual".
 
-Statistics is all about making assumptions to get value out of our data, so let's review the assumptions we make in this model.\
-- Linearity\
-- Constant variance\
-- Independence\
-- Normality
+Statistics is all about making assumptions to get value out of our data, so let's review the assumptions we make in this model.  
+- Linearity  
+- Constant variance  
+- Independence  
+- Normality  
 
-{% capture text %}Note:
-There are *soft* limits and guidelines for gh-pages usage: sites should be < 1GB, use < 100GB bandwidth per month, and make < 10 builds per hour.
-If your site exceeds these quotas, GitHub will send you a notice asking you to modify the repository.
-All content must follow the [community guidelines](https://help.github.com/articles/github-community-guidelines/), e.g. no violence, obscene sex, or illegal stuff.{% endcapture %}
+[[[[image]]]]
+
+
+**Discuss in the plot above:**    
+-   Expected value  
+-   Variance  
+-   Covariance  
+  - An example for covariance:
+
+$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right)$$
+
+
+### Review of the statistical model using matrix notation
+
+
+Let's identify each in the following example:
+
+$$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{I}_{n \times n}),  $$ where $\mathbf{I}_{n \times n}$ is the identity matrix with $n$ rows and $n$ columns. Suppose $n = 4$, then $\mathbf{I}_{4 \times 4} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1  \end{bmatrix}$.
+
+
+### Short demonstration of different variance-covariance functions using R.  
+
+Live R session. [[see R code](#)]
+
+
+
+## What are mixed models anyways?
+
+Mixed models (also called "multilevel models") model their parameters (i.e., regression coefficients) with probability distributions.
+
+**Example:** Randomized complete block design.
+
+-   Field experiment at Colby, KS.\
+-   One treatment factor (treatment structure).\
+-   Randomized Complete Block Design with 3 repetitions (design structure).
+
+We can easily come up with two models:
+
+1.  Blocks fixed $y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$.\
+2.  Blocks random $y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$.
+
+{% capture text %}
+> **Notes on Notation**
+>
+> -   scalars: lowercase italic and non-bold faced, e.g., $y$, $\sigma$, $\beta_0$\
+> -   vectors: lowercase bold, e.g., $\mathbf{y} \equiv [y_1, y_2, ..., y_n]'$, $\boldsymbol{\beta} \equiv [\beta_1, \beta_2, ..., \beta_p]'$, $\boldsymbol{u}  \equiv [u_1, u_2, ..., u_k]'$ (note that their elements may be scalars)\
+> -   matrices: uppercase bold, e.g., $\mathbf{X}$, $\Sigma$ (note that their elements may be vectors)\
+>
+> | Variable | Scalar | Vector | Matrix |
+> |------------------|------------------|------------------|------------------|
+> | Response variable | $y$ (e.g., $y = 4$) | $\mathbf{y} \equiv (y_1, y_2, ..., y_n)'$ | $\mathbf{y}_{n\times1}$ |
+> | Predictor variable | $x_{1 i}$, $x_{2 i}$, etc. | $\mathbf{x}_1 \equiv (x_{1,1}, x_{1, 2}, ..., x_{1, n})$ $\mathbf{x}_2 \equiv (x_{2,1}, x_{2, 2}, ..., x_{2, n})$ | $\mathbf{X}_{n\times p} \equiv \begin{bmatrix} \end{bmatrix}$ |
+> | Effect parameters | $\beta_0$, $\beta_1$, etc. | $\boldsymbol{\beta} \equiv (\beta_0, \beta_1, ..., \beta_p)'$ | $\boldsymbol{\beta}_{p\times1}$ |
+> | Variance | $\sigma^2$ |  | $\Sigma$ (very often we assume $\Sigma = \sigma^2 \mathbf{I}$ ) |
+> |  |  |  |  |{% endcapture %}
 {% include alert.html text=text color=secondary %}
