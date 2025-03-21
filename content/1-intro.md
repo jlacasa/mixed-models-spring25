@@ -4,10 +4,10 @@ nav: Day 1
 topics: Fixed effects versus random effects
 ---
 
-### Welcome!
+## Welcome!
 
 - About me.
-- ABout you.
+- About you.
 
 {% capture text %}
 1. Fundamentals of linear mixed models   
