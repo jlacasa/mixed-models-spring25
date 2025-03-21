@@ -3,7 +3,7 @@ title: Home
 layout: page
 ---
 
-# Bootstrap Workshop Template!
+# Welcome to the Mixed Models Workshop website!
 
 {% include figure.html img="dickens.jpg" alt="intro image here" caption="Dickens Hall" width="75%" %}
 
