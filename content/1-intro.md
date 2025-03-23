@@ -182,7 +182,7 @@ These assumptions makes sense when the observations are independent (i.e., there
 
 Now, imagine that the observations are actually diameters from random apples, but they were taken from 5 different fields (2 from each field). 
 These observations are no longer independent, because apples from the same field are more similar to each other than apples from different fields.
-This is when mixed-effects models enter the story - they allow us to indicate *what is similiar to what* via random effects. 
+This is when mixed-effects models enter the story - they allow us to indicate *what is similar to what* via random effects. 
 In this case, we expect the growth rate to be similar among fields, but the baseline (a.k.a., the intercept) to be field-specific. Then,   
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
@@ -268,9 +268,9 @@ $$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\
 **Group discussion:** what determines if an effect should be random of fixed?  
 
 
-### Covariance functions 
 
-[[see R code](#)]  
+- Gelman, A. (2005). Analysis of variance—why it is more important than ever. Ann. Statist. 33 (1) 1 - 53. [https://doi.org/10.1214/009053604000001048](https://projecteuclid.org/journals/annals-of-statistics/volume-33/issue-1/Analysis-of-variancewhy-it-is-more-important-than-ever/10.1214/009053604000001048.full)
+
 
 ## Applied example  
 
@@ -284,6 +284,11 @@ We can easily come up with two models:
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
 
 ------
+
+## Wrap-up  
+
+- Assumptions in mixed models. 
+- 
 
 ## What's next  
 

@@ -15,7 +15,14 @@ $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbo
 \boldsymbol{0} & \mathbf{R} \end{bmatrix} 
 \right),$$
 
-where -----------. 
+where $$\mathbf{y}$$ is the observed response, 
+$$\mathbf{X}$$ is the matrix with the explanatory variables, 
+$$\mathbf{Z}$$ is the design matrix,
+$$\boldsymbol{\beta}$$ is the vector containing the fixed-effects parameters, 
+$$\mathbf{u}$$ is the vector containing the random effects parameters, 
+$$\boldsymbol{\varepsilon}$$ is the vector containing the residuals, 
+$$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
+and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
 Typically, $$\mathbf{G} = \sigma^2_u \mathbf{I}$$ and $$\mathbf{R} = \sigma^2 \mathbf{I}$$.  
 If we do the math, we get that  
 
@@ -37,7 +44,9 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 ------
 
-## Applied example I  
+## Applied example I - random effect on the intercept   
+
+
 
 ## Applied example II -- nested random effects    
 
