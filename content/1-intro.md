@@ -8,7 +8,7 @@ topics: Review; Fixed effects versus random effects
 
 - [About me](https://jlacasa.github.io/).
 - About you.
-  - Frequent responses.   
+  - Frequent responses to the registration survey.   
   - Some knowledge of the *existence* of mixed effects models.  
   - Mostly life sciences - often heteroscedasticity and dependent observations!  
 
@@ -18,7 +18,8 @@ topics: Review; Fixed effects versus random effects
 
 - We will have relatively low proportion of R code in this workshop. Instead, we will focus on the understanding of the model components. Questions/concerns are more than welcome.   
 - The statistical notation we will use throughout this workshop is presented [here](0-prep). 
-- It is **not expected** that you walk out being a master in math notation! But the variance-covariance functions are important to understand what mixed models actually do.  
+- DON'T PANIC when you see the math notation. 
+It is **not expected** that you walk out of this workshop as a master in math notation! But the variance-covariance functions are important to understand what mixed models actually do.  
 - Schedule:
 
 {% capture text %}
@@ -45,11 +46,15 @@ topics: Review; Fixed effects versus random effects
 
 {% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="Figure 2. A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" id = "intercept_slope_fig1" %}
 
-One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model (called "model equation form"):
+One of the most popular models is the intercept-and-slope model. 
+It's so simple and [interpretable](https://en.wikipedia.org/wiki/Simple_linear_regression#Interpretation)! 
+Most of us learned this way of writing out the statistical model, called "model equation form":
 
 $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$  
 
-where $$y_{i}$$ is the observed value for the $$i$$th observation, $$\beta_0$$ is the intercept, $$\beta_1$$ is the slope parameter, $$x_i$$ is the predictor for the $$i$$th observation, and $$\varepsilon_{i}$$ is the difference between the observed value $$y$$ and the expected value $$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$ - that's why we often call it "residual".
+where $$y_{i}$$ is the observed value for the $$i$$th observation, 
+$$\beta_0$$ is the intercept (i.e., the expected value of $$y$$ when $$x=0$$), 
+$$\beta_1$$ is the slope parameter (i.e., the expected increase in $$y$$ with a unity increase in $$x$$), $$x_i$$ is the predictor for the $$i$$th observation, and $$\varepsilon_{i}$$ is the difference between the observed value $$y$$ and the expected value $$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$ - that's why we often call it "residual".
 
 
 Look at the plot above. A farmer decided to measure the diameter of apples **selected randomly from randomly selected trees** at different points in time.  
@@ -69,12 +74,19 @@ Instead of focusing on the distribution of the residuals, we can focus on the di
 
 $$y_{i} \sim N(\mu_i, \sigma^2), \\ \mu_i = \beta_0 + x_{i} \beta_1.$$
 
-With this notation (called "probability distribution form"), it is easier to switch to other distributions (Day 3 of this workshop). We can further express this equation using vectors and matrices:  
+With this notation (called "probability distribution form"), it is easier to switch to other distributions ([Day 3](3-lesson) of this workshop). We can further express this equation using vectors and matrices:  
 
-$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma), \\ \boldsymbol{\mu} = \boldsymbol{\beta_0} + \mathbf{x} \boldsymbol{\beta_1},$$
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma), \\ \boldsymbol{\mu} = \boldymbol{1} \boldsymbol{\beta_0} + \mathbf{x} \boldsymbol{\beta_1} = \mathbf{X}\boldsymbol{\beta},$$
 
-where $$\mathbf{y}$$ is an $$n \times 1$$ vector containing all observations, $$\boldsymbol{\mu}$$ is an $$n \times 1$$ vector containing the expected values of said observations, 
+where $$n$$ is the total number of observations, $$p$$ is the total number of parameters, 
+$$\mathbf{y}$$ is an $$n \times 1$$ vector containing all observations, 
+$$\boldsymbol{\mu}$$ is an $$n \times 1$$ vector containing the expected values of said observations, 
+$$\boldsymbol{\beta}$$ is an $$p \times 1$$ vector containing the (fixed) parameters, 
+$$\mathbf{X}$$ is an $$n \times p$$ matrix containing the predictors, 
 $$\Sigma$$ is an $$n \times n$$ matrix called variance-covariance matrix. 
+**Note: This type of notation is also convenient to think about how to prepare the data in your spreadsheet. One row per observation (rows in $$\mathbf{X}$$), one variable per column (columns in $$\mathbf{X}$$).**
+
+Let's expand these expressions: 
 
 $$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim
 N \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
@@ -134,20 +146,29 @@ which is visualized in [Figure 4](#multivariate_normal).
 Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
 If we used the default model in most software, we would assume  
 
-$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),$$
-
-$$\begin{array}{c c}
-& \mathbf{y} \equiv \begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} & 
-\Sigma \equiv \sigma^2 
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),\\
+\begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} \ sim 
+\left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \mu_3 \\ \mu_4 \\ \vdots \\ \mu_n \end{bmatrix}, 
+\sigma^2 
 \begin{bmatrix} 1 & 0 & 0 & 0 & \dots & 0 \\ 
 0 & 1 & 0 & 0 & \dots & 0 \\
 0 & 0 & 1 & 0 & \dots & 0 \\
 0 & 0 & 0 & 1 & \dots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
 0 & 0 & 0 & 0 & \dots & 1 \end{bmatrix}
-\\
-\end{array}.
-$$
+\right),$$
+
+which is the same as 
+
+$$\begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} \ sim 
+\left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \mu_3 \\ \mu_4 \\ \vdots \\ \mu_n \end{bmatrix}, 
+\begin{bmatrix} \sigma^2 & 0 & 0 & 0 & \dots & 0 \\ 
+0 & \sigma^2 & 0 & 0 & \dots & 0 \\
+0 & 0 & \sigma^2 & 0 & \dots & 0 \\
+0 & 0 & 0 & \sigma^2 & \dots & 0 \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
+0 & 0 & 0 & 0 & \dots & \sigma^2 \end{bmatrix}
+\right).$$
 
 Remember the assumptions:
 - Linearity  
@@ -155,24 +176,26 @@ Remember the assumptions:
 - Independence  
 - Normality  
 
-This makes sense when the observations are independent (i.e., there is no underlying structure to take into account).    
+These assumptions makes sense when the observations are independent (i.e., there is no underlying structure to take into account).    
 
 #### Non-independent observations  
 
-Now, imagine that the observations are actually diameters from random apples from 5 different fields. 
-These observations are no longer independent! This is when mixed-effects models enter the story - they allow us to say *what is similiar to what*. 
-In this case, we expect the growth rate to be similar, but the baseline (a.k.a., the intercept) to be field-specific. Then,   
+Now, imagine that the observations are actually diameters from random apples, but they were taken from 5 different fields (2 from each field). 
+These observations are no longer independent, because apples from the same field are more similar to each other than apples from different fields.
+This is when mixed-effects models enter the story - they allow us to indicate *what is similiar to what* via random effects. 
+In this case, we expect the growth rate to be similar among fields, but the baseline (a.k.a., the intercept) to be field-specific. Then,   
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
 
 #### How do we define $$\beta_{0j}$$?
 
 ##### Fixed   
+
 So far, we could have defined an all-fixed model. 
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \beta_{0j} = \beta_0 + b_j \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
 
-where $$b_j$$ is the effect of the $$j$$th tree on the intercept (i.e., on the baseline). 
+where $$b_j$$ is the effect of the $$j$$th field on the intercept (i.e., on the baseline). 
 In this case, $$b_j$$ is a fixed effect, which means it may be estimated via least squares estimation or maximum likelihood estimation. 
 
 **Some limitations of this approach**:
@@ -182,8 +205,8 @@ In this case, $$b_j$$ is a fixed effect, which means it may be estimated via lea
 
 ##### Random   
 
-We could also assume that the effects of the $$j$$th tree (i.e., $$\mathbf{b}$$) arise from a random distribution. 
-The most common assumption (and the default in mot statistical software) is  
+We could also assume that the effects of the $$j$$th tree (i.e., $$b_j$$) arise from a random distribution. 
+The most common assumption (and the default in most statistical software) is that 
 
 $$b_j \sim N(0, \sigma^2_b).$$
 
@@ -203,6 +226,8 @@ Mixed models combine fixed effects and random effects.
   - *Why is the unbiased estimation of variance components so important?*  
     - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
 
+### Speaking generally  
+
 Generally speaking, we can write out a mixed models using the model equation form as   
 
 $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbol{\varepsilon}, \\ 
@@ -220,6 +245,7 @@ $$\mathbf{u}$$ is the vector containing the random effects parameters,
 $$\boldsymbol{\varepsilon}$$ is the vector containing the residuals, 
 $$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
 and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
+
 
 Using the probability distribution form, we can say  
 

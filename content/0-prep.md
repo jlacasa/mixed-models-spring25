@@ -17,6 +17,9 @@ Although preparing for this workshop is only optional, here are some points for 
 
 {% capture text %}
 **Notation we will use in this workshop**
+- DON'T PANIC when you see the math notation. 
+It is **not expected** that you walk out of this workshop as a master in math notation! But the variance-covariance functions are important to understand what mixed models actually do.  
+
 
 -   **scalars:** lowercase italic and non-bold faced, e.g., $$y$$, $$\sigma$$, $$\beta_0$$  
 -   **vectors:** lowercase bold, e.g., $$\mathbf{y} \equiv [y_1, y_2, ..., y_n]'$$, $$\boldsymbol{\beta} \equiv [\beta_1, \beta_2, ..., \beta_p]'$$, $$\boldsymbol{u}  \equiv [u_1, u_2, ..., u_k]'$$ (note that their elements may be scalars)  
