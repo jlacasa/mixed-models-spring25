@@ -110,9 +110,9 @@ Let's assume we have 10 observations of apple diameter. Then,
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
 $$
-\begin{array}{c c} \\
-\begin{array}{c c c} \\
-\mathbf{y} \equiv \\
+\begin{array}{c c} 
+\begin{array}{c c c} 
+\mathbf{y} \equiv & 
 \begin{array}{c c c c c c c c c c} \text{obs 1}\\ \text{obs 2}\\ \text{obs 3}\\
 \text{obs 4}\\ \text{obs 5}\\ \text{obs 6}\\ \text{obs 7}\\ 
 \text{obs 8}\\ \text{obs 9}\\ \text{obs 10} \end{array} &
@@ -132,8 +132,8 @@ y_{10}
 \right]
 \end{array}
 
-\begin{array}{c c c} 
-\Sigma \equiv \\
+\begin{array}{c c} 
+\Sigma \equiv 
 & \begin{array}{c c c c c c c c c c} \text{obs 1}& \text{obs 2}& \text{obs 3}&
 \text{obs 4}& \text{obs 5}& \text{obs 6}& \text{obs 7}& 
 \text{obs 8}& \text{obs 9}& \text{obs 10}  \\ \end{array} \\
