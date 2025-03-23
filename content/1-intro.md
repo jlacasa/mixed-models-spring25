@@ -9,6 +9,10 @@ topics: Review; Fixed effects versus random effects
 - [About me](https://jlacasa.github.io/).
 - About you.
 
+{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="Distribution of Departments in this worksop" width="75%" %}
+
+- Frequent responses.   
+
 ## Housekeeping  
 
 - The reason for the relatively low proportion of R code content in this workshop: it's easy to find! We will focus on the understanding of the model components.  
@@ -39,6 +43,8 @@ One of the most popular models is the intercept-and-slope model. Why? Because it
 
 $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$ where $$y_{i}$$ is the observed value for the $$i$$th observation, $$\beta_0$$ is the intercept, $$\beta_1$$ is the slope parameter, and $$\varepsilon_{i}$$ is the difference between the observed ($$y$$) and the expected ($$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$) and that's why we often call it "residual".
 
+
+
 Statistics is all about making assumptions to get value out of our data, so let's review the assumptions we make in this model.  
 - Linearity  
 - Constant variance  
@@ -56,8 +62,7 @@ $$\mu_i = \beta_0 + x_{i} \beta_1.$$
 **Discuss in the plot above:**    
 -   Expected value  
 -   Variance  
--   Covariance  
-  - An example for covariance:
+-   Covariance?
 
 $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right)$$
 
@@ -90,7 +95,7 @@ Mixed models (also called "multilevel models") model some of their parameters (i
 
 
 ## Applied example  
-**Example:** Randomized complete block design.
+**Example:** Randomized complete block design.  
 
 -   Field experiment at Colby, KS.  
 -   One treatment factor (treatment structure).  
@@ -115,4 +120,12 @@ We can easily come up with two models:
 | Effect parameters | $$\beta_0$$, $$\beta_1$$, etc. | $$\boldsymbol{\beta} \equiv (\beta_0, \beta_1, ..., \beta_p)'$$ | $$\boldsymbol{\beta}_{p\times1}$$ |
 | Variance | $$\sigma^2$$ |  | $$\Sigma$$ (very often we assume $$\Sigma = \sigma^2 \mathbf{I}$$ ) |
 |  |  |  |  |{% endcapture %}
-{% include alert.html text=text color=secondary %}
+{% include alert.html text=text color=secondary %}  
+
+
+## What to expect next  
+
+- More applied examples and what they mean.  
+- Some troubleshooting.  
+
+Any questions? E-mail me!
