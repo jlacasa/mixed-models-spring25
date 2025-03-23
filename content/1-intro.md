@@ -118,6 +118,7 @@ $$\begin{array}{c c}
 \vdots &  &  &  \ddots & & \\  
 0 &  & \dots &  &  & 1 \end{bmatrix}
 \\
+\end{array}
 $$
 
 
