@@ -40,24 +40,44 @@ Schedule:
 
 ### The famous intercept-and-slope linear model
 
+{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" %}
+
 One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model:
 
 $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$  
 
 where $$y_{i}$$ is the observed value for the $$i$$th observation, $$\beta_0$$ is the intercept, $$\beta_1$$ is the slope parameter, and $$\varepsilon_{i}$$ is the difference between the observed ($$y$$) and the expected ($$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$) and that's why we often call it "residual".
 
-{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="" width="75%" %}
 
-Statistics is all about making assumptions to get value out of our data, so let's review the assumptions we make in this model.  
+Look at the plot above. A farmer decided to measure the diameter or **random apples from random trees** at different points in time.  
+
+Can we fit the model to that data? Let's review the assumptions we make in this model.   
 - Linearity  
 - Constant variance  
 - Independence  
 - Normality  
 
-There is another way of writing out the statistical model above:  
+
+### Same statistical model using distribution notation and matrix notation
+
+There is another way of writing out the intercept-and-slope statistical model above:  
 
 $$y_{i} \sim N(\mu_i, sigma^2),$$  
 $$\mu_i = \beta_0 + x_{i} \beta_1.$$
+
+Also,  
+
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, sigma^2),$$  
+$$\boldsymbol{\mu} = \boldsymbol{\beta_0} + x \boldsymbol{\beta_1}.$$
+
+The advantages of writing out statistical models with this type of notation are 
+
+i. It is easier to switch to other distributions (e.g., Binomial)  
+ii. It is easier to understand the variance-covariance, especially in a mixed models scenario!  
+
+### Review on variance-covariance matrices  
+
+#### What is variance?  
 
 {% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Normal distributions" width="75%" %}
 
@@ -66,18 +86,16 @@ $$\mu_i = \beta_0 + x_{i} \beta_1.$$
 -   Variance  
 -   Covariance?
 
+#### What is covariance?  
+
 $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right)$$
 
-
-### Review of the statistical model using matrix notation
-
+{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right)$$" width="75%" %}
 
 Let's identify each in the following example:
 
 $$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{I}_{n \times n}),  $$ where $$\mathbf{I}_{n \times n}$$ is the identity matrix with $$n$$ rows and $$n$$ columns. Suppose $$n = 4$$, then $$\mathbf{I}_{4 \times 4} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1  \end{bmatrix}$$.
 
-
-### Review on variance-covariance matrices  
 
 $$
 \begin{array}{c c} 
