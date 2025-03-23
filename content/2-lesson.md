@@ -7,3 +7,20 @@ topics: Designed Experiments; Randomized Complete Block Designs; Split-Plot-Desi
 ## Review  
 
 Mixed-effects models combine fixed effects and random effects. 
+Typically, we can define a fixed effects model as 
+
+$$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbol{\varepsilon}, \\ 
+\begin{bmatrix}\mathbf{u} \\ \mathbf{\varepsilon} \end{bmatrix} \sim \left(
+\begin{bmatrix}\boldsymbol{0} \\ \boldsymbol{0} \end{bmatrix}, 
+\begin{bmatrix}\mathbf{G} & \boldsymbol{0} \\
+\boldsymbol{0} \mathbf{R} & \end{bmatrix}, 
+\right)$$
+
+where -----------. 
+If we do the math, we get that  
+
+$$E(\mathbf{y}) = \boldsymbol{\mu}$$
+
+$$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
+
+{% include alert.html header="In Summary" text="Some text" align="center" color="success" %}
