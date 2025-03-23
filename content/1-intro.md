@@ -11,7 +11,7 @@ topics: Review; Fixed effects versus random effects
   - Frequent responses.   
   - Some knowledge of the *existence* of mixed effects models.  
 
-{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="Figure 1. Distribution of Departments attending this worksop" width="75%" #attendees %}
+{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="Figure 1. Distribution of Departments attending this worksop" width="75%" id = "attendees" %}
 
 ## Housekeeping  
 
@@ -41,7 +41,7 @@ Schedule:
 
 ### The famous intercept-and-slope linear model
 
-{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="Figure 2. A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" #intercept_slope_fig1 %}
+{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="Figure 2. A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" id = "intercept_slope_fig1" %}
 
 One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model:
 
@@ -69,9 +69,10 @@ $$y_{i} \sim N(\mu_i, \sigma^2), \\ \mu_i = \beta_0 + x_{i} \beta_1.$$
 
 We can further express this equation using vectors and matrices:  
 
-$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma), \\ \boldsymbol{\mu} = \boldsymbol{\beta_0} + x \boldsymbol{\beta_1},$$
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma), \\ \boldsymbol{\mu} = \boldsymbol{\beta_0} + \mathbf{x} \boldsymbol{\beta_1},$$
 
-where $$\mathbf{y}$$ is the vector containing all observations, . 
+where $$\mathbf{y}$$ is an $$n \times 1$$ vector containing all observations, $$\boldsymbol{\mu}$$ is an $$n \times 1$$ vector containing the expected values of said observations, 
+$$\Sigma$$ is an $$n \times n$$ matrix called variance-covariance matrix. 
 
 $$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim
 N(\begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
@@ -98,7 +99,7 @@ Regardless of the distribution of a random variable $$Y$$, we could calculate it
 The expected value measures the average outcome of $$Y$$.  
 The variance measures the dispersion of $$Y$$, i.e. how far the possible outcomes are spread out from their average. 
 
-{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Figure 3. Normal distributions" width="75%" #univariate_normal %}
+{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Figure 3. Normal distributions" width="75%" id = "univariate_normal" %}
 
 **Discuss in the plot above:**    
 -   Expected value  
@@ -112,7 +113,7 @@ The variance of a random variable is the covariance of a random variable with it
 
 $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$
 
-{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables.$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" #multivariate_normal %}
+{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables.$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" id = "multivariate_normal" %}
 
 Back to the example in [Figure 1](#attendees). Let's assume we have 10 observations of diameter of random apples. Then,   
 

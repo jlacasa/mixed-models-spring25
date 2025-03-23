@@ -1,7 +1,7 @@
 ---
 title: Workshop Prep
 nav: Prep
-topics: Software; Optional Readings
+topics: Software; Notation
 ---
 
 Welcome!  

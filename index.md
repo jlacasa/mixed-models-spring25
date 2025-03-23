@@ -3,7 +3,7 @@ title: Home
 layout: page
 ---
 
-# Welcome to the Mixed Models Workshop website!
+# Welcome to the mixed models workshop website!
 
 {% include figure.html img="dickens.jpg" alt="intro image here" caption="Dickens Hall" width="75%" %}
 
