@@ -23,4 +23,8 @@ $$E(\mathbf{y}) = \boldsymbol{\mu}$$
 
 $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
-{% include alert.html header="In Summary" text="Some text" align="center" color="success" %}
+{% capture text %}
+Some text. 
+{% endcapture %}
+{% include card.html text=text header="In Summary"  color="success" %}
+
