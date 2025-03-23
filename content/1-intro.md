@@ -188,7 +188,7 @@ Mixed models combine fixed effects and random effects.
 
 Generally speaking, 
 
-That yields us 
+That gives us 
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
@@ -201,7 +201,7 @@ $$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\
 
 
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\ 
-0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u
+0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u
 \end{bmatrix} $$
 
 
