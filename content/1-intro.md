@@ -1,15 +1,17 @@
 ---
 title: Fundamentals of linear mixed models 
 nav: Day 1
-topics: Fixed effects versus random effects
+topics: Review; Fixed effects versus random effects
 ---
 
 ## Welcome!
 
-- About me.
+- [About me](https://jlacasa.github.io/).
 - About you.
 
 ## Housekeeping  
+
+- The reason for the relatively low proportion of R code content in this workshop: it's easy to find! We will focus on the understanding of the model components.  
 
 Schedule:
 
@@ -31,7 +33,9 @@ Schedule:
 
 ## Review on linear models
 
-One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! [It's everywere](#). Most of us learned this way of writing out the statistical model:
+### The famous intercept-and-slope linear model
+
+One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model:
 
 $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$ where $$y_{i}$$ is the observed value for the $$i$$th observation, $$\beta_0$$ is the intercept, $$\beta_1$$ is the slope parameter, and $$\varepsilon_{i}$$ is the difference between the observed ($$y$$) and the expected ($$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$) and that's why we often call it "residual".
 
@@ -41,7 +45,12 @@ Statistics is all about making assumptions to get value out of our data, so let'
 - Independence  
 - Normality  
 
-[[[[image]]]]
+There is another way of writing out the statistical model above:  
+
+$$y_{i} \sim N(\mu_i, sigma^2),$$  
+$$\mu_i = \beta_0 + x_{i} \beta_1.$$
+
+{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Normal distributions" width="75%" %}
 
 
 **Discuss in the plot above:**    
@@ -61,16 +70,26 @@ Let's identify each in the following example:
 $$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{I}_{n \times n}),  $$ where $$\mathbf{I}_{n \times n}$$ is the identity matrix with $$n$$ rows and $$n$$ columns. Suppose $$n = 4$$, then $$\mathbf{I}_{4 \times 4} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1  \end{bmatrix}$$.
 
 
-### Short demonstration of different variance-covariance functions using R.  
+### Review on variance-covariance matrices  
 
-Live R session. [[see R code](#)]
-
+- Short demonstration of different variance-covariance functions using R. [[see R code](#)]  
 
 
 ## What are mixed models anyways?
 
-Mixed models (also called "multilevel models") model their parameters (i.e., regression coefficients) with probability distributions.
+Mixed models (also called "multilevel models") model some of their parameters (i.e., regression coefficients) with probability distributions.
 
+### Fixed effects versus random effects  
+
+
+#### Method of estimation  
+
+- REML is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
+- Why is the unbiased estimation of variance components so important?  
+  - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
+
+
+## Applied example  
 **Example:** Randomized complete block design.
 
 -   Field experiment at Colby, KS.  
