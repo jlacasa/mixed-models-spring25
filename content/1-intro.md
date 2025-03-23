@@ -112,11 +112,11 @@ $$\begin{array}{c c}
 & \mathbf{y} \equiv \begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} & 
 \Sigma \equiv \sigma^2 
 \begin{bmatrix} 1 & 0 & 0 & 0 & \dots & 0 \\ 
-0 & 1 & 0 & 0 & \dots &  \\
-0 & 0 & 1 & 0 & \dots & \vdots \\
-0 & 0 & 0 & 1 & \dots &  \\
-\vdots &  &  &  \ddots & & \\  
-0 &  & \dots &  &  & 1 \end{bmatrix}
+0 & 1 & 0 & 0 & \dots & 0 \\
+0 & 0 & 1 & 0 & \dots & 0 \\
+0 & 0 & 0 & 1 & \dots & 0 \\
+\vdots &  &  &  & \ddots & \vdots\\  
+0 & 0 & 0 & 0 & \dots & 1 \end{bmatrix}
 \\
 \end{array}
 $$
