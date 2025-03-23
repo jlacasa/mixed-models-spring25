@@ -17,8 +17,7 @@ topics: Review; Fixed effects versus random effects
 
 - We will have relatively low proportion of R code in this workshop. Instead, we will focus on the understanding of the model components. Questions/concerns are more than welcome.   
 - The statistical notation we will use throughout this workshop is presented [here](0-prep). 
-
-Schedule:
+- Schedule:
 
 {% capture text %}
 1. Fundamentals of linear mixed models  

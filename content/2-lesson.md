@@ -23,8 +23,17 @@ $$E(\mathbf{y}) = \boldsymbol{\mu},$$
 
 $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
+**Fixed effects versus random effects**  
+
+
 {% endcapture %}
 {% include card.html text=text header= "Review" color="#a9d9a9" %}
+
+## Outline for today
+
+-   **Review on designed experiments.** 
+-   **Should blocks be fixed or random?**  
+-   **Applications of increased complexity**: random effects on the intercept, nested random effects, covariance functions (repeated measures).  
 
 ------
 
