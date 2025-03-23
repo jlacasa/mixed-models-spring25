@@ -28,3 +28,20 @@ Some text.
 {% endcapture %}
 {% include card.html text=text header="In Summary"  color="success" %}
 
+------
+
+## Applied example I  
+
+## Applied example II -- nested random effects    
+
+## Applied example II -- repeated measures    
+
+------
+
+## What's next  
+
+- Monday, same time, same place.  
+- Non-normal response: proportions, counts, successes.  
+
+Any questions? E-mail me!  
+

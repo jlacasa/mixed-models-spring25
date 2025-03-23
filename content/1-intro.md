@@ -159,7 +159,7 @@ So far, we could have defined an all-fixed model.
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \beta_{0j} = \beta_0 + b_j \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
 
-where $$b_j$$ is the effect of the $$j$$th tree. 
+where $$b_j$$ is the effect of the $$j$$th tree on the intercept (i.e., on the baseline). 
 
 **Some limitations of this approach**:
 
