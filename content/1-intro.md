@@ -42,9 +42,11 @@ Schedule:
 
 One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model:
 
-$$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$ where $$y_{i}$$ is the observed value for the $$i$$th observation, $$\beta_0$$ is the intercept, $$\beta_1$$ is the slope parameter, and $$\varepsilon_{i}$$ is the difference between the observed ($$y$$) and the expected ($$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$) and that's why we often call it "residual".
+$$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$  
 
-[[plot]]
+where $$y_{i}$$ is the observed value for the $$i$$th observation, $$\beta_0$$ is the intercept, $$\beta_1$$ is the slope parameter, and $$\varepsilon_{i}$$ is the difference between the observed ($$y$$) and the expected ($$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$) and that's why we often call it "residual".
+
+{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="" width="75%" %}
 
 Statistics is all about making assumptions to get value out of our data, so let's review the assumptions we make in this model.  
 - Linearity  
