@@ -19,7 +19,7 @@ Although preparing for this workshop is only optional, here are some points for 
 **Notation we will use in this workshop**
 
 -   scalars: lowercase italic and non-bold faced, e.g., $$y$$, $$\sigma$$, $$\beta_0$$  
--   vectors: lowercase bold, e.g., $$\mathbf{y} \equiv [y_1, y_2, ..., y_n]'$, $\boldsymbol{\beta} \equiv [\beta_1, \beta_2, ..., \beta_p]'$$, $$\boldsymbol{u}  \equiv [u_1, u_2, ..., u_k]'$$ (note that their elements may be scalars)  
+-   vectors: lowercase bold, e.g., $$\mathbf{y} \equiv [y_1, y_2, ..., y_n]'$$, $$\boldsymbol{\beta} \equiv [\beta_1, \beta_2, ..., \beta_p]'$$, $$\boldsymbol{u}  \equiv [u_1, u_2, ..., u_k]'$$ (note that their elements may be scalars)  
 -   matrices: uppercase bold, e.g., $$\mathbf{X}$$, $$\Sigma$$ (note that their elements may be vectors)  
 
 *Examples:*  
