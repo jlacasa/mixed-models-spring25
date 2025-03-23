@@ -34,6 +34,8 @@ Schedule:
 -   **Fixed effects versus random effects**: Where does the information in the fixed effects and random effects go?
 -   **Application**: what does this all mean when we want to fit a model to our data?
 
+------
+
 ## Review on linear models
 
 ### The famous intercept-and-slope linear model
@@ -57,7 +59,6 @@ $$\mu_i = \beta_0 + x_{i} \beta_1.$$
 
 {% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Normal distributions" width="75%" %}
 
-
 **Discuss in the plot above:**    
 -   Expected value  
 -   Variance  
@@ -76,15 +77,19 @@ $$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{
 
 ### Review on variance-covariance matrices  
 
-$$\[\mathbf{P}=
-\def\spalignendline{\cr}
-\spalignrun{\bordermatrix{\the\spaligntoks}}
-{, \scriptstyle H \scriptstyle Y \scriptstyle D;
-\scriptstyle H .8 .2 .0;
-\scriptstyle Y .3 .4 .3;
-\scriptstyle D .2 .1 .7
-}
-\]$$
+$$
+\begin{array}{c c} 
+& \begin{array}{c c c} a & b &c \\ \end{array} \\
+\begin{array}{c c c}p\\q\\r \end{array} &
+\left[
+\begin{array}{c c c}
+.1 & .1 & 0 \\
+.4 & 1 & 0 \\
+.8 & 0 & .4
+\end{array}
+\right]
+\end{array}
+$$
 
 - Short demonstration of different variance-covariance functions using R. [[see R code](#)]  
 
