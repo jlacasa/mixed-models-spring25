@@ -25,7 +25,8 @@ Schedule:
 ## Outline for today
 
 -   **Review on linear models**: Once we fully understand fixed linear models, it's just a matter of adding an extra assumption. 
--   **Review on variance-covariance matrices**: In essence, mixed models add an extra assumption to our very familiar linear model. Said assumption ends up storing the information about the random effects in the variance-covariance matrix (i.e., $$\Sigma$$ in $$\mathbf{y} \sim(\boldsymbol{\mu}, \mathbf{\Sigma})$$). 
+-   **Review on variance-covariance matrices**: In essence, mixed models add an extra assumption to our very familiar linear model. Said assumption ends up storing the information about the random effects in the variance-covariance matrix (i.e., $$\Sigma$$ in $$\mathbf{y} \sim(\boldsymbol{\mu}, \mathbf{\Sigma})$$).
+-   **Fixed effects versus random effects**: Where does the information in the fixed effects and random effects go?
 -   **Application**: what does this all mean when we want to fit a model to our data?
 
 ## Review on linear models
