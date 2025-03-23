@@ -207,10 +207,7 @@ $$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\
 
 ### Fixed effects versus random effects  
 
-**Group discussion:** 
-- What determines if an effect should be random of fixed?  
-
-
+**Group discussion:** what determines if an effect should be random of fixed?  
 
 
 ### Covariance functions 
@@ -218,7 +215,6 @@ $$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\
 [[see R code](#)]  
 
 ## Applied example  
-**Example:** Randomized complete block design.  
 
 -   Field experiment at Colby, KS.  
 -   One treatment factor (treatment structure).  
@@ -229,6 +225,7 @@ We can easily come up with two models:
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
 
+------
 
 ## What to expect next  
 
