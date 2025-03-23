@@ -9,6 +9,7 @@ topics: Review; Fixed effects versus random effects
 - [About me](https://jlacasa.github.io/).
 - About you.
 - Frequent responses.   
+- Some knowledge of the *existence* of mixed effects models.  
 
 {% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="**Figure 1.** Distribution of Departments attending this worksop" width="75%" %}
 
@@ -103,9 +104,7 @@ $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 
 
 {% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="**Figure 4.** $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" %}
 
-#### Covariance structures:  
-
-Let's assume we have 10 observations of apple diameter. Then,   
+Back to the example in Figure 1. Let's assume we have 10 observations of diameter of random apples. Then,   
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
@@ -132,8 +131,8 @@ y_{10}
 \right]
 \end{array}
 
+\Sigma \equiv
 \begin{array}{c c} 
-\Sigma \equiv 
 & \begin{array}{c c c c c c c c c c} \text{obs 1}& \text{obs 2}& \text{obs 3}&
 \text{obs 4}& \text{obs 5}& \text{obs 6}& \text{obs 7}& 
 \text{obs 8}& \text{obs 9}& \text{obs 10}  \\ \end{array} \\
@@ -141,7 +140,7 @@ y_{10}
 \text{obs 4}\\ \text{obs 5}\\ \text{obs 6}\\ \text{obs 7}\\ 
 \text{obs 8}\\ \text{obs 9}\\ \text{obs 10} \end{array} &
 \left[
-\begin{array}{c c c}
+\begin{array}{c c c c c c c c c c}
 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
@@ -160,37 +159,59 @@ y_{10}
 $$
 
 
-$$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{I}_{n \times n}),  $$ where $$\mathbf{I}_{n \times n}$$ is the identity matrix with $$n$$ rows and $$n$$ columns. Suppose $$n = 4$$, then $$\mathbf{I}_{4 \times 4} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1  \end{bmatrix}$$.
+### Adding a random effect to the model   
 
-$$
-\begin{array}{c c} 
-& \begin{array}{c c c} a & b &c \\ \end{array} \\
-\begin{array}{c c c}p\\q\\r \end{array} &
-\left[
-\begin{array}{c c c}
-.1 & .1 & 0 \\
-.4 & 1 & 0 \\
-.8 & 0 & .4
-\end{array}
-\right]
-\end{array}
-$$
+Now, imagine that the observations are actually diameters from random apples from 5 different fields. 
+We expect the growth rate to be similar, but the baseline (a.k.a., the intercept) to be field-specific. Then,   
 
-- Short demonstration of different variance-covariance functions using R. [[see R code](#)]  
+$$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
+
+#### How do we define $$\beta_{0j}$$?
+
+So far, we could have defined an all-fixed model. 
+
+$$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \beta_{0j} = \beta_0 + b_j \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
+
+That yields us 
+
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
+
+$$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 &\dots & 0\\
+\sigma^2_u & \sigma^2 + \sigma^2_u & 0 & 0 & 0 & \dots & \vdots \\
+0 & 0 & \sigma^2 + \sigma^2_u & \sigma^2_u  & 0 & \dots & \vdots \\
+0 & 0 & \sigma^2_u & \sigma^2 + \sigma^2_u  & 0 & \dots & \vdots \\
+\vdots & \ddots & \vdots \\ 
+0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u
+\end{bmatrix} $$
+
+
+### Covariance functions 
+
+[[see R code](#)]  
 
 
 ## What are mixed models anyways?
 
-Mixed models (also called "multilevel models") model some of their parameters (i.e., regression coefficients) with probability distributions.
+Mixed models combine fixed effects and random effects. 
+
+### Random effects  
+
+- By definition, random effects are parameters that. 
+- Typically, a random effect $$u \sim N(0, \sigma^2_u)$$.   
+- In the context of designed experiments, random effects are assumed to be independent to each other and independent to the residual.  
+- Method of estimation  
+  - REML is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
+  - *Why is the unbiased estimation of variance components so important?*  
+    - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
+
+
 
 ### Fixed effects versus random effects  
 
+**Group discussion:** 
+- What determines if an effect should be random of fixed?  
 
-#### Method of estimation  
 
-- REML is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
-- Why is the unbiased estimation of variance components so important?  
-  - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
 
 
 ## Applied example  
@@ -198,33 +219,20 @@ Mixed models (also called "multilevel models") model some of their parameters (i
 
 -   Field experiment at Colby, KS.  
 -   One treatment factor (treatment structure).  
--   Randomized Complete Block Design with 3 repetitions (design structure).
+-   Randomized Complete Block Design with 3 repetitions (design structure).  
 
 We can easily come up with two models:
 
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
 
-{% capture text %}
-**Notes on Notation**
-
--   scalars: lowercase italic and non-bold faced, e.g., $$y$$, $$\sigma$$, $$\beta_0$$  
--   vectors: lowercase bold, e.g., $$\mathbf{y} \equiv [y_1, y_2, ..., y_n]'$, $\boldsymbol{\beta} \equiv [\beta_1, \beta_2, ..., \beta_p]'$$, $$\boldsymbol{u}  \equiv [u_1, u_2, ..., u_k]'$$ (note that their elements may be scalars)  
--   matrices: uppercase bold, e.g., $$\mathbf{X}$$, $$\Sigma$$ (note that their elements may be vectors)  
-
-| Variable | Scalar | Vector | Matrix |
-|------------------|------------------|------------------|------------------|
-| Response variable | $$y$$ (e.g., $$y = 4$$) | $$\mathbf{y} \equiv (y_1, y_2, ..., y_n)'$$ | $$\mathbf{y}_{n\times1}$$ |
-| Predictor variable | $$x_{1 i}$$, $$x_{2 i}$$, etc. | $$\mathbf{x}_1 \equiv (x_{1,1}, x_{1, 2}, ..., x_{1, n})$$ $$\mathbf{x}_2 \equiv (x_{2,1}, x_{2, 2}, ..., x_{2, n})$$ | $$\mathbf{X}_{n\times p} \equiv \begin{bmatrix} \end{bmatrix}$$ |
-| Effect parameters | $$\beta_0$$, $$\beta_1$$, etc. | $$\boldsymbol{\beta} \equiv (\beta_0, \beta_1, ..., \beta_p)'$$ | $$\boldsymbol{\beta}_{p\times1}$$ |
-| Variance | $$\sigma^2$$ |  | $$\Sigma$$ (very often we assume $$\Sigma = \sigma^2 \mathbf{I}$$ ) |
-|  |  |  |  |{% endcapture %}
-{% include alert.html text=text color=secondary %}  
-
 
 ## What to expect next  
 
+- Friday, same time, same place.  
 - More applied examples and what they mean.  
 - Some troubleshooting.  
 
-Any questions? E-mail me!
+Any questions? E-mail me!  
+
+
