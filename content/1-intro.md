@@ -8,14 +8,13 @@ topics: Review; Fixed effects versus random effects
 
 - [About me](https://jlacasa.github.io/).
 - About you.
-
-{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="Distribution of Departments in this worksop" width="75%" %}
-
 - Frequent responses.   
+
+{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="Distribution of Departments attending this worksop" width="75%" %}
 
 ## Housekeeping  
 
-- The reason for the relatively low proportion of R code content in this workshop: it's easy to find! We will focus on the understanding of the model components.  
+- We will have relatively low proportion of R code in this workshop. Instead, we will focus on the understanding of the model components. Questions/concerns are more than welcome.   
 
 Schedule:
 
@@ -30,8 +29,8 @@ Schedule:
 
 ## Outline for today
 
--   **Review on linear models**: Once we fully understand fixed linear models, it's just a matter of adding an extra assumption. 
--   **Review on variance-covariance matrices**: In essence, mixed models add an extra assumption to our very familiar linear model. Said assumption ends up storing the information about the random effects in the variance-covariance matrix (i.e., $$\Sigma$$ in $$\mathbf{y} \sim(\boldsymbol{\mu}, \mathbf{\Sigma})$$).
+-   **Review on linear models**: Refresh (all-fixed-effects) linear models, and get to mixed-effects models by adding an extra assumption. 
+-   **Review on variance-covariance matrices**: this is important because the information of the random effects is stored in the variance-covariance matrix.  
 -   **Fixed effects versus random effects**: Where does the information in the fixed effects and random effects go?
 -   **Application**: what does this all mean when we want to fit a model to our data?
 
@@ -43,7 +42,7 @@ One of the most popular models is the intercept-and-slope model. Why? Because it
 
 $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$ where $$y_{i}$$ is the observed value for the $$i$$th observation, $$\beta_0$$ is the intercept, $$\beta_1$$ is the slope parameter, and $$\varepsilon_{i}$$ is the difference between the observed ($$y$$) and the expected ($$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$) and that's why we often call it "residual".
 
-
+[[plot]]
 
 Statistics is all about making assumptions to get value out of our data, so let's review the assumptions we make in this model.  
 - Linearity  
@@ -76,6 +75,16 @@ $$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{
 
 
 ### Review on variance-covariance matrices  
+
+$$\[\mathbf{P}=
+\def\spalignendline{\cr}
+\spalignrun{\bordermatrix{\the\spaligntoks}}
+{, \scriptstyle H \scriptstyle Y \scriptstyle D;
+\scriptstyle H .8 .2 .0;
+\scriptstyle Y .3 .4 .3;
+\scriptstyle D .2 .1 .7
+}
+\]$$
 
 - Short demonstration of different variance-covariance functions using R. [[see R code](#)]  
 
