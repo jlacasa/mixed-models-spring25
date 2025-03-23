@@ -4,8 +4,7 @@ nav: Day 2
 topics: Designed Experiments; Randomized Complete Block Designs; Split-Plot-Designs; Repeated Measures
 ---
 
-## Review  
-
+{% capture text %}
 Mixed-effects models combine fixed effects and random effects. 
 Typically, we can define a fixed effects model as 
 
@@ -17,16 +16,15 @@ $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbo
 \right)$$
 
 where -----------. 
+Typically, $$mathbf{G} = \sigma^2_u \mathbf{I}$$ and $$mathbf{R} = \sigma^2 \mathbf{I}$$.  
 If we do the math, we get that  
 
-$$E(\mathbf{y}) = \boldsymbol{\mu}$$
+$$E(\mathbf{y}) = \boldsymbol{\mu},$$
 
 $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
-{% capture text %}
-Some text. 
 {% endcapture %}
-{% include card.html text=text header="In Summary"  color="success" %}
+{% include card.html text=text header= "Review" color="#a9d9a9" %}
 
 ------
 
