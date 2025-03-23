@@ -95,29 +95,38 @@ It is easier to define and understand the variance-covariance when we look direc
 
 ### Review on variance-covariance matrices  
 
-#### What is variance?  
+#### What does "the variance of $$y$$" even mean?  
 
 Random variables are usually described with their properties like the expected value and variance. 
 The expected value and variance are the first and second central moments of a distribution, respectively. 
-Regardless of the distribution of a random variable $$Y$$, we could calculate its expected value $$E(Y)$$ and variance $$Var(Y)$$.  
-The expected value measures the average outcome of $$Y$$.  
+Regardless of the distribution of a random variable $$Y$$, we could calculate its expected value $$E(Y)$$ and variance $$Var(Y)$$. 
+The expected value measures the average outcome of $$Y$$. 
 The variance measures the dispersion of $$Y$$, i.e. how far the possible outcomes are spread out from their average. 
 
 {% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Figure 3. Normal distributions" width="75%" id = "univariate_normal" %}
 
-**Discuss in the plot above:**    
+**Discuss in the plot above:**  
 -   Expected value  
 -   Variance  
 -   Covariance?
 
-#### What is covariance?  
+#### On the covariance of two random variables $$y_1$$ and $$y_2$$    
 
-When two random variables behave similarly. For example, let's take two variables $$y_1$$ and $$y_2$$ that have variances of 1 each, and also a covariance of 0.6 [Figure 4](#multivariate_normal). We can write that out as 
-The variance of a random variable is the covariance of a random variable with itself.  
+Covariance between two random variables means how the two random variables behave relative to each other. The variance of a random variable is the covariance of a random variable with itself. Let's take two variables $$y_1$$ and $$y_2$$ that have variances of 1 each, and also a covariance of 0.6 [Figure 4](#multivariate_normal). We can write that out as 
 
-$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$
+$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right),$$
+
+which is visualized in [Figure 4](multivariate_normal).   
 
 {% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables.$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" id = "multivariate_normal" %}
+
+**Discuss in the plot above:**  
+-   Expected value  
+-   Variance  
+-   Covariance 
+
+### Adding a random effect to the model   
+
 
 Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
 If we used the default model in most software, we would assume  
@@ -143,9 +152,6 @@ Remember the assumptions:
 - Independence  
 - Normality  
 
-
-
-### Adding a random effect to the model   
 
 Now, imagine that the observations are actually diameters from random apples from 5 different fields. 
 These observations are no longer independent! This is when mixed-effects models enter the story - they allow us to say *what is similiar to what*. 
@@ -227,7 +233,7 @@ We can easily come up with two models:
 
 ------
 
-## What to expect next  
+## What's next  
 
 - Friday, same time, same place.  
 - More applied examples and what they mean.  
