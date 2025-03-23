@@ -62,8 +62,3 @@ Although preparing for this workshop is only optional, here are some points for 
 {% include alert.html text=text color=secondary %}  
 
 
-
-| title | title {% newline %}
-|--------|------- {% newline %}
-| content | content {% newline %}
-|^^Total^^|^^Total^^{% newline %}
