@@ -10,7 +10,7 @@ topics: Review; Fixed effects versus random effects
 - About you.
 - Frequent responses.   
 
-{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="Distribution of Departments attending this worksop" width="75%" %}
+{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="**Figure 1.** Distribution of Departments attending this worksop" width="75%" %}
 
 ## Housekeeping  
 
@@ -40,7 +40,7 @@ Schedule:
 
 ### The famous intercept-and-slope linear model
 
-{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" %}
+{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="**Figure 2.** A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" %}
 
 One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model:
 
@@ -62,24 +62,32 @@ Can we fit the model to that data? Let's review the assumptions we make in this 
 
 There is another way of writing out the intercept-and-slope statistical model above:  
 
-$$y_{i} \sim N(\mu_i, sigma^2),$$  
+$$y_{i} \sim N(\mu_i, \sigma^2),$$  
 $$\mu_i = \beta_0 + x_{i} \beta_1.$$
 
 Also,  
 
-$$\mathbf{y} \sim N(\boldsymbol{\mu}, sigma^2),$$  
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),$$  
 $$\boldsymbol{\mu} = \boldsymbol{\beta_0} + x \boldsymbol{\beta_1}.$$
 
 The advantages of writing out statistical models with this type of notation are 
 
-i. It is easier to switch to other distributions (e.g., Binomial)  
-ii. It is easier to understand the variance-covariance, especially in a mixed models scenario!  
+i. It is easier to switch to other distributions (Day 3 of this workshop)  
+ii. It is easier to define and understand the variance-covariance, especially in a mixed models scenario!  
+
+For now, let's focus on the normal distribution...  
 
 ### Review on variance-covariance matrices  
 
 #### What is variance?  
 
-{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Normal distributions" width="75%" %}
+Random variables are usually described with their properties like the expected value and variance. 
+The expected value and variance are the first and second central moments of a distribution, respectively. 
+Regardless of the distribution of a random variable $$Y$$, we could calculate its expected value $$E(Y)$$ and variance $$Var(Y)$$.  
+The expected value measures the average outcome of $$Y$$.  
+The variance measures the dispersion of $$Y$$, i.e. how far the possible outcomes are spread out from their average. 
+
+{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="**Figure 3.** Normal distributions" width="75%" %}
 
 **Discuss in the plot above:**    
 -   Expected value  
@@ -88,14 +96,42 @@ ii. It is easier to understand the variance-covariance, especially in a mixed mo
 
 #### What is covariance?  
 
-$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right)$$
+When two random variables behave similarly. For example, let's take two variables $$y_1$$ and $$y_2$$ that have variances of 1 each, and also a covariance of 0.6 (Figure 4). We can write that out as 
+The variance of a random variable is the covariance of a random variable with itself.  
 
-{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right)$$" width="75%" %}
+$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$
 
-Let's identify each in the following example:
+{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="**Figure 4.** $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right)$$" width="75%" %}
+
+#### Covariance structures:  
+
+Let's assume we have 10 observations of apple diameter. Then,   
+
+$$
+\mathbf{y} \equiv 
+\begin{array}{c c} \\
+\begin{array}{c c c c c c c c c c} observation 1\\ observation 2\\ observation 3\\
+observation 4\\ observation 5\\ observation 6\\ observation 7\\ 
+observation 8\\ observation 9\\ observation 10 \end{array} &
+\left[
+\begin{array}{c}
+y_1 \\
+y_2 \\
+y_3 \\
+y_4 \\
+y_5 \\
+y_6 \\
+y_7 \\
+y_8 \\
+y_9 \\
+y_10 
+\end{array}
+\right]
+\end{array}
+$$
+
 
 $$\mathbf{y}_{n \times 1} \sim N(\boldsymbol{\mu}_{n \times 1}, \sigma^2\mathbf{I}_{n \times n}),  $$ where $$\mathbf{I}_{n \times n}$$ is the identity matrix with $$n$$ rows and $$n$$ columns. Suppose $$n = 4$$, then $$\mathbf{I}_{4 \times 4} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1  \end{bmatrix}$$.
-
 
 $$
 \begin{array}{c c} 
