@@ -101,18 +101,21 @@ The variance of a random variable is the covariance of a random variable with it
 
 $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$
 
-{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="**Figure 4.** $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right)$$" width="75%" %}
+{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="**Figure 4.** $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" %}
 
 #### Covariance structures:  
 
 Let's assume we have 10 observations of apple diameter. Then,   
 
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
+
 $$
-\mathbf{y} \equiv 
 \begin{array}{c c} \\
-\begin{array}{c c c c c c c c c c} observation 1\\ observation 2\\ observation 3\\
-observation 4\\ observation 5\\ observation 6\\ observation 7\\ 
-observation 8\\ observation 9\\ observation 10 \end{array} &
+\begin{array}{c c c} \\
+\mathbf{y} \equiv \\
+\begin{array}{c c c c c c c c c c} \text{obs 1}\\ \text{obs 2}\\ \text{obs 3}\\
+\text{obs 4}\\ \text{obs 5}\\ \text{obs 6}\\ \text{obs 7}\\ 
+\text{obs 8}\\ \text{obs 9}\\ \text{obs 10} \end{array} &
 \left[
 \begin{array}{c}
 y_1 \\
@@ -124,9 +127,35 @@ y_6 \\
 y_7 \\
 y_8 \\
 y_9 \\
-y_10 
+y_{10} 
 \end{array}
 \right]
+\end{array}
+
+\begin{array}{c c c} 
+\Sigma \equiv \\
+& \begin{array}{c c c c c c c c c c} \text{obs 1}& \text{obs 2}& \text{obs 3}&
+\text{obs 4}& \text{obs 5}& \text{obs 6}& \text{obs 7}& 
+\text{obs 8}& \text{obs 9}& \text{obs 10}  \\ \end{array} \\
+\begin{array}{c c c c c c c c c c} \text{obs 1}\\ \text{obs 2}\\ \text{obs 3}\\
+\text{obs 4}\\ \text{obs 5}\\ \text{obs 6}\\ \text{obs 7}\\ 
+\text{obs 8}\\ \text{obs 9}\\ \text{obs 10} \end{array} &
+\left[
+\begin{array}{c c c}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{array}
+\right]
+\end{array}
+
 \end{array}
 $$
 
