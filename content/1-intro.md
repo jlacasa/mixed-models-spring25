@@ -108,54 +108,16 @@ Back to the example in Figure 1. Let's assume we have 10 observations of diamete
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
-$$
-\begin{array}{c c} 
-\begin{array}{c c c} 
-\mathbf{y} \equiv & 
-\begin{array}{c c c c c c c c c c} \text{obs 1}\\ \text{obs 2}\\ \text{obs 3}\\
-\text{obs 4}\\ \text{obs 5}\\ \text{obs 6}\\ \text{obs 7}\\ 
-\text{obs 8}\\ \text{obs 9}\\ \text{obs 10} \end{array} &
-\left[
-\begin{array}{c}
-y_1 \\
-y_2 \\
-y_3 \\
-y_4 \\
-y_5 \\
-y_6 \\
-y_7 \\
-y_8 \\
-y_9 \\
-y_{10} 
-\end{array}
-\right]
-\end{array}
-
-\Sigma \equiv
-\begin{array}{c c} 
-& \begin{array}{c c c c c c c c c c} \text{obs 1}& \text{obs 2}& \text{obs 3}&
-\text{obs 4}& \text{obs 5}& \text{obs 6}& \text{obs 7}& 
-\text{obs 8}& \text{obs 9}& \text{obs 10}  \\ \end{array} \\
-\begin{array}{c c c c c c c c c c} \text{obs 1}\\ \text{obs 2}\\ \text{obs 3}\\
-\text{obs 4}\\ \text{obs 5}\\ \text{obs 6}\\ \text{obs 7}\\ 
-\text{obs 8}\\ \text{obs 9}\\ \text{obs 10} \end{array} &
-\left[
-\begin{array}{c c c c c c c c c c}
-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
-\end{array}
-\right]
-\end{array}
-
-\end{array}
+$$\begin{array}{c c}
+& \mathbf{y} \equiv \begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} & 
+\Sigma \equiv \sigma^2 
+\begin{bmatrix} 1 & 0 & 0 & 0 & \dots & 0 \\ 
+0 & 1 & 0 & 0 & \dots &  \\
+0 & 0 & 1 & 0 & \dots & \vdots \\
+0 & 0 & 0 & 1 & \dots &  \\
+\vdots &  &  &  \ddots & & \\  
+0 &  & \dots &  &  & 1 \end{bmatrix}
+\\
 $$
 
 
@@ -176,11 +138,15 @@ That yields us
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
-$$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 &\dots & 0\\
-\sigma^2_u & \sigma^2 + \sigma^2_u & 0 & 0 & 0 & \dots & \vdots \\
-0 & 0 & \sigma^2 + \sigma^2_u & \sigma^2_u  & 0 & \dots & \vdots \\
-0 & 0 & \sigma^2_u & \sigma^2 + \sigma^2_u  & 0 & \dots & \vdots \\
-\vdots & \ddots & \vdots \\ 
+$$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\dots & 0\\
+\sigma^2_u & \sigma^2 + \sigma^2_u & 0 & 0 & 0 & 0 & \dots & 0 \\
+0 & 0 & \sigma^2 + \sigma^2_u & \sigma^2_u  & 0 & 0 & \dots & 0 \\
+0 & 0 & \sigma^2_u & \sigma^2 + \sigma^2_u  & 0 & 0 & \dots & 0 \\
+0 & 0 & 0 & 0 & \sigma^2 + \sigma^2_u & \sigma^2_u  & \dots & 0 \\
+0 & 0 & 0 & 0 & \sigma^2_u & \sigma^2 + \sigma^2_u  & \dots & \vdots \\
+
+
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\ 
 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u
 \end{bmatrix} $$
 
