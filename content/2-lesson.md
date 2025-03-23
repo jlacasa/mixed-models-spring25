@@ -9,10 +9,10 @@ Mixed-effects models combine fixed effects and random effects.
 Typically, we can define a fixed effects model as 
 
 $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbol{\varepsilon}, \\ 
-\begin{bmatrix}\mathbf{u} \\ \mathbf{\varepsilon} \end{bmatrix} \sim \left(
+\begin{bmatrix}\mathbf{u} \\ \boldsymbol{\varepsilon} \end{bmatrix} \sim \left(
 \begin{bmatrix}\boldsymbol{0} \\ \boldsymbol{0} \end{bmatrix}, 
 \begin{bmatrix}\mathbf{G} & \boldsymbol{0} \\
-\boldsymbol{0} \mathbf{R} & \end{bmatrix} 
+\boldsymbol{0} & \mathbf{R} \end{bmatrix} 
 \right),$$
 
 where -----------. 

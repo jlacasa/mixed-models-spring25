@@ -228,13 +228,13 @@ Mixed models combine fixed effects and random effects.
 
 ### Speaking generally  
 
-Generally speaking, we can write out a mixed models using the model equation form as   
+Generally speaking, we can write out a mixed-effects model using the model equation form, as   
 
 $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbol{\varepsilon}, \\ 
-\begin{bmatrix}\mathbf{u} \\ \mathbf{\varepsilon} \end{bmatrix} \sim \left(
+\begin{bmatrix}\mathbf{u} \\ \boldsymbol{\varepsilon} \end{bmatrix} \sim \left(
 \begin{bmatrix}\boldsymbol{0} \\ \boldsymbol{0} \end{bmatrix}, 
 \begin{bmatrix}\mathbf{G} & \boldsymbol{0} \\
-\boldsymbol{0} \mathbf{R} & \end{bmatrix} 
+\boldsymbol{0} & \mathbf{R} \end{bmatrix} 
 \right),$$
 
 where $$\mathbf{y}$$ is the observed response, 
@@ -246,8 +246,7 @@ $$\boldsymbol{\varepsilon}$$ is the vector containing the residuals,
 $$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
 and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
 
-
-Using the probability distribution form, we can say  
+Using the probability distribution form, we can then say  
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
