@@ -43,7 +43,7 @@ Schedule:
 
 {% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="Figure 2. A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" id = "intercept_slope_fig1" %}
 
-One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model:
+One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model (called "model equation form"):
 
 $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$  
 
@@ -67,7 +67,7 @@ Instead of focusing on the distribution of the residuals, we can focus on the di
 
 $$y_{i} \sim N(\mu_i, \sigma^2), \\ \mu_i = \beta_0 + x_{i} \beta_1.$$
 
-We can further express this equation using vectors and matrices:  
+With this notation (called "probability distribution form"), it is easier to switch to other distributions (Day 3 of this workshop). We can further express this equation using vectors and matrices:  
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma), \\ \boldsymbol{\mu} = \boldsymbol{\beta_0} + \mathbf{x} \boldsymbol{\beta_1},$$
 
@@ -75,19 +75,23 @@ where $$\mathbf{y}$$ is an $$n \times 1$$ vector containing all observations, $$
 $$\Sigma$$ is an $$n \times n$$ matrix called variance-covariance matrix. 
 
 $$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim
-N(\begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
+N \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
 \begin{bmatrix} Cov(y_1, y_1) & Cov(y_1, y_2) & \dots & Cov(y_1, y_n) \\
-\Cov(y_2, y_1) & Cov(y_2, y_2) & \dots & Cov(y_2, y_n)\\
+Cov(y_2, y_1) & Cov(y_2, y_2) & \dots & Cov(y_2, y_n)\\
 \vdots & \vdots & \ddots & \vdots \\ 
-Cov(y_n, y_1) & Cov(y_n, y_2) & \dots & Cov(y_n, y_n) \end{bmatrix}).$$
+Cov(y_n, y_1) & Cov(y_n, y_2) & \dots & Cov(y_n, y_n) \end{bmatrix} \right),$$
 
+which is the same as 
 
-The advantages of writing out statistical models with this type of notation are 
+$$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim
+N \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
+\begin{bmatrix} Var(y_1) & Cov(y_1, y_2) & \dots & Cov(y_1, y_n) \\
+Cov(y_2, y_1) & Var(y_2) & \dots & Cov(y_2, y_n)\\
+\vdots & \vdots & \ddots & \vdots \\ 
+Cov(y_n, y_1) & Cov(y_n, y_2) & \dots & Var(y_n) \end{bmatrix} \right).$$
 
-i. It is easier to switch to other distributions (Day 3 of this workshop)  
-ii. It is easier to define and understand the variance-covariance, especially in a mixed models scenario!  
+It is easier to define and understand the variance-covariance when we look directly at vectors and matrices. This will come particularly handy in our mixed models applications! 
 
-For now, let's focus on the normal distribution...  
 
 ### Review on variance-covariance matrices  
 
@@ -115,7 +119,8 @@ $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 
 
 {% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables.$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" id = "multivariate_normal" %}
 
-Back to the example in [Figure 1](#attendees). Let's assume we have 10 observations of diameter of random apples. Then,   
+Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
+If we used the default model in most software, we would assume  
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
@@ -132,11 +137,19 @@ $$\begin{array}{c c}
 \end{array}
 $$
 
+Remember the assumptions:
+- Linearity  
+- Constant variance  
+- Independence  
+- Normality  
+
+
 
 ### Adding a random effect to the model   
 
 Now, imagine that the observations are actually diameters from random apples from 5 different fields. 
-We expect the growth rate to be similar, but the baseline (a.k.a., the intercept) to be field-specific. Then,   
+These observations are no longer independent! This is when mixed-effects models enter the story - they allow us to say *what is similiar to what*. 
+In this case, we expect the growth rate to be similar, but the baseline (a.k.a., the intercept) to be field-specific. Then,   
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
 
@@ -145,6 +158,35 @@ $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \
 So far, we could have defined an all-fixed model. 
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \beta_{0j} = \beta_0 + b_j \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
+
+where $$b_j$$ is the effect of the $$j$$th tree. 
+
+**Some limitations of this approach**:
+
+- 
+- 
+
+We could also assume that the effects of the $$j$$th tree (i.e., $$\mathbf{b}$$) arise from a random distribution. 
+The most common assumption (and the default in mot statistical software) is  
+
+$$b_j \sim N(0, \sigma^2_b).$$
+
+
+## What are mixed models anyways?
+
+Mixed models combine fixed effects and random effects. 
+
+### Random effects  
+
+- By definition, random effects are parameters that. 
+- Typically, a random effect $$u \sim N(0, \sigma^2_u)$$.   
+- In the context of designed experiments, random effects are assumed to be independent to each other and independent to the residual.  
+- Method of estimation  
+  - REML is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
+  - *Why is the unbiased estimation of variance components so important?*  
+    - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
+
+Generally speaking, 
 
 That yields us 
 
@@ -163,27 +205,6 @@ $$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\
 \end{bmatrix} $$
 
 
-### Covariance functions 
-
-[[see R code](#)]  
-
-
-## What are mixed models anyways?
-
-Mixed models combine fixed effects and random effects. 
-
-### Random effects  
-
-- By definition, random effects are parameters that. 
-- Typically, a random effect $$u \sim N(0, \sigma^2_u)$$.   
-- In the context of designed experiments, random effects are assumed to be independent to each other and independent to the residual.  
-- Method of estimation  
-  - REML is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
-  - *Why is the unbiased estimation of variance components so important?*  
-    - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
-
-
-
 ### Fixed effects versus random effects  
 
 **Group discussion:** 
@@ -191,6 +212,10 @@ Mixed models combine fixed effects and random effects.
 
 
 
+
+### Covariance functions 
+
+[[see R code](#)]  
 
 ## Applied example  
 **Example:** Randomized complete block design.  
