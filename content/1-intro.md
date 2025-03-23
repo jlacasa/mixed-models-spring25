@@ -11,7 +11,7 @@ topics: Review; Fixed effects versus random effects
 - Frequent responses.   
 - Some knowledge of the *existence* of mixed effects models.  
 
-{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="**Figure 1.** Distribution of Departments attending this worksop" width="75%" %}
+{% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="Figure 1. Distribution of Departments attending this worksop" width="75%" #attendees %}
 
 ## Housekeeping  
 
@@ -41,7 +41,7 @@ Schedule:
 
 ### The famous intercept-and-slope linear model
 
-{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="**Figure 2.** A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" %}
+{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="Figure 2. A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" #intercept_slope_fig1 %}
 
 One of the most popular models is the intercept-and-slope model. Why? Because it's so simple and interpretable! Most of us learned this way of writing out the statistical model:
 
@@ -88,7 +88,7 @@ Regardless of the distribution of a random variable $$Y$$, we could calculate it
 The expected value measures the average outcome of $$Y$$.  
 The variance measures the dispersion of $$Y$$, i.e. how far the possible outcomes are spread out from their average. 
 
-{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="**Figure 3.** Normal distributions" width="75%" %}
+{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Figure 3. Normal distributions" width="75%" #univariate_normal %}
 
 **Discuss in the plot above:**    
 -   Expected value  
@@ -97,14 +97,14 @@ The variance measures the dispersion of $$Y$$, i.e. how far the possible outcome
 
 #### What is covariance?  
 
-When two random variables behave similarly. For example, let's take two variables $$y_1$$ and $$y_2$$ that have variances of 1 each, and also a covariance of 0.6 (Figure 4). We can write that out as 
+When two random variables behave similarly. For example, let's take two variables $$y_1$$ and $$y_2$$ that have variances of 1 each, and also a covariance of 0.6 [Figure 4](#multivariate_normal). We can write that out as 
 The variance of a random variable is the covariance of a random variable with itself.  
 
 $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$
 
-{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="**Figure 4.** $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" %}
+{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables.$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" #multivariate_normal %}
 
-Back to the example in Figure 1. Let's assume we have 10 observations of diameter of random apples. Then,   
+Back to the example in [Figure 1](#attendees). Let's assume we have 10 observations of diameter of random apples. Then,   
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
@@ -115,7 +115,7 @@ $$\begin{array}{c c}
 0 & 1 & 0 & 0 & \dots & 0 \\
 0 & 0 & 1 & 0 & \dots & 0 \\
 0 & 0 & 0 & 1 & \dots & 0 \\
-\vdots &  &  &  & \ddots & \vdots\\  
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
 0 & 0 & 0 & 0 & \dots & 1 \end{bmatrix}
 \\
 \end{array}
