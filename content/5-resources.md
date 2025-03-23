@@ -3,6 +3,9 @@ title: Reference & Resources
 nav: Resources
 ---
 
+- Dixon, P. (2016). SHOULD BLOCKS BE FIXED OR RANDOM?, Conference on Applied Statistics in Agriculture. [https://doi.org/10.4148/2475-7772.1474](https://newprairiepress.org/cgi/viewcontent.cgi?article=1474&context=agstatconference)
+- Gelman, A. (2005). Analysis of variance—why it is more important than ever. Ann. Statist. 33 (1) 1 - 53. [https://doi.org/10.1214/009053604000001048](https://projecteuclid.org/journals/annals-of-statistics/volume-33/issue-1/Analysis-of-variancewhy-it-is-more-important-than-ever/10.1214/009053604000001048.full)
+
 ### Recommended Textbooks:  
 
 - Gbur, E.E., Stroup, W.W., McCarter, K.S., Durham, S., Young, L.J., Christman, M., West, M., and Kramer, M. (2020). Analysis of generalized linear mixed models in the agricultural and natural resources sciences (Vol. 156). John Wiley & Sons. [[link](https://www.wiley.com/en-us/Analysis+of+Generalized+Linear+Mixed+Models+in+the+Agricultural+and+Natural+Resources+Sciences-p-9780891181828)]
