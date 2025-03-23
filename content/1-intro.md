@@ -10,6 +10,7 @@ topics: Review; Fixed effects versus random effects
 - About you.
   - Frequent responses.   
   - Some knowledge of the *existence* of mixed effects models.  
+  - Mostly life sciences - often heteroscedasticity and dependent observations!  
 
 {% include figure.html img="day1/attendees.jpg" alt="Attendees counts" caption="Figure 1. Distribution of Departments attending this worksop" width="75%" id = "attendees" %}
 
@@ -17,6 +18,7 @@ topics: Review; Fixed effects versus random effects
 
 - We will have relatively low proportion of R code in this workshop. Instead, we will focus on the understanding of the model components. Questions/concerns are more than welcome.   
 - The statistical notation we will use throughout this workshop is presented [here](0-prep). 
+- It is **not expected** that you walk out being a master in math notation! But the variance-covariance functions are important to understand what mixed models actually do.  
 - Schedule:
 
 {% capture text %}
@@ -116,9 +118,9 @@ Covariance between two random variables means how the two random variables behav
 
 $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right),$$
 
-which is visualized in [Figure 4](multivariate_normal).   
+which is visualized in [Figure 4](#multivariate_normal).   
 
-{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables.$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right).$$" width="75%" id = "multivariate_normal" %}
+{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables." width="75%" id = "multivariate_normal" %}
 
 **Discuss in the plot above:**  
 -   Expected value  
@@ -127,11 +129,12 @@ which is visualized in [Figure 4](multivariate_normal).
 
 ### Adding a random effect to the model   
 
+#### Independent observations  
 
 Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
 If we used the default model in most software, we would assume  
 
-$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),$$
 
 $$\begin{array}{c c}
 & \mathbf{y} \equiv \begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} & 
@@ -143,7 +146,7 @@ $$\begin{array}{c c}
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
 0 & 0 & 0 & 0 & \dots & 1 \end{bmatrix}
 \\
-\end{array}
+\end{array}.
 $$
 
 Remember the assumptions:
@@ -152,6 +155,9 @@ Remember the assumptions:
 - Independence  
 - Normality  
 
+This makes sense when the observations are independent (i.e., there is no underlying structure to take into account).    
+
+#### Non-independent observations  
 
 Now, imagine that the observations are actually diameters from random apples from 5 different fields. 
 These observations are no longer independent! This is when mixed-effects models enter the story - they allow us to say *what is similiar to what*. 
@@ -161,16 +167,20 @@ $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \
 
 #### How do we define $$\beta_{0j}$$?
 
+##### Fixed   
 So far, we could have defined an all-fixed model. 
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \beta_{0j} = \beta_0 + b_j \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
 
 where $$b_j$$ is the effect of the $$j$$th tree on the intercept (i.e., on the baseline). 
+In this case, $$b_j$$ is a fixed effect, which means it may be estimated via least squares estimation or maximum likelihood estimation. 
 
 **Some limitations of this approach**:
 
 - 
 - 
+
+##### Random   
 
 We could also assume that the effects of the $$j$$th tree (i.e., $$\mathbf{b}$$) arise from a random distribution. 
 The most common assumption (and the default in mot statistical software) is  
@@ -184,17 +194,34 @@ Mixed models combine fixed effects and random effects.
 
 ### Random effects  
 
-- By definition, random effects are parameters that. 
+- By definition, random effects are regression coefficients that arise from a random distribution. 
 - Typically, a random effect $$u \sim N(0, \sigma^2_u)$$.   
+- We estimate the variance $$\sigma^2_u$$.  
 - In the context of designed experiments, random effects are assumed to be independent to each other and independent to the residual.  
 - Method of estimation  
   - REML is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
   - *Why is the unbiased estimation of variance components so important?*  
     - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
 
-Generally speaking, 
+Generally speaking, we can write out a mixed models using the model equation form as   
 
-That gives us 
+$$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbol{\varepsilon}, \\ 
+\begin{bmatrix}\mathbf{u} \\ \mathbf{\varepsilon} \end{bmatrix} \sim \left(
+\begin{bmatrix}\boldsymbol{0} \\ \boldsymbol{0} \end{bmatrix}, 
+\begin{bmatrix}\mathbf{G} & \boldsymbol{0} \\
+\boldsymbol{0} \mathbf{R} & \end{bmatrix} 
+\right),$$
+
+where $$\mathbf{y}$$ is the observed response, 
+$$\mathbf{X}$$ is the matrix with the explanatory variables, 
+$$\mathbf{Z}$$ is the design matrix,
+$$\boldsymbol{\beta}$$ is the vector containing the fixed-effects parameters, 
+$$\mathbf{u}$$ is the vector containing the random effects parameters, 
+$$\boldsymbol{\varepsilon}$$ is the vector containing the residuals, 
+$$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
+and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
+
+Using the probability distribution form, we can say  
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma)$$  
 
@@ -208,7 +235,7 @@ $$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\
 
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\ 
 0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u
-\end{bmatrix} $$
+\end{bmatrix}.$$
 
 
 ### Fixed effects versus random effects  

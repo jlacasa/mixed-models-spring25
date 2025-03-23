@@ -12,11 +12,11 @@ $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbo
 \begin{bmatrix}\mathbf{u} \\ \mathbf{\varepsilon} \end{bmatrix} \sim \left(
 \begin{bmatrix}\boldsymbol{0} \\ \boldsymbol{0} \end{bmatrix}, 
 \begin{bmatrix}\mathbf{G} & \boldsymbol{0} \\
-\boldsymbol{0} \mathbf{R} & \end{bmatrix}, 
-\right)$$
+\boldsymbol{0} \mathbf{R} & \end{bmatrix} 
+\right),$$
 
 where -----------. 
-Typically, $$mathbf{G} = \sigma^2_u \mathbf{I}$$ and $$mathbf{R} = \sigma^2 \mathbf{I}$$.  
+Typically, $$\mathbf{G} = \sigma^2_u \mathbf{I}$$ and $$\mathbf{R} = \sigma^2 \mathbf{I}$$.  
 If we do the math, we get that  
 
 $$E(\mathbf{y}) = \boldsymbol{\mu},$$
