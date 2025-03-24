@@ -4,7 +4,29 @@ nav: Day 1
 topics: Review; Fixed effects versus random effects
 ---
 
-[TOC]
+- [Welcome!](#welcome-)
+- [Housekeeping](#housekeeping)
+- [Outline for today](#outline-for-today)
+- [Review on linear models](#review-on-linear-models)
+  * [The famous intercept-and-slope linear model](#the-famous-intercept-and-slope-linear-model)
+  * [Let's fit the same statistical model using distribution notation and matrix notation](#let-s-fit-the-same-statistical-model-using-distribution-notation-and-matrix-notation)
+  * [Review on variance-covariance matrices](#review-on-variance-covariance-matrices)
+    + [What does "the variance of $$y$$" even mean?](#what-does--the-variance-of---y----even-mean-)
+    + [On the covariance of two random variables $$y_1$$ and $$y_2$$](#on-the-covariance-of-two-random-variables---y-1---and---y-2--)
+  * [Adding a random effect to the model](#adding-a-random-effect-to-the-model)
+    + [Independent observations](#independent-observations)
+    + [Non-independent observations](#non-independent-observations)
+    + [How do we define $$\beta_{0j}$$?](#how-do-we-define----beta--0j----)
+      - [Fixed](#fixed)
+      - [Random](#random)
+- [What are mixed models anyways?](#what-are-mixed-models-anyways-)
+  * [Random effects](#random-effects)
+  * [Speaking generally](#speaking-generally)
+  * [Fixed effects versus random effects](#fixed-effects-versus-random-effects)
+- [Applied example](#applied-example)
+- [Wrap-up](#wrap-up)
+- [What's next](#what-s-next)
+
 
 ## Welcome!
 
