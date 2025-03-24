@@ -448,9 +448,9 @@ Restricted maximum likelihood estimation (REML) is the default in most mixed eff
 
 - In ML, $$-\ell_{ML}(\boldsymbol{\sigma; \boldsymbol{\beta}, \mathbf{y}}) = - (\frac{n}{2}) \log(2\pi)-(\frac{1}{2}) \log (|\mathbf{V}(\boldsymbol\sigma)|) - (\frac{1}{2}) (\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})$$  
 - In REML, $$\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log (|\mathbf{V}(\boldsymbol\sigma)|) - (\frac{1}{2})log \left( |\mathbf{X}^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{X}|\right) - (\frac{1}{2})\mathbf{r}[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{r}$$, where $$p = rank(\mathbf{X})$$ and $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
-  - Start with initial values for $\boldsymbol\sigma$$, $$\tilde{\boldsymbol{\sigma}}$$.  
+  - Start with initial values for $$\boldsymbol{\sigma}$$, $$\tilde{\boldsymbol{\sigma}}$$.  
   - Compute $$\mathbf{G}(\tilde{\boldsymbol{\sigma}})$$ and $$\mathbf{R}(\tilde{\boldsymbol{\sigma}})$$.  
-  - Obtain $$\boldsymbol{\beta}$ and $\mathbf{b}$$.   
+  - Obtain $$\boldsymbol{\beta}$$ and $$\mathbf{b}$$.   
   - Update $$\tilde{\boldsymbol{\sigma}}$$.  
   - Repeat until convergence.  
 
