@@ -448,8 +448,8 @@ Take your time to digest the variance-covariance matrix above. What type of data
 **Group discussion:** what determines if an effect should be random of fixed? 
 Consider the assumptions:  
 
-- $$\hat{\boldsymbol{beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$  
-- $$\u_j \sim N(0, \sigma^2_u)$$  
+- $$\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$  
+- $$u_j \sim N(0, \sigma^2_u)$$  
 - What process is being studied?  
 - How were the levels selected? (randomly, carefully selected)  
 - How many levels does the factor have, vs. how many did we observe?   
@@ -466,12 +466,13 @@ Some good references:
 -   One treatment factor: genotype (treatment structure).  
 -   Randomized Complete Block Design with 3 repetitions (design structure).  
 
+{% include figure.html img="day1/applied_example_rcbd.jpg" alt="" caption="Figure 5. Designed experiment. Colors indicate different genotypes." width="75%" id = "applied_ex" %}
+
+
 We can easily come up with two models:
 
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
-
-{% include figure.html img="day1/applied_example_rcbd.jpg" alt="" caption="Figure 5. Designed experiment. Colors indicate different genotypes." width="75%" id = "applied_ex" %}
 
 
 ------
