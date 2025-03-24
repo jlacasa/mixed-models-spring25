@@ -32,8 +32,10 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 **Fixed effects versus random effects**  
 
-- Method of estimation  
-- 
+|  | Fixed effects | Random effects | 
+|------------------|------------------|------------------|
+| Interpretation |  |  |
+| Method of estimation |  |  |
 
 
 {% endcapture %}
