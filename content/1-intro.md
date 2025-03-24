@@ -311,40 +311,29 @@ $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \
 
 So far, we could have defined an all-fixed model. 
 
-$$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \beta_{0j} = \beta_0 + b_j \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
+$$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \beta_{0j} = \beta_0 + u_j \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
 
-where $$b_j$$ is the effect of the $$j$$th field on the intercept (i.e., on the baseline). 
-In this case, $$b_j$$ is a fixed effect, which means it may be estimated via least squares estimation or maximum likelihood estimation. 
+where $$u_j$$ is the effect of the $$j$$th field on the intercept (i.e., on the baseline). 
+In this case, $$u_j$$ is a fixed effect, which means it may be estimated via least squares estimation or maximum likelihood estimation. 
+Under both least squares and maximum likelihood (assuming normal distribution), we may estimate the parameters by computing 
 
-**Some limitations of this approach**:
+$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^TX)^{-1}\mathbf{X}^T\mathbf{y},$$
 
-- 
-- 
+which yields the minimum variance unbiased estimate of $$\boldsymbol{\beta}$$. 
 
 #### Random   
 
 We could also assume that the effects of the $$j$$th tree (i.e., $$b_j$$) arise from a random distribution. 
 The most common assumption (and the default in most statistical software) is that 
 
-$$b_j \sim N(0, \sigma^2_b).$$
+$$u_j \sim N(0, \sigma^2_b).$$
 
+Now, we don't estimate the effect, but the variance $$\sigma^2_b$$.  
 
-## What are mixed models anyways?
+## Generalities -- what are mixed models anyways?
 
 Mixed models combine fixed effects and random effects. 
 
-### Random effects  
-
-- By definition, random effects are regression coefficients that arise from a random distribution. 
-- Typically, a random effect $$u \sim N(0, \sigma^2_u)$$.   
-- We estimate the variance $$\sigma^2_u$$.  
-- In the context of designed experiments, random effects are assumed to be independent to each other and independent to the residual.  
-- Method of estimation  
-  - REML is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
-  - *Why is the unbiased estimation of variance components so important?*  
-    - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
-
-## Generalities    
 
 Generally speaking, we can write out a mixed-effects model using the model equation form, as   
 
@@ -445,6 +434,25 @@ $$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\
 \end{bmatrix}.$$
 
 Take your time to digest the variance-covariance matrix above. What type of data do you think generated it? 
+
+### Random effects    
+
+- By definition, random effects are regression coefficients that arise from a random distribution. 
+- Typically, a random effect $$u \sim N(0, \sigma^2_u)$$.   
+- We estimate the variance $$\sigma^2_u$$.  
+- In the context of designed experiments, random effects are assumed to be independent to each other and independent to the residual.  
+
+
+Restricted maximum likelihood estimation (REML) is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
+- In REML, the likelihood is maximized after accounting for the model’s fixed effects.  
+
+- In ML, $-\ell_{ML}(\boldsymbol{\sigma; \boldsymbol{\beta}, \mathbf{y}}) = - (\frac{n}{2}) \log(2\pi)-(\frac{1}{2}) \log (|\mathbf{V}(\boldsymbol\sigma)|) - (\frac{1}{2}) (\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})$  
+- In REML, $\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log (|\mathbf{V}(\boldsymbol\sigma)|) - (\frac{1}{2})log \left( |\mathbf{X}^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{X}|\right) - (\frac{1}{2})\mathbf{r}[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{r}$, where $p = rank(\mathbf{X})$ and $\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$.  
+  - Start with initial values for $\boldsymbol\sigma$, $\tilde{\boldsymbol{\sigma}}$.  
+  - Compute $\mathbf{G}(\tilde{\boldsymbol{\sigma}})$ and $\mathbf{R}(\tilde{\boldsymbol{\sigma}})$.  
+  - Obtain $\boldsymbol{\beta}$ and $\mathbf{b}$.   
+  - Update $\tilde{\boldsymbol{\sigma}}$.  
+  - Repeat until convergence.  
 
 
 ### Fixed effects versus random effects  
