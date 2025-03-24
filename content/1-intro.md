@@ -179,8 +179,8 @@ text="<head>
             border-collapse: collapse;
         }
         th, td {
-            padding: 10px; /* Adds spacing between columns */
-            text-align: center; /* Aligns the text to the center */
+            padding: 10px; 
+            text-align: center; 
         }
     </style>
 </head>
