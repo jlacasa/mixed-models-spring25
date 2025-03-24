@@ -79,7 +79,13 @@ $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, 
 
 where $$y_{i}$$ is the observed value for the $$i$$th observation, 
 $$\beta_0$$ is the intercept (i.e., the expected value of $$y$$ when $$x=0$$), 
-$$\beta_1$$ is the slope parameter (i.e., the expected increase in $$y$$ with a unity increase in $$x$$), $$x_i$$ is the predictor for the $$i$$th observation, and $$\varepsilon_{i}$$ is the difference between the observed value $$y$$ and the expected value $$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$ - that's why we often call it "residual".
+$$\beta_1$$ is the slope parameter (i.e., the expected increase in $$y$$ with a unity increase in $$x$$), 
+$$x_i$$ is the predictor for the $$i$$th observation, 
+and $$\varepsilon_{i}$$ is the difference between the observed value $$y$$ 
+and the expected value $$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$ - that's why we often call it "residual". 
+Typically, $$\boldsymbol{\beta} \equiv \begin{bmatrix} \beta_0 \\ \beta_1 \end{bmatrix}$$ 
+is estimated via maximum likelihood estimation. Also, when we assume a Normal distribution, 
+maximum likelihood estimation yields the same point estimates as least squares estimation. 
 
 
 Look at the plot above. A farmer decided to measure the diameter of apples **selected randomly from randomly selected trees** at different points in time.  
@@ -170,20 +176,7 @@ Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $
 The apples were randomly selected from random trees from a field. 
 
 {% include modal.html button="Example data" color="success" title="Example data" 
-text="{% raw %}
-<head>
-    <style>
-        table,
-        th,
-        td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px; /* Adds spacing between columns */
-            text-align: center; /* Aligns the text to the center */
-        }
-    </style>
+text="
 </head>
 
 <body>
@@ -245,7 +238,7 @@ text="{% raw %}
         </tr>
     </table>
 </body>
-{% endraw %}" %}
+" %}
 
 If we used the default model in most software, we would assume  
 
