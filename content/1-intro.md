@@ -4,7 +4,7 @@ nav: Day 1
 topics: Review; Fixed effects versus random effects
 ---
 
-{% include accordion.html title1="Index" text1="- [Welcome!](#welcome-)
+- [Welcome!](#welcome-)
 - [Housekeeping](#housekeeping)
 - [Outline for today](#outline-for-today)
 - [Review on linear models](#review-on-linear-models)
@@ -25,8 +25,7 @@ topics: Review; Fixed effects versus random effects
   * [Fixed effects versus random effects](#fixed-effects-versus-random-effects)
 - [Applied example](#applied-example)
 - [Wrap-up](#wrap-up)
-- [What's next](#what-s-next)" %}
-
+- [What's next](#what-s-next)"
 
 ------------------
 
