@@ -18,7 +18,7 @@ Although preparing for this workshop is only optional, here are some points for 
 {% capture text %}
 **Notation we will use in this workshop**
 - DON'T PANIC when you see the math notation. 
-It is **not expected** that you walk out of this workshop as a master in math notation! But the variance-covariance functions are important to understand what mixed models actually do.  
+It is **not expected** that you walk out of this workshop as a math notation wizard! But the variance-covariance functions are important to understand what mixed models actually do.  
 
 
 -   **scalars:** lowercase italic and non-bold faced, e.g., $$y$$, $$\sigma$$, $$\beta_0$$  
@@ -30,7 +30,7 @@ It is **not expected** that you walk out of this workshop as a master in math no
 | Variable | Scalar | Vector | Matrix |
  |------------------|------------------|------------------|------------------|
  | Response variable | $$y$$ (e.g., $$y = 4$$) | $$\mathbf{y} \equiv (y_1, y_2, ..., y_n)'$$ | $$\mathbf{y}_{n\times1}$$ |
- | Predictor variable | $$x_{1 i}$$, $$x_{2 i}$$, etc. | $$\mathbf{x}_1 \equiv (x_{1,1}, x_{1, 2}, ..., x_{1, n})$$ $$\mathbf{x}_2 \equiv (x_{2,1}, x_{2, 2}, ..., x_{2, n})$$ | $$\mathbf{X}_{n\times p} \equiv \begin{bmatrix} \end{bmatrix}$$ |
+ | Predictor variable | $$x_{1 i}$$, $$x_{2 i}$$, etc. | $$\mathbf{x}_1 \equiv (x_{1,1}, x_{1, 2}, ..., x_{1, n})$$ $$\mathbf{x}_2 \equiv (x_{2,1}, x_{2, 2}, ..., x_{2, n})$$ | $$\mathbf{X}_{n\times p}$$ |
  | Effect parameters | $$\beta_0$$, $$\beta_1$$, etc. | $$\boldsymbol{\beta} \equiv (\beta_0, \beta_1, ..., \beta_p)'$$ | $$\boldsymbol{\beta}_{p\times1}$$ |
  | Variance | $$\sigma^2$$ |  | $$\Sigma$$ (very often we assume $$\Sigma = \sigma^2 \mathbf{I}$$ ) |
 

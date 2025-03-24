@@ -26,11 +26,14 @@ and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals.
 Typically, $$\mathbf{G} = \sigma^2_u \mathbf{I}$$ and $$\mathbf{R} = \sigma^2 \mathbf{I}$$.  
 If we do the math, we get that  
 
-$$E(\mathbf{y}) = \boldsymbol{\mu},$$
+$$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta},$$
 
 $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 **Fixed effects versus random effects**  
+
+- Method of estimation  
+- 
 
 
 {% endcapture %}
@@ -43,6 +46,22 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 -   **Applications of increased complexity**: random effects on the intercept, nested random effects, covariance functions (repeated measures).  
 
 ------
+
+## Designed experiments  
+
+**Golden Rules of designed experiments:**  
+- Randomization  
+- Replication  
+- Local control  
+
+**Experimental unit versus observational unit**  
+- 
+
+### Common types of designed experiments  
+
+- Randomized complete block design (RCBD)  
+- Split-plot design    
+- 
 
 ## Applied example I - random effect on the intercept   
 

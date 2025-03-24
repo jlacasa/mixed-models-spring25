@@ -450,8 +450,9 @@ Consider the assumptions:
 
 - $$\hat{\boldsymbol{beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$  
 - $$\u_j \sim N(0, \sigma^2_u)$$  
+- What process is being studied?  
 - How were the levels selected? (randomly, carefully selected)  
-- How many levels are in this study, how many exist at all?  
+- How many levels does the factor have, vs. how many did we observe?   
 
 Some good references:  
 - Page 20 in Gelman (2005). "Analysis of variance—why it is more important than ever". [[link](https://projecteuclid.org/journals/annals-of-statistics/volume-33/issue-1/Analysis-of-variancewhy-it-is-more-important-than-ever/10.1214/009053604000001048.full)]
@@ -459,14 +460,19 @@ Some good references:
 
 ## Applied example  
 
+[[R code](#)]
+
 -   Field experiment at Colby, KS.  
--   One treatment factor (treatment structure).  
+-   One treatment factor: genotype (treatment structure).  
 -   Randomized Complete Block Design with 3 repetitions (design structure).  
 
 We can easily come up with two models:
 
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
+
+{% include figure.html img="day1/applied_example_rcbd.jpg" alt="" caption="Figure 5. Designed experiment. Colors indicate different genotypes." width="75%" id = "applied_ex" %}
+
 
 ------
 
