@@ -167,6 +167,87 @@ which is visualized in [Figure 4](#multivariate_normal).
 ### Independent observations  
 
 Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
+The apples were randomly selected from random trees from a field. 
+
+{% include modal.html button="Example data" color="success" title="Example data" 
+text="
+<style>
+.table_component {
+    overflow: auto;
+    width: 100%;
+}
+
+.table_component table {
+    border: 1px solid #dededf;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: left;
+}
+
+.table_component caption {
+    caption-side: top;
+    text-align: left;
+}
+
+.table_component th {
+    border: 1px solid #dededf;
+    background-color: #eceff1;
+    color: #000000;
+    padding: 5px;
+}
+
+.table_component td {
+    border: 1px solid #dededf;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+}
+</style>
+<div class="table_component" role="region" tabindex="0">
+<table>
+    <caption>Table 1</caption>
+    <thead>
+        <tr>
+            <th>day</th>
+            <th>diameter_cm</th>
+            <th>Header 3</th>
+            <th>Header 4</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>3</td>
+            <td>2.9</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.8</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.2</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<div style="margin-top:8px"></div>
+</div>
+" %}
+
 If we used the default model in most software, we would assume  
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),\\
