@@ -42,6 +42,7 @@ topics: Review; Fixed effects versus random effects
 ## Housekeeping  
 
 - We will have relatively low proportion of R code in this workshop. Instead, we will focus on the understanding of the model components. Questions/concerns are more than welcome.   
+- Emphasis on modeling and figuring out what mixed models actually do.  
 - The statistical notation we will use throughout this workshop is presented [here](0-prep). 
 - DON'T PANIC when you see the math notation. 
 It is **not expected** that you walk out of this workshop as a master in math notation! But the variance-covariance functions are important to understand what mixed models actually do.  
@@ -179,7 +180,7 @@ The apples were randomly selected from random trees from a field.
 text="</head>
 
 <body>
-    <table style="width:100%">
+    <table>
         <tr>
             <th>day</th>
             <th>diameter_cm</th>
@@ -423,11 +424,16 @@ Take your time to digest the variance-covariance matrix above. What type of data
 
 ### Fixed effects versus random effects  
 
-**Group discussion:** what determines if an effect should be random of fixed?  
+**Group discussion:** what determines if an effect should be random of fixed? 
+Consider the assumptions:  
 
+- $$\hat{\boldsymbol{beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$  
+- $$\u_j \sim N(0, \sigma^2_u)$$  
+- How were the levels selected? (randomly, carefully selected)  
+- How many levels are in this study, how many exist at all?  
 
-
-- Gelman, A. (2005). Analysis of variance—why it is more important than ever. Ann. Statist. 33 (1) 1 - 53. [https://doi.org/10.1214/009053604000001048](https://projecteuclid.org/journals/annals-of-statistics/volume-33/issue-1/Analysis-of-variancewhy-it-is-more-important-than-ever/10.1214/009053604000001048.full)
+Some good references:  
+- Page 20 in Gelman (2005). "Analysis of variance—why it is more important than ever". [[link](https://projecteuclid.org/journals/annals-of-statistics/volume-33/issue-1/Analysis-of-variancewhy-it-is-more-important-than-ever/10.1214/009053604000001048.full)]
 
 
 ## Applied example  
