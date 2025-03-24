@@ -206,79 +206,57 @@ text='<head>
     <table>
         <tr>
             <th>day</th>
-            <th>    </th>
             <th>diameter_cm</th>
-            <th>    </th>
             <th>field</th>
         </tr>
         <tr>
             <td>3</td>
-            <th>    </th>
             <td>2.9</td>
-            <th>    </th>
             <td>A</td>
         </tr>
         <tr>
             <td>3</td>
-            <th>    </th>
             <td>2.8</td>
-            <th>    </th>
             <td>B</td>
         </tr>
         <tr>
             <td>3</td>
-            <th>    </th>
             <td>2.9</td>
-            <th>    </th>
             <td>C</td>
         </tr>
         <tr>
             <td>3</td>
-            <th>    </th>
             <td>2.7</td>
-            <th>    </th>
             <td>D</td>
         </tr>
         <tr>
             <td>3</td>
-            <th>    </th>
             <td>3.0</td>
-            <th>    </th>
             <td>E</td>
         </tr>
         <tr>
             <td>6</td>
-            <th>    </th>
             <td>3.6</td>
-            <th>    </th>
             <td>A</td>
         </tr>
         <tr>
             <td>6</td>
-            <th>    </th>
             <td>3.9</td>
-            <th>    </th>
             <td>B</td>
         </tr>
         <tr>
             <td>6</td>
-            <th>    </th>
             <td>3.7</td>
-            <th>    </th>
             <td>C</td>
         </tr>
         <tr>
             <td>6</td>
-            <th>    </th>
             <td>3.8</td>
-            <th>    </th>
             <td>D</td>
         </tr>
         <tr>
             <td>6</td>
-            <th>    </th>
             <td>3.7</td>
-            <th>    </th>
             <td>E</td>
         </tr>
     </table>
