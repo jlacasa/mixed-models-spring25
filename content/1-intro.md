@@ -171,87 +171,37 @@ The apples were randomly selected from random trees from a field.
 
 {% include modal.html button="Example data" color="success" title="Example data" 
 text="
-<style>
-.table_component {
-    overflow: auto;
-    width: 100%;
-}
 
-.table_component table {
-    border: 1px solid #dededf;
-    height: 100%;
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border-spacing: 1px;
-    text-align: left;
-}
-
-.table_component caption {
-    caption-side: top;
-    text-align: left;
-}
-
-.table_component th {
-    border: 1px solid #dededf;
-    background-color: #eceff1;
-    color: #000000;
-    padding: 5px;
-}
-
-.table_component td {
-    border: 1px solid #dededf;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px;
-}
-</style>
-<div class="table_component" role="region" tabindex="0">
-<table>
-    <caption>Table 1</caption>
-    <thead>
+<body>
+    <table>
         <tr>
             <th>day</th>
-            <th>diameter_cm</th>
-            <th>Header 3</th>
-            <th>Header 4</th>
+            <th>diamter_cm</th>
         </tr>
-    </thead>
-    <tbody>
         <tr>
             <td>3</td>
             <td>2.9</td>
-            <td></td>
-            <td></td>
         </tr>
         <tr>
             <td>3</td>
             <td>2.8</td>
-            <td></td>
-            <td></td>
         </tr>
         <tr>
             <td>6</td>
             <td>3.1</td>
-            <td></td>
-            <td></td>
         </tr>
         <tr>
             <td>6</td>
             <td>3.2</td>
-            <td></td>
-            <td></td>
         </tr>
-    </tbody>
-</table>
-<div style="margin-top:8px"></div>
-</div>
+    </table>
+</body>
 " %}
 
 If we used the default model in most software, we would assume  
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),\\
-\begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} \ sim 
+\begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} \sim N
 \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \mu_3 \\ \mu_4 \\ \vdots \\ \mu_n \end{bmatrix}, 
 \sigma^2 
 \begin{bmatrix} 1 & 0 & 0 & 0 & \dots & 0 \\ 
@@ -264,7 +214,7 @@ $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),\\
 
 which is the same as 
 
-$$\begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} \ sim 
+$$\begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} \sim N
 \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \mu_3 \\ \mu_4 \\ \vdots \\ \mu_n \end{bmatrix}, 
 \begin{bmatrix} \sigma^2 & 0 & 0 & 0 & \dots & 0 \\ 
 0 & \sigma^2 & 0 & 0 & \dots & 0 \\
