@@ -477,6 +477,10 @@ We can easily come up with two models:
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
 
+<code>
+data(gilmour.serpentine)
+dd <- gilmour.serpentine
+</code>
 
 ------
 
