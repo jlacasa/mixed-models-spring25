@@ -177,8 +177,7 @@ Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $
 The apples were randomly selected from random trees from a field. 
 
 {% include modal.html button="Example data" color="success" title="Example data" 
-text="
-<head>
+text='<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fixed vs Random Effects Table</title>
@@ -283,8 +282,7 @@ text="
             <td>E</td>
         </tr>
     </table>
-</body>
-" %}
+</body>' %}
 
 If we used the default model in most software, we would assume  
 

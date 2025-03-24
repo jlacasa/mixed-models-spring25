@@ -32,11 +32,6 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 **Fixed effects versus random effects**  
 
-|  | Fixed effects | Random effects | 
-|------------------|------------------|------------------|
-| Interpretation |  |  |
-| Method of estimation |  |  |
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,7 +113,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 - Randomized complete block design (RCBD)  
 - Split-plot design    
-- 
+- Repeated measures
 
 ## Applied example I - random effect on the intercept   
 
