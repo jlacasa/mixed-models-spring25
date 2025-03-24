@@ -246,8 +246,8 @@ $$\boldsymbol{\varepsilon}$$ is the vector containing the residuals,
 $$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
 and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
 
-{% include modal.html button="Example for **X** and **Z**" color="success" 
-title="Example for **X** and **Z**" 
+{% include modal.html button="Example for <strong>X</strong> and <strong>Z</strong>" color="success" 
+title="Example for <strong>X</strong> and <strong>Z</strong>" 
 text="Let's focus on the first 10 observations of apple diameter. $$\mathbf{X} = \begin{bmatrix} 1 & 3 \\
 1 & 3 \\
 1 & 3 \\
