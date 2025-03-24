@@ -170,7 +170,8 @@ Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $
 The apples were randomly selected from random trees from a field. 
 
 {% include modal.html button="Example data" color="success" title="Example data" 
-text="<head>
+text="{% raw %}
+<head>
     <style>
         table,
         th,
@@ -179,8 +180,8 @@ text="<head>
             border-collapse: collapse;
         }
         th, td {
-            padding: 10px; 
-            text-align: center; 
+            padding: 10px; /* Adds spacing between columns */
+            text-align: center; /* Aligns the text to the center */
         }
     </style>
 </head>
@@ -243,7 +244,8 @@ text="<head>
             <td>E</td>
         </tr>
     </table>
-</body>" %}
+</body>
+{% endraw %}" %}
 
 If we used the default model in most software, we would assume  
 
