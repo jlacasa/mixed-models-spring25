@@ -27,6 +27,7 @@ topics: Review; Fixed effects versus random effects
 - [Wrap-up](#wrap-up)
 - [What's next](#what-s-next)
 
+------------------
 
 ## Welcome!
 
@@ -163,9 +164,9 @@ which is visualized in [Figure 4](#multivariate_normal).
 -   Variance  
 -   Covariance 
 
-### Adding a random effect to the model   
+## Adding a random effect to the model   
 
-#### Independent observations  
+### Independent observations  
 
 Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
 If we used the default model in most software, we would assume  
@@ -202,7 +203,7 @@ Remember the assumptions:
 
 These assumptions makes sense when the observations are independent (i.e., there is no underlying structure to take into account).    
 
-#### Non-independent observations  
+### Non-independent observations  
 
 Now, imagine that the observations are actually diameters from random apples, but they were taken from 5 different fields (2 from each field). 
 These observations are no longer independent, because apples from the same field are more similar to each other than apples from different fields.
@@ -211,9 +212,9 @@ In this case, we expect the growth rate to be similar among fields, but the base
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
 
-#### How do we define $$\beta_{0j}$$?
+### How do we define $$\beta_{0j}$$?
 
-##### Fixed   
+#### Fixed   
 
 So far, we could have defined an all-fixed model. 
 
@@ -227,7 +228,7 @@ In this case, $$b_j$$ is a fixed effect, which means it may be estimated via lea
 - 
 - 
 
-##### Random   
+#### Random   
 
 We could also assume that the effects of the $$j$$th tree (i.e., $$b_j$$) arise from a random distribution. 
 The most common assumption (and the default in most statistical software) is that 
@@ -250,7 +251,7 @@ Mixed models combine fixed effects and random effects.
   - *Why is the unbiased estimation of variance components so important?*  
     - Relationship between variance estimates, standard error, confidence intervals, t-tests, type I error.
 
-### Speaking generally  
+## Generalities    
 
 Generally speaking, we can write out a mixed-effects model using the model equation form, as   
 
@@ -297,7 +298,9 @@ Said first 10 observations of apple diameters include days 3 and 6 (which you ca
 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 0 & 1 \end{bmatrix}$$
+
 ------
+
 <strong>Example B.</strong> Let's focus on the first 10 observations of apple diameter. 
 In this case, we aim to predict <strong>final</strong> diameter based on the tree variety (Red delicious, Gala or Fuji).
 You can still find this information in <strong>X</strong>, . The <strong>Z</strong> matrix remains . $$\begin{array}{ccc}  
