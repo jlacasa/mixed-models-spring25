@@ -5,7 +5,7 @@ layout: page
 
 # Welcome to the mixed models workshop website!
 
-{% include figure.html img="dickens.jpg" alt="intro image here" caption="Dickens Hall" width="75%" %}
+{% include figure.html img="dickens.jpg" alt="" caption="Dickens Hall" width="75%" %}
 
 **Dates:** 03/26, 03/28, and 03/31 $$\vert$$ **Time:** 3-5 pm.  
 
@@ -18,6 +18,12 @@ layout: page
 All you need to know before/during/after the workshop can be found in this website.   
 
 {% include toc.html %}
+
+------
+
+This workshop is sponsored by the Department of Statistics at Kansas State University and ID3A.
+
+{% include figure.html img="ID3A.png" alt="" caption="" width="75%" %}
 
 ------
 
