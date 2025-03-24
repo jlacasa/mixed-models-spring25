@@ -380,7 +380,9 @@ Said first 10 observations of apple diameters include days 3 and 6 (which you ca
 1 & 6 \\
 1 & 6  
 \end{bmatrix} 
-\end{array}$$, $$\mathbf{Z} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\
+\end{array}$$, $$\mathbf{Z} = \begin{array}{cc}
+\text{f}1 \phantom{-} \text{f}2 \phantom{-} \text{f}3 \phantom{-} \text{f}4 \phantom{-} \text{f}5 \\ 
+\begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 \\
@@ -389,12 +391,13 @@ Said first 10 observations of apple diameters include days 3 and 6 (which you ca
 0 & 1 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1 \end{bmatrix}$$
+0 & 0 & 0 & 0 & 1 \end{bmatrix}
+\end{array}$$
 
 ------
 
 <strong>Example B.</strong> Let's focus on the first 10 observations of apple diameter. 
-In this case, we aim to predict <strong>final</strong> diameter based on the tree variety (Red delicious, Gala or Fuji).
+In this case, we aim to predict <strong>final</strong> diameter based on the apple variety: Red delicious (RD), Gala (G) or Fuji(F).
 You can still find this information in <strong>X</strong>, . The <strong>Z</strong> matrix remains the same. 
 
 $$\begin{array}{ccc}  
