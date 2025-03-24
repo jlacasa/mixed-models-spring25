@@ -101,7 +101,7 @@ $$y_{i} \sim N(\mu_i, \sigma^2), \\ \mu_i = \beta_0 + x_{i} \beta_1.$$
 
 With this notation (called "probability distribution form"), it is easier to switch to other distributions ([Day 3](3-lesson) of this workshop). We can further express this equation using vectors and matrices:  
 
-$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma), \\ \boldsymbol{\mu} = \boldymbol{1} \boldsymbol{\beta_0} + \mathbf{x} \boldsymbol{\beta_1} = \mathbf{X}\boldsymbol{\beta},$$
+$$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma), \\ \boldsymbol{\mu} = \boldsymbol{1} \boldsymbol{\beta_0} + \mathbf{x} \boldsymbol{\beta_1} = \mathbf{X}\boldsymbol{\beta},$$
 
 where $$n$$ is the total number of observations, $$p$$ is the total number of parameters, 
 $$\mathbf{y}$$ is an $$n \times 1$$ vector containing all observations, 
@@ -109,12 +109,11 @@ $$\boldsymbol{\mu}$$ is an $$n \times 1$$ vector containing the expected values 
 $$\boldsymbol{\beta}$$ is an $$p \times 1$$ vector containing the (fixed) parameters, 
 $$\mathbf{X}$$ is an $$n \times p$$ matrix containing the predictors, 
 $$\Sigma$$ is an $$n \times n$$ matrix called variance-covariance matrix. 
-**Note: This type of notation is also convenient to think about how to prepare the data in your spreadsheet. One row per observation (rows in $$\mathbf{X}$$), one variable per column (columns in $$\mathbf{X}$$).**
+*Note: This type of notation is also convenient to think about how to prepare the data in your spreadsheet. One row per observation (rows in $$\mathbf{X}$$), one variable per column (columns in $$\mathbf{X}$$).*
 
 Let's expand these expressions: 
 
-$$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim
-N \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
+$$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim  N \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
 \begin{bmatrix} Cov(y_1, y_1) & Cov(y_1, y_2) & \dots & Cov(y_1, y_n) \\
 Cov(y_2, y_1) & Cov(y_2, y_2) & \dots & Cov(y_2, y_n)\\
 \vdots & \vdots & \ddots & \vdots \\ 
@@ -122,8 +121,7 @@ Cov(y_n, y_1) & Cov(y_n, y_2) & \dots & Cov(y_n, y_n) \end{bmatrix} \right),$$
 
 which is the same as 
 
-$$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim
-N \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
+$$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim N \left( \begin{bmatrix}\mu_1 \\ \mu_2 \\ \vdots \\ \mu_n \end{bmatrix}, 
 \begin{bmatrix} Var(y_1) & Cov(y_1, y_2) & \dots & Cov(y_1, y_n) \\
 Cov(y_2, y_1) & Var(y_2) & \dots & Cov(y_2, y_n)\\
 \vdots & \vdots & \ddots & \vdots \\ 
@@ -275,7 +273,7 @@ and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals.
 title="Example for <strong>X</strong> and <strong>Z</strong>" 
 text="<strong>Example A.</strong> Let's focus on the first 10 observations of apple diameter. 
 Said first 10 observations of apple diameters include days 3 and 6 (which you can find in <strong>X</strong>), and one observation per field for each day (which you can find in <strong>Z</strong>). $$\mathbf{X} = \begin{array}{cc}  
-\text{Int} \phantom{ } \text{day} \\ 
+\text{Int} \phantom{-} \text{day} \\ 
 \begin{bmatrix} 
 1 & 3 \\
 1 & 3 \\
@@ -303,8 +301,8 @@ Said first 10 observations of apple diameters include days 3 and 6 (which you ca
 
 <strong>Example B.</strong> Let's focus on the first 10 observations of apple diameter. 
 In this case, we aim to predict <strong>final</strong> diameter based on the tree variety (Red delicious, Gala or Fuji).
-You can still find this information in <strong>X</strong>, . The <strong>Z</strong> matrix remains . $$\begin{array}{ccc}  
-& \text{RD} \phantom{ } \text{G} \phantom{ } \text{F} \\ 
+You can still find this information in <strong>X</strong>, . The <strong>Z</strong> matrix remains the same. $$\begin{array}{ccc}  
+& \text{RD} \phantom{-} \text{G} \phantom{-} \text{F} \\ 
 \mathbf{X} = &
 \begin{bmatrix} 
 1 & 0 & 0 \\
@@ -330,7 +328,7 @@ You can still find this information in <strong>X</strong>, . The <strong>Z</stro
 0 & 0 & 0 & 0 & 1 \end{bmatrix}$$
 " %}
 
-Using the probability distribution form, we can then say  
+Using the probability distribution form, we can then say that $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta}$$ and $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$. Then,   
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),$$  
 
