@@ -37,6 +37,33 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 | Interpretation |  |  |
 | Method of estimation |  |  |
 
+<table>
+    <tr>
+        <th> </th>
+        <th>Fixed effects</th>
+        <th>Random effects</th>
+    </tr>
+    <tr>
+        <td>Interpretation</td>
+        <td> </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>Research objective</td>
+        <td> </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>Assumptions</td>
+        <td> </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td>Method of estimation</td>
+        <td> </td>
+        <td> </td>
+    </tr>
+</table>
 
 {% endcapture %}
 {% include card.html text=text header= "Review" color="#a9d9a9" %}
