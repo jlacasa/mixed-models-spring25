@@ -493,19 +493,16 @@ We can easily come up with two models:
     </style>
 </head>
 <body>
-    <h2>Example R Code</h2>
     <pre>
 <code>
-# This is an example of R code
-set.seed(123)
-data <- data.frame(
-    x = rnorm(100, mean = 5, sd = 2),
-    y = rnorm(100, mean = 10, sd = 3)
-)
+library(tidyverse)
+library(glmmTMB)
 
-# Summary statistics
-summary(data)
-plot(data$x, data$y, main = "Scatterplot of x and y")
+data(gilmour.serpentine)
+dd <- gilmour.serpentine
+
+m1 <- glmmTMB(yield ~ 1 + gen + rep, data = dd)
+m2 <- glmmTMB(yield ~ 1 + gen + (1|rep), data = dd)
 </code>
     </pre>
 </body>
