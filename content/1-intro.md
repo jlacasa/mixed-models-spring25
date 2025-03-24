@@ -176,106 +176,67 @@ Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $
 The apples were randomly selected from random trees from a field. 
 
 {% include modal.html button="Example data" color="success" title="Example data" 
-text="<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled Table</title>
-    <style>
-        /* General table styling */
-        .styled-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+text="</head>
 
-        /* Borders for table, header, and cells */
-        .styled-table th, 
-        .styled-table td {
-            border: 1px solid black;
-            padding: 10px; /* Adds separation among columns */
-            text-align: center; /* Centers text */
-        }
-
-        /* Styling for the table header */
-        .styled-table th {
-            background-color: #f2f2f2; /* Light gray background for headers */
-            font-weight: bold;
-        }
-
-        /* Alternating row colors */
-        .styled-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Light background for even rows */
-        }
-
-        .styled-table tr:nth-child(odd) {
-            background-color: #ffffff; /* White background for odd rows */
-        }
-    </style>
-</head>
 <body>
-    <table class="styled-table">
-        <thead>
-            <tr>
-                <th>day</th>
-                <th>diameter_cm</th>
-                <th>field</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>3</td>
-                <td>2.9</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>2.8</td>
-                <td>B</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>2.9</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>2.7</td>
-                <td>D</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3.0</td>
-                <td>E</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>3.6</td>
-                <td>A</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>3.9</td>
-                <td>B</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>3.7</td>
-                <td>C</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>3.8</td>
-                <td>D</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>3.7</td>
-                <td>E</td>
-            </tr>
-        </tbody>
+    <table style="width:100%">
+        <tr>
+            <th>day</th>
+            <th>diameter_cm</th>
+            <th>field</th>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.9</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.8</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.9</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.7</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3.0</td>
+            <td>E</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.6</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.9</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.7</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.8</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.7</td>
+            <td>E</td>
+        </tr>
     </table>
 </body>
-</html>
 " %}
 
 If we used the default model in most software, we would assume  
