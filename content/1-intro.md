@@ -4,6 +4,8 @@ nav: Day 1
 topics: Review; Fixed effects versus random effects
 ---
 
+[TOC]
+
 ## Welcome!
 
 - [About me](https://jlacasa.github.io/).
