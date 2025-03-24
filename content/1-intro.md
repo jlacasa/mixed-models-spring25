@@ -477,10 +477,39 @@ We can easily come up with two models:
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed R Code</title>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-x: auto; /* Enables horizontal scrolling if the code is too wide */
+        }
+    </style>
+</head>
+<body>
+    <h2>Example R Code</h2>
+    <pre>
 <code>
-data(gilmour.serpentine)
-dd <- gilmour.serpentine
+# This is an example of R code
+set.seed(123)
+data <- data.frame(
+    x = rnorm(100, mean = 5, sd = 2),
+    y = rnorm(100, mean = 10, sd = 3)
+)
+
+# Summary statistics
+summary(data)
+plot(data$x, data$y, main = "Scatterplot of x and y")
 </code>
+    </pre>
+</body>
+</html>
 
 ------
 
