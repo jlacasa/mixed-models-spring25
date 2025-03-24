@@ -21,7 +21,7 @@ All you need to know before/during/after the workshop can be found in this websi
 
 ------
 
-This workshop is sponsored by the Department of Statistics at Kansas State University and ID3A.
+This workshop is sponsored by the [Department of Statistics](https://www.k-state.edu/stats/) at Kansas State University and the Institute for [Digital Agriculture and Advanced Analytics](https://www.k-state.edu/next-gen/key-initiatives/interdisciplinary-institutes/digital-ag-advanced-analytics/).
 
 {% include figure.html img="ID3A.png" alt="" caption="" width="40%" %}
 
