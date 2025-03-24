@@ -170,33 +170,80 @@ Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $
 The apples were randomly selected from random trees from a field. 
 
 {% include modal.html button="Example data" color="success" title="Example data" 
-text="
+text="<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px; /* Adds spacing between columns */
+            text-align: center; /* Aligns the text to the center */
+        }
+    </style>
+</head>
 
 <body>
-    <table>
+    <table style="width:100%">
         <tr>
             <th>day</th>
-            <th>diamter_cm</th>
+            <th>diameter_cm</th>
+            <th>field</th>
         </tr>
         <tr>
             <td>3</td>
             <td>2.9</td>
+            <td>A</td>
         </tr>
         <tr>
             <td>3</td>
             <td>2.8</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.9</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.7</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3.0</td>
+            <td>E</td>
         </tr>
         <tr>
             <td>6</td>
-            <td>3.1</td>
+            <td>3.6</td>
+            <td>A</td>
         </tr>
         <tr>
             <td>6</td>
-            <td>3.2</td>
+            <td>3.9</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.7</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.8</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.7</td>
+            <td>E</td>
         </tr>
     </table>
-</body>
-" %}
+</body>" %}
 
 If we used the default model in most software, we would assume  
 
@@ -332,7 +379,9 @@ Said first 10 observations of apple diameters include days 3 and 6 (which you ca
 
 <strong>Example B.</strong> Let's focus on the first 10 observations of apple diameter. 
 In this case, we aim to predict <strong>final</strong> diameter based on the tree variety (Red delicious, Gala or Fuji).
-You can still find this information in <strong>X</strong>, . The <strong>Z</strong> matrix remains the same. $$\begin{array}{ccc}  
+You can still find this information in <strong>X</strong>, . The <strong>Z</strong> matrix remains the same. 
+
+$$\begin{array}{ccc}  
 & \text{RD} \phantom{-} \text{G} \phantom{-} \text{F} \\ 
 \mathbf{X} = &
 \begin{bmatrix} 
@@ -374,6 +423,8 @@ $$\Sigma = \begin{bmatrix} \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & 0 & 0 &\
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\ 
 0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u
 \end{bmatrix}.$$
+
+Take your time to digest the variance-covariance matrix above. What type of data do you think generated it? 
 
 
 ### Fixed effects versus random effects  
