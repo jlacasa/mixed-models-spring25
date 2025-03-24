@@ -249,8 +249,8 @@ and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals.
 {% include modal.html button="Example for <strong>X</strong> and <strong>Z</strong>" color="success" 
 title="Example for <strong>X</strong> and <strong>Z</strong>" 
 text="Let's focus on the first 10 observations of apple diameter. 
-Said first 10 observations of apple diameters include days 3 and 6 (which you can find in <strong>X</strong>), and one observation per field for each day (which you can find in <strong>Z</strong>). $$\begin{array}{c c c} 
-& \text{Int} & \text{day} \\ 
+Said first 10 observations of apple diameters include days 3 and 6 (which you can find in <strong>X</strong>), and one observation per field for each day (which you can find in <strong>Z</strong>). $$\begin{array}{c@{\hspace{1em}}cc}  
+ & \text{Int} & \text{day} \\ 
 \mathbf{X} = &
 \begin{bmatrix} 
 1 & 3 \\
