@@ -141,6 +141,17 @@ Cov(y_n, y_1) & Cov(y_n, y_2) & \dots & Var(y_n) \end{bmatrix} \right).$$
 
 ### Whiteboard example - qualitative predictor  
 
+Instead of a quantitative predictor, we could have a qualitative (or categorical) predictor. 
+If we have two possible levels, A and B, we could use the same model as before,  
+
+$$y_{i} \sim N(\mu_i, \sigma^2), \\ \mu_i = \beta_0 + x_i \beta_1,$$
+
+and say that $$y_{i}$$ is the observed value for the $$i$$th observation, 
+$$\beta_0$$ is the expected value for A, 
+$$x_i = 0$$ if the $$i$$th observation belongs to A, and $$x_i = 1$$ if the $$i$$th observation belongs to B, 
+$$\beta_1$$ is the difference between A and B. 
+
+- What happens if the categorical predictor have more than two levels? 
 
 ## Variance-covariance matrices  
 
