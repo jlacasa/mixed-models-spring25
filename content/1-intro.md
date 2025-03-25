@@ -628,6 +628,66 @@ m2
 
 ## Wrap-up  
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed vs Random Effects Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+<table>
+    <tr>
+        <th> </th>
+        <th>Fixed effects</th>
+        <th>Random effects</th>
+    </tr>
+    <tr>
+        <th>Where</th>
+        <td>Expected value</td>
+        <td>Variance-covariance matrix</td>
+    </tr>
+    <tr>
+        <th>Inference</th>
+        <td>Constant for all groups in the population of study</td>
+        <td>Differ from group to group</td>
+    </tr>
+    <tr>
+        <th>Research objective</th>
+        <td>Usually, carefully selected treatments or genotypes</td>
+        <td>Usually, not the central point of the study.</td>
+    </tr>
+    <tr>
+        <th>Assumptions</th>
+        <td>$$\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$</td>
+        <td>$$u_j \sim N(0, \sigma^2_u)$$</td>
+    </tr>
+    <tr>
+        <th>Method of estimation</th>
+        <td>Maximum likelihood, least squares</td>
+        <td>Restricted maximum likelihood (shrinkage)</td>
+    </tr>
+</table>
+</body>
 
 ## What's next  
 
