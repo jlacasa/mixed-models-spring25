@@ -16,6 +16,38 @@ this is optional, but a good starting point.
 
 - **Install R and RStudio:** Install [R](https://cran.r-project.org/){:target="_blank" rel="noopener"} and [RStudio](https://posit.co/download/rstudio-desktop/){:target="_blank" rel="noopener"}.
 - **Install these R packages:** We'll need `tidyverse`, `glmmTMB`, `DHARMa`, `car`, `emmeans`, `multcomp`, and `agridat`.
+  You can copy the following code and run it in your R console: 
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed R Code</title>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-x: auto; /* Enables horizontal scrolling if the code is too wide */
+        }
+    </style>
+</head>
+<body>
+    <pre>
+<code>
+install.packages("tidyverse")
+install.packages("glmmTMB")
+install.packages("DHARMa")
+install.packages("car")
+install.packages("emmeans")
+install.packages("multcomp")
+install.packages("agridat")
+</code>
+    </pre>
+</body>
+</html>
+
 - **Check out R for Data Science** [(Garrett Grolemund and Hadley Wickham, 2016)](https://r4ds.hadley.nz/) is a free online book that 
 contains basic and advanced information about R programming. 
 
