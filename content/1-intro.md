@@ -1,7 +1,7 @@
 ---
 title: Fundamentals of linear mixed models 
 nav: Day 1
-topics: Review; Fixed effects versus random effects
+topics: Linear models review; Fixed effects vs. random effects
 ---
 
 
@@ -329,8 +329,8 @@ $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbo
 where $$\mathbf{y}$$ is the observed response, 
 $$\mathbf{X}$$ is the matrix with the explanatory variables, 
 $$\mathbf{Z}$$ is the design matrix,
-$$\boldsymbol{\beta}$$ is the vector containing the fixed-effects parameters, 
-$$\mathbf{u}$$ is the vector containing the random effects parameters, 
+$$\boldsymbol{\beta}$$ is the vector containing the fixed-effects, 
+$$\mathbf{u}$$ is the vector containing the random effects, 
 $$\boldsymbol{\varepsilon}$$ is the vector containing the residuals, 
 $$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
 and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
@@ -446,8 +446,8 @@ Restricted maximum likelihood estimation (REML) is the default in most mixed eff
 **Group discussion:** what determines if an effect should be random of fixed? 
 Consider the assumptions:  
 
-- $$\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$  
-- $$u_j \sim N(0, \sigma^2_u)$$  
+- $$\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$ 
+- $$u_j \sim N(0, \sigma^2_u)$$ 
 - What process is being studied?  
 - How were the levels selected? (randomly, carefully selected)  
 - How many levels does the factor have, vs. how many did we observe?   
