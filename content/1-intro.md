@@ -312,7 +312,8 @@ The most common assumption (and the default in most statistical software) is tha
 
 $$u_j \sim N(0, \sigma^2_b).$$
 
-Now, we don't estimate the effect, but the variance $$\sigma^2_b$$.  
+Now, we don't estimate the effect, but the variance $$\sigma^2_b$$. 
+Note that random effects are **categorical**.  
 
 ## Generalities -- what are mixed models anyways?
 
