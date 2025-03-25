@@ -304,7 +304,7 @@ summary(m_splitplot)
 simulateResiduals(m_splitplot, plot = TRUE)
 {% endhighlight %}
 
-![center](https://jlacasa.github.io/mixed-models-spring25/figs/models_day_2/unnamed-chunk-86-1.png)
+{% include figure.html img="day2/DHARMa_splitplot.png" alt="" caption="" width="80%" %}
 
 {% highlight text %}
 ## Object of Class DHARMa with simulated residuals based on 250 simulations with refit = FALSE . See ?DHARMa::simulateResiduals for help. 
@@ -381,7 +381,6 @@ cld(marginal_means_splitplot,
 ##       then we cannot show them to be different.
 ##       But we also did not show them to be the same.
 {% endhighlight %}
-
 
 
 ## Applied example II -- repeated measures    
