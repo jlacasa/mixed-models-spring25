@@ -66,22 +66,27 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
         <th>Random effects</th>
     </tr>
     <tr>
-        <td>Inference</td>
+        <th>Where</th>
+        <td>Expected value</td>
+        <td>Variance-covariance matrix</td>
+    </tr>
+    <tr>
+        <th>Inference</th>
         <td>Constant for all groups in the population of study</td>
         <td>Differ from group to group</td>
     </tr>
     <tr>
-        <td>Research objective</td>
+        <th>Research objective</th>
         <td>Usually, carefully selected treatments or genotypes</td>
         <td>Usually, not the central point of the study.</td>
     </tr>
     <tr>
-        <td>Assumptions</td>
+        <th>Assumptions</th>
         <td>$$\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$</td>
         <td>$$u_j \sim N(0, \sigma^2_u)$$</td>
     </tr>
     <tr>
-        <td>Method of estimation</td>
+        <th>Method of estimation</th>
         <td>Maximum likelihood, least squares</td>
         <td>Restricted maximum likelihood (shrinkage)</td>
     </tr>
