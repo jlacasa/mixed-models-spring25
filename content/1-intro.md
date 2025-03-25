@@ -701,9 +701,9 @@ Now we know what we mean when we say "factor A was considered fixed and factor B
         <td>Differ from group to group</td>
     </tr>
     <tr>
-        <th>Research objective</th>
-        <td>Usually, carefully selected treatments or genotypes</td>
-        <td>Usually, the study design (aka structure in the data, or what is similar to what).</td>
+        <th>Usually used to model</th>
+        <td>Carefully selected treatments or genotypes</td>
+        <td>The study design (aka structure in the data, or what is similar to what)</td>
     </tr>
     <tr>
         <th>Assumptions</th>
