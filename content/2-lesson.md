@@ -112,7 +112,9 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 - Local control  
 
 **Experimental unit versus observational unit**  
-- 
+- Experimental unit (EU): smallest unit to which a treatment is independently assigned.  
+- Observational unit (OU): smallest unit on which observations are made. 
+- If OU $$\textgreater$$ EU, then not all observations are independent. 
 
 ### Common types of designed experiments  
 
@@ -122,6 +124,29 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 ## Applied example I - random effect on the intercept   
 
+{% highlight r %}
+library(glmmTMB)
+library(agridat)
+library(tidyverse)
+library(DHARMa)
+
+data(omer.sorghum)
+dat <- omer.sorghum
+dat <- dat %>% 
+  filter(env == "E3")
+
+m_rcbd <- glmmTMB(yield ~ gen + (1|rep), data = dat)
+
+simulateResiduals(m_rcbd, plot = TRUE)
+{% endhighlight %}
+
+{% include figure.html img="day2/DHARMa_rcbd.jpg" alt="" caption="" width="50%" %}
+
+{% highlight text %}
+## Object of Class DHARMa with simulated residuals based on 250 simulations with refit = FALSE . See ?DHARMa::simulateResiduals for help. 
+##  
+## Scaled residual values: 0.208 0.336 0.04 0.06 0.868 0.876 0.864 0.848 0.532 0.904 0.964 0.624 0.996 0.944 0.728 0.136 0.992 0.984 0.184 0.492 ...
+{% endhighlight %}
 
 
 ## Applied example II -- nested random effects    
