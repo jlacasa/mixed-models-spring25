@@ -4,28 +4,6 @@ nav: Day 1
 topics: Review; Fixed effects versus random effects
 ---
 
-- [Welcome!](#welcome-)
-- [Housekeeping](#housekeeping)
-- [Outline for today](#outline-for-today)
-- [Review on linear models](#review-on-linear-models)
-  * [The famous intercept-and-slope linear model](#the-famous-intercept-and-slope-linear-model)
-  * [Let's fit the same statistical model using distribution notation and matrix notation](#let-s-fit-the-same-statistical-model-using-distribution-notation-and-matrix-notation)
-  * [Review on variance-covariance matrices](#review-on-variance-covariance-matrices)
-    + [What does "the variance of $$y$$" even mean?](#what-does--the-variance-of---y----even-mean-)
-    + [On the covariance of two random variables $$y_1$$ and $$y_2$$](#on-the-covariance-of-two-random-variables---y-1---and---y-2--)
-  * [Adding a random effect to the model](#adding-a-random-effect-to-the-model)
-    + [Independent observations](#independent-observations)
-    + [Non-independent observations](#non-independent-observations)
-    + [How do we define $$\beta_{0j}$$?](#how-do-we-define----beta--0j----)
-      - [Fixed](#fixed)
-      - [Random](#random)
-- [What are mixed models anyways?](#what-are-mixed-models-anyways-)
-  * [Random effects](#random-effects)
-  * [Speaking generally](#speaking-generally)
-  * [Fixed effects versus random effects](#fixed-effects-versus-random-effects)
-- [Applied example](#applied-example)
-- [Wrap-up](#wrap-up)
-- [What's next](#what-s-next)"
 
 ------------------
 
@@ -41,12 +19,13 @@ topics: Review; Fixed effects versus random effects
 
 ## Housekeeping  
 
-- We will have relatively low proportion of R code in this workshop. Instead, we will focus on the understanding of the model components. Questions/concerns are more than welcome.   
-- Emphasis on modeling and figuring out what mixed models actually do.  
+- We will have relatively low proportion of R code in this workshop. 
+Instead, we will focus on the understanding of the components of mixed-effects models. 
+Questions/concerns via e-mail are encouraged.   
+- Emphasis on modeling and figuring out what mixed-effects models actually do.  
 - The statistical notation we will use throughout this workshop is presented [here](0-prep). 
-- DON'T PANIC when you see the math notation. 
-It is **not expected** that you walk out of this workshop as a master in math notation! But the variance-covariance functions are important to understand what mixed models actually do.  
-- Schedule:
+- DON'T PANIC when you see all the math notation and matrices. We will go slowly together. 
+It is also **not expected** that you walk out of this workshop as a math notation wizard! 
 
 {% capture text %}
 1. Fundamentals of linear mixed models  
@@ -59,39 +38,42 @@ It is **not expected** that you walk out of this workshop as a master in math no
 
 ## Outline for today
 
--   **Review on linear models**: Refresh (all-fixed-effects) linear models, and get to mixed-effects models by adding an extra assumption. 
--   **Review on variance-covariance matrices**: this is important because the information of the random effects is stored in the variance-covariance matrix.  
--   **Fixed effects versus random effects**: Where does the information in the fixed effects and random effects go?
--   **Application**: what does this all mean when we want to fit a model to our data?
+-   **Review of linear models**: begin with a refresher on linear models (all fixed-effects), then introduce mixed-effects models by incorporating an additional assumption.
+-   **The variance-covariance matrix**: the information of the random effects is stored in the variance-covariance matrix!  
+-   **Fixed effects vs. random effects**: where/how is the information from each type of effect captured?
+-   **Application**: practical implications of these concepts when fitting a model to your data.
 
 ------
 
-## Review on linear models
+## Linear models review  
 
 ### The famous intercept-and-slope linear model
 
-{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="Figure 2. A good example for the intercept-and-slope model: Apple diameter versus time." width="75%" id = "intercept_slope_fig1" %}
+{% include figure.html img="day1/linear_regression_1.jpg" alt="" caption="Figure 2. A good example for the intercept-and-slope model: apple diameter versus time." width="75%" id = "intercept_slope_fig1" %}
 
 One of the most popular models is the intercept-and-slope model. 
-It's so simple and [interpretable](https://en.wikipedia.org/wiki/Simple_linear_regression#Interpretation)! 
-Most of us learned this way of writing out the statistical model, called "model equation form":
+It's so simple and interpretable! 
+Most of us learned a way of writing out the statistical model called "model equation form". 
+For a quantitative predictor $$x$$, the model equation form is    
 
 $$y_{i} = \beta_0 + x_{i} \beta_1 + \varepsilon_{i}, \\ \varepsilon_i \sim N(0, \sigma^2),$$  
 
 where $$y_{i}$$ is the observed value for the $$i$$th observation, 
 $$\beta_0$$ is the intercept (i.e., the expected value of $$y$$ when $$x=0$$), 
-$$\beta_1$$ is the slope parameter (i.e., the expected increase in $$y$$ with a unity increase in $$x$$), 
+$$\beta_1$$ is the slope parameter (i.e., the expected increase in $$y_i$$ with a unity increase in $$x$$), 
 $$x_i$$ is the predictor for the $$i$$th observation, 
 and $$\varepsilon_{i}$$ is the difference between the observed value $$y$$ 
-and the expected value $$E(y_i)=\mu_i=\beta_0+x_i\beta_1$$ - that's why we often call it "residual". 
+and the expected value $$E(y_i) = \beta_0+x_i\beta_1$$ - that's why we often call it "residual". 
 Typically, $$\boldsymbol{\beta} \equiv \begin{bmatrix} \beta_0 \\ \beta_1 \end{bmatrix}$$ 
 is estimated via maximum likelihood estimation. Also, when we assume a Normal distribution, 
 maximum likelihood estimation yields the same point estimates as least squares estimation. 
 
 
-Look at the plot above. A farmer decided to measure the diameter of apples **selected randomly from randomly selected trees** at different points in time.  
+Look at the plot above ([Figure 2](#intercept_slope_fig1)). 
+The data are measurements of the diameter of apples that were **randomly selected from randomly selected trees** at different points in time.  
 
-Can we fit the model to that data? Let's review the assumptions we make in this model (which is the default model in most software).   
+Can we fit the intercept-and-slope model to that data? 
+Let's review the assumptions we make in this model (which is the default model in most software).   
 - Linearity  
 - Constant variance  
 - Independence  
@@ -100,13 +82,14 @@ Can we fit the model to that data? Let's review the assumptions we make in this 
 
 ### Let's fit the same statistical model using distribution notation and matrix notation
 
-There are other ways of writing out the intercept-and-slope statistical model above. 
-
+There are other ways of writing out the statistical model above besides the model equation form. 
 Instead of focusing on the distribution of the residuals, we can focus on the distribution of the data $$y$$:  
 
 $$y_{i} \sim N(\mu_i, \sigma^2), \\ \mu_i = \beta_0 + x_{i} \beta_1.$$
 
-With this notation (called "probability distribution form"), it is easier to switch to other distributions ([Day 3](3-lesson) of this workshop). We can further express this equation using vectors and matrices:  
+This type of notation is called "probability distribution form". 
+The probability distribution form makes it easier to switch to other distributions beyond the Normal ([Day 3](3-lesson) of this workshop). 
+We can further express this equation using vectors and matrices:  
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma), \\ \boldsymbol{\mu} = \boldsymbol{1} \boldsymbol{\beta_0} + \mathbf{x} \boldsymbol{\beta_1} = \mathbf{X}\boldsymbol{\beta},$$
 
@@ -133,48 +116,6 @@ $$\begin{bmatrix}y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \sim N \left( \begin{
 Cov(y_2, y_1) & Var(y_2) & \dots & Cov(y_2, y_n)\\
 \vdots & \vdots & \ddots & \vdots \\ 
 Cov(y_n, y_1) & Cov(y_n, y_2) & \dots & Var(y_n) \end{bmatrix} \right).$$
-
-It is easier to define and understand the variance-covariance when we look directly at vectors and matrices. This will come particularly handy in our mixed models applications! 
-
-
-### Review on variance-covariance matrices  
-
-#### What does "the variance of $$y$$" even mean?  
-
-Random variables are usually described with their properties like the expected value and variance. 
-The expected value and variance are the first and second central moments of a distribution, respectively. 
-Regardless of the distribution of a random variable $$Y$$, we could calculate its expected value $$E(Y)$$ and variance $$Var(Y)$$. 
-The expected value measures the average outcome of $$Y$$. 
-The variance measures the dispersion of $$Y$$, i.e. how far the possible outcomes are spread out from their average. 
-
-{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Figure 3. Normal distributions" width="75%" id = "univariate_normal" %}
-
-**Discuss in the plot above:**  
--   Expected value  
--   Variance  
--   Covariance?
-
-#### On the covariance of two random variables $$y_1$$ and $$y_2$$    
-
-Covariance between two random variables means how the two random variables behave relative to each other. The variance of a random variable is the covariance of a random variable with itself. Let's take two variables $$y_1$$ and $$y_2$$ that have variances of 1 each, and also a covariance of 0.6 [Figure 4](#multivariate_normal). We can write that out as 
-
-$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right),$$
-
-which is visualized in [Figure 4](#multivariate_normal).   
-
-{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables." width="75%" id = "multivariate_normal" %}
-
-**Discuss in the plot above:**  
--   Expected value  
--   Variance  
--   Covariance 
-
-## Adding a random effect to the model   
-
-### Independent observations  
-
-Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
-The apples were randomly selected from random trees from a field. 
 
 {% include modal.html button="Example data" color="success" title="Example data" 
 text='<head>
@@ -261,6 +202,52 @@ text='<head>
         </tr>
     </table>
 </body>' %}
+
+
+### Variance-covariance matrices  
+
+#### What does variance even mean?  
+
+Random variables are usually described with their properties like the expected value and variance. 
+The expected value and variance are the first and second central moments of a distribution, respectively. 
+Regardless of the distribution of a random variable $$Y$$, we could calculate its expected value $$E(Y)$$ and variance $$Var(Y)$$. 
+The expected value measures the average outcome of $$Y$$. 
+The variance measures the dispersion of $$Y$$, i.e. how far the possible outcomes are spread out from their average. 
+
+{% include figure.html img="day1/normal_univariate.png" alt="Univariate Normal distributions" caption="Figure 3. Normal distributions" width="75%" id = "univariate_normal" %}
+
+**Discuss in the plot above:**  
+-   Expected value  
+-   Variance  
+-   Covariance?
+
+#### On the covariance of two random variables $$y_1$$ and $$y_2$$    
+
+Covariance between two random variables means how the two random variables behave relative to each other. 
+Essentially, it quantifies the relationship between their joint variability. 
+The variance of a random variable is the covariance of a random variable with itself. 
+Consider two variables $$y_1$$ and $$y_2$$ each with a variance of 1 and a covariance of 0.6. 
+The data shown in [Figure 4](#multivariate_normal) arise from the multivariate normal distribution
+
+$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right),$$
+
+where the means of $$y_1$$ and $$y_2$$ are 10 and 8, respectively, and their covariance structure is represented in the variance-covariance matrix. 
+
+{% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables." width="75%" id = "multivariate_normal" %}
+
+**Discuss in the plot above:**  
+-   Expected value  
+-   Variance  
+-   Covariance 
+
+## Adding a random effect to the model   
+
+### Independent observations  
+
+Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
+The apples were randomly selected from random trees from a field. 
+
+
 
 If we used the default model in most software, we would assume  
 
@@ -504,7 +491,6 @@ We can easily come up with two models:
 <body>
     <pre>
 <code>
-library(tidyverse)
 library(glmmTMB)
 
 data(gilmour.serpentine)
