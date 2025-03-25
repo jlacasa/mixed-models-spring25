@@ -472,7 +472,24 @@ We can easily come up with two models:
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u); \ \ \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
 
-{% highlight r %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed R Code</title>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-x: auto; /* Enables horizontal scrolling if the code is too wide */
+        }
+    </style>
+</head>
+<body>
+    <pre>
+<code>
 library(glmmTMB)
 library(agridat)
 
@@ -483,8 +500,11 @@ m1 <- glmmTMB(yield ~ 1 + gen + rep, data = dd)
 m2 <- glmmTMB(yield ~ 1 + gen + (1|rep), data = dd)
 
 m1
-{% endhighlight %}
 
+</code>
+    </pre>
+</body>
+</html>
 
 {% highlight text %}
 ## Formula:          yield ~ 1 + gen + rep
@@ -544,6 +564,8 @@ m1
 m2
 {% endhighlight %}
 
+
+
 {% highlight text %}
 ## Formula:          yield ~ 1 + gen + (1 | rep)
 ## Data: dd
@@ -600,8 +622,6 @@ m2
 ##       genWW1402        genWW1477        genWW1831         genWYUNA    genYARRALINKA  
 ##        -117.333         -185.667          -86.667         -176.667         -245.000
 {% endhighlight %}
-
-
 
 ------
 
