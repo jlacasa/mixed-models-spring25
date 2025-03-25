@@ -4,6 +4,27 @@ nav: Day 1
 topics: Linear models review; Fixed effects vs. random effects
 ---
 
+- [Welcome!](#welcome-)
+- [Housekeeping](#housekeeping)
+- [Outline for today](#outline-for-today)
+- [Linear models review](#linear-models-review)
+  * [The famous intercept-and-slope linear model](#the-famous-intercept-and-slope-linear-model)
+  * [Let's fit the same statistical model using distribution notation and matrix notation](#let-s-fit-the-same-statistical-model-using-distribution-notation-and-matrix-notation)
+  * [Variance-covariance matrices](#variance-covariance-matrices)
+    + [What does variance even mean?](#what-does-variance-even-mean-)
+    + [On the covariance of two random variables $$y_1$$ and $$y_2$$](#on-the-covariance-of-two-random-variables---y-1---and---y-2--)
+- [Adding a random effect to the model](#adding-a-random-effect-to-the-model)
+  * [Independent observations](#independent-observations)
+  * [Non-independent observations](#non-independent-observations)
+  * [How do we define $$\beta_{0j}$$?](#how-do-we-define----beta--0j----)
+    + [Fixed](#fixed)
+    + [Random](#random)
+- [Generalities -- what are mixed models anyways?](#generalities----what-are-mixed-models-anyways-)
+  * [Random effects](#random-effects)
+  * [Fixed effects versus random effects](#fixed-effects-versus-random-effects)
+- [Applied example](#applied-example)
+- [Wrap-up](#wrap-up)
+- [What's next](#what-s-next)
 
 ------------------
 
@@ -430,6 +451,7 @@ Take your time to digest the variance-covariance matrix above. What type of data
 - By definition, random effects are regression coefficients that arise from a random distribution. 
 - Typically, a random effect $$u \sim N(0, \sigma^2_u)$$.   
 - We estimate the variance $$\sigma^2_u$$.  
+- Calculating degrees of freedom can get much more complex than in all-fixed effects models (e.g., with unbalanced data, spatio-temporally correlated data, or non-normal data).  
 - In the context of designed experiments, random effects are assumed to be independent to each other and independent to the residual.  
 
 
@@ -461,8 +483,6 @@ Some good references:
 
 
 ## Applied example  
-
-[[R code](#)]
 
 -   Field experiment at Colby, KS.  
 -   One treatment factor: genotype (treatment structure).  
