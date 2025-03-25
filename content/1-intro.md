@@ -354,7 +354,7 @@ Now, we don't estimate the effect, but the variance $$\sigma^2_b$$.
 Note that there are $$J$$ levels of the random effects, meaning they are **categorical**.  
 Also, now 
 
-$$\hat{\boldsymbol{\beta}}_{REML} = (\mathbf{X}^T \mathbf{R}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{R}^{-1} \mathbf{y},$$
+$$\hat{\boldsymbol{\beta}}_{REML} = (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{V}^{-1} \mathbf{y},$$
 
 ## Generalities -- what are mixed models anyways?
 
@@ -365,7 +365,7 @@ $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbo
 \begin{bmatrix}\mathbf{u} \\ \boldsymbol{\varepsilon} \end{bmatrix} \sim \left(
 \begin{bmatrix}\boldsymbol{0} \\ \boldsymbol{0} \end{bmatrix}, 
 \begin{bmatrix}\mathbf{G} & \boldsymbol{0} \\
-\boldsymbol{0} & \mathbf{R} \end{bmatrix} 
+\boldsymbol{0} & \mathbf{V} \end{bmatrix} 
 \right),$$
 
 where $$\mathbf{y}$$ is the observed response, 
@@ -375,7 +375,7 @@ $$\boldsymbol{\beta}$$ is the vector containing the fixed-effects,
 $$\mathbf{u}$$ is the vector containing the random effects, 
 $$\boldsymbol{\varepsilon}$$ is the vector containing the residuals, 
 $$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
-and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
+and $$\mathbf{V}$$ is the variance-covariance matrix of the residuals. 
 Note that $$\mathbf{X} \boldsymbol{\beta}$$ is the fixed effects part of the model, and 
 $$\mathbf{Z}\mathbf{u}$$ is the random effects part of the model.
 
@@ -449,14 +449,14 @@ $$\mathbf{Z} = \begin{array}{cc}
 " %}
 
 Using the probability distribution form, we can then say that $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta}$$ 
-and $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$. 
+and $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{V}$$. 
 Usually, we assume $$\mathbf{G} = \sigma^2_u 
 \begin{bmatrix} 1 & 0 & 0 & \dots 0 \\
 0 & 1 & 0 & \dots 0 \\
 0 & 0 & 1 & \dots 0 \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & 0 & \dots 1
-\end{bmatrix} $$ and  $$\mathbf{R} = \sigma^2 
+\end{bmatrix} $$ and  $$\mathbf{V} = \sigma^2 
 \begin{bmatrix} 1 & 0 & 0 & \dots 0 \\
 0 & 1 & 0 & \dots 0 \\
 0 & 0 & 1 & \dots 0 \\
@@ -496,10 +496,10 @@ Take your time to digest the variance-covariance matrix above. What type of data
 Restricted maximum likelihood estimation (REML) is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
 - In REML, the likelihood is maximized after accounting for the model’s fixed effects.  
 
-- In ML, $$-\ell_{ML}(\boldsymbol{\sigma; \boldsymbol{\beta}, \mathbf{y}}) = - (\frac{n}{2}) \log(2\pi)-(\frac{1}{2}) \log ( \vert \mathbf{R}(\boldsymbol\sigma) \vert ) - (\frac{1}{2}) (\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^T[\mathbf{R}(\boldsymbol\sigma)]^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})$$  
-- In REML, $$-\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log ( \vert \mathbf{R}(\boldsymbol\sigma) \vert ) - (\frac{1}{2})log \left(  \vert \mathbf{X}^T[\mathbf{R}(\boldsymbol\sigma)]^{-1}\mathbf{X} \vert \right) - (\frac{1}{2})\mathbf{r}[\mathbf{R}(\boldsymbol\sigma)]^{-1}\mathbf{r}$$, where $$p = rank(\mathbf{X})$$ and $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
+- In ML, $$-\ell_{ML}(\boldsymbol{\sigma; \boldsymbol{\beta}, \mathbf{y}}) = - (\frac{n}{2}) \log(2\pi)-(\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2}) (\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})$$  
+- In REML, $$-\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2})log \left(  \vert \mathbf{X}^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{X} \vert \right) - (\frac{1}{2})\mathbf{r}[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{r}$$, where $$p = rank(\mathbf{X})$$ and $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
   - Start with initial values for $$\boldsymbol{\sigma}$$, $$\tilde{\boldsymbol{\sigma}}$$.  
-  - Compute $$\mathbf{G}(\tilde{\boldsymbol{\sigma}})$$ and $$\mathbf{R}(\tilde{\boldsymbol{\sigma}})$$.  
+  - Compute $$\mathbf{G}(\tilde{\boldsymbol{\sigma}})$$ and $$\mathbf{V}(\tilde{\boldsymbol{\sigma}})$$.  
   - Obtain $$\boldsymbol{\beta}$$ and $$\mathbf{b}$$.   
   - Update $$\tilde{\boldsymbol{\sigma}}$$.  
   - Repeat until convergence.  
@@ -510,7 +510,7 @@ Restricted maximum likelihood estimation (REML) is the default in most mixed eff
 **Group discussion:** what determines if an effect should be random of fixed? 
 Consider the assumptions:  
 
-- $$\hat{\boldsymbol{\beta}} = (\mathbf{X}^T \mathbf{R}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{R}^{-1} \mathbf{y}$$ 
+- $$\hat{\boldsymbol{\beta}} \sim N \left( (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{V}^{-1} \mathbf{y}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$ 
 - $$u_j \sim N(0, \sigma^2_u)$$ 
 - What process is being studied?  
 - How were the levels selected? (randomly, carefully selected)  
@@ -745,7 +745,7 @@ Now we know what we mean when we say "factor A was considered fixed and factor B
     </tr>
     <tr>
         <th>Assumptions</th>
-        <td>$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^T \mathbf{R}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{R}^{-1} \mathbf{y}$$</td>
+        <td>$$\hat{\boldsymbol{\beta}} \sim N \left( (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{V}^{-1} \mathbf{y}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$</td>
         <td>$$u_j \sim N(0, \sigma^2_u)$$</td>
     </tr>
     <tr>
