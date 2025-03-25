@@ -416,7 +416,8 @@ $$\begin{array}{ccc}
 0 & 1 & 0 \\
 0 & 1 & 0 
 \end{bmatrix} 
-\end{array}$$, $$\mathbf{Z} = \begin{array}{cc}
+\end{array}$$, 
+$$\mathbf{Z} = \begin{array}{cc}
 \text{f}1 \phantom{-} \text{f}2 \phantom{-} \text{f}3 \phantom{-} \text{f}4 \phantom{-} \text{f}5 \\ 
 \begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 & 0 \\
