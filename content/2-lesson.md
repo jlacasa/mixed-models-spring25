@@ -114,7 +114,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 **Experimental unit versus observational unit**  
 - Experimental unit (EU): smallest unit to which a treatment is independently assigned.  
 - Observational unit (OU): smallest unit on which observations are made. 
-- If OU $$\textgreater$$ EU, then not all observations are independent. 
+- If OU $$>$$ EU, then not all observations are independent. 
 
 ### Common types of designed experiments  
 
@@ -140,7 +140,7 @@ m_rcbd <- glmmTMB(yield ~ gen + (1|rep), data = dat)
 simulateResiduals(m_rcbd, plot = TRUE)
 {% endhighlight %}
 
-{% include figure.html img="day2/DHARMa_rcbd.jpg" alt="" caption="" width="50%" %}
+{% include figure.html img="day2/DHARMa_rcbd.png" alt="" caption="" width="50%" %}
 
 {% highlight text %}
 ## Object of Class DHARMa with simulated residuals based on 250 simulations with refit = FALSE . See ?DHARMa::simulateResiduals for help. 
