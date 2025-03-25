@@ -244,10 +244,8 @@ where the means of $$y_1$$ and $$y_2$$ are 10 and 8, respectively, and their cov
 
 ### Independent observations  
 
-Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of diameter of apples. 
-The apples were randomly selected from random trees from a field. 
-
-
+Back to the example in [Figure 2](#intercept_slope_fig1). Let's assume we have $$n$$ observations of apple diameter. 
+Remember, the apples were **randomly selected from random trees from a field**. 
 
 If we used the default model in most software, we would assume  
 
@@ -275,17 +273,16 @@ $$\begin{bmatrix}y_1 \\ y_2 \\ y_3 \\ y_4 \\ \vdots \\ y_n \end{bmatrix} \sim N
 0 & 0 & 0 & 0 & \dots & \sigma^2 \end{bmatrix}
 \right).$$
 
-Remember the assumptions:
+Discuss the assumptions:
 - Linearity  
 - Constant variance  
-- Independence  
+- **Independence**  
 - Normality  
 
-These assumptions makes sense when the observations are independent (i.e., there is no underlying structure to take into account).    
 
 ### Non-independent observations  
 
-Now, imagine that the observations are actually diameters from random apples, but they were taken from 5 different fields (2 from each field). 
+Now, imagine that the observations are actually diameters from random apples, but they were taken from 5 different fields. 
 These observations are no longer independent, because apples from the same field are more similar to each other than apples from different fields.
 This is when mixed-effects models enter the story - they allow us to indicate *what is similar to what* via random effects. 
 In this case, we expect the growth rate to be similar among fields, but the baseline (a.k.a., the intercept) to be field-specific. Then,   
@@ -320,8 +317,6 @@ Now, we don't estimate the effect, but the variance $$\sigma^2_b$$.
 ## Generalities -- what are mixed models anyways?
 
 Mixed models combine fixed effects and random effects. 
-
-
 Generally speaking, we can write out a mixed-effects model using the model equation form, as   
 
 $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbol{\varepsilon}, \\ 
@@ -339,6 +334,8 @@ $$\mathbf{u}$$ is the vector containing the random effects parameters,
 $$\boldsymbol{\varepsilon}$$ is the vector containing the residuals, 
 $$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
 and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
+Note that $$\mathbf{X} \boldsymbol{\beta}$$ is the fixed effects part of the model, and 
+$$\mathbf{Z}\mathbf{u}$$ is the random effects part of the model.
 
 {% include modal.html button="Example for <strong>X</strong> and <strong>Z</strong>" color="success" 
 title="Example for <strong>X</strong> and <strong>Z</strong>" 
@@ -347,34 +344,34 @@ Said first 10 observations of apple diameters include days 3 and 6 (which you ca
 \text{Int} \phantom{-} \text{day} \\ 
 \begin{bmatrix} 
 1 & 3 \\
-1 & 3 \\
-1 & 3 \\
-1 & 3 \\
+1 & 6 \\
 1 & 3 \\
 1 & 6 \\
+1 & 3 \\
 1 & 6 \\
+1 & 3 \\
 1 & 6 \\
-1 & 6 \\
-1 & 6  
+1 & 3 \\
+1 & 6 
 \end{bmatrix} 
 \end{array}$$, $$\mathbf{Z} = \begin{array}{cc}
 \text{f}1 \phantom{-} \text{f}2 \phantom{-} \text{f}3 \phantom{-} \text{f}4 \phantom{-} \text{f}5 \\ 
 \begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1 \\
 1 & 0 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
 0 & 0 & 0 & 0 & 1 \end{bmatrix}
 \end{array}$$
 
 ------
 
 <strong>Example B.</strong> Let's focus on the first 10 observations of apple diameter. 
-In this case, we aim to predict <strong>final</strong> diameter based on the apple variety: Red delicious (RD), Gala (G) or Fuji(F).
+In this case, we aim to predict <strong>final</strong> diameter based on the apple variety: Red delicious (RD), Gala (G) or Fuji (F).
 You can still find this information in <strong>X</strong>, . The <strong>Z</strong> matrix remains the same. 
 
 $$\begin{array}{ccc}  
@@ -392,7 +389,9 @@ $$\begin{array}{ccc}
 0 & 1 & 0 \\
 0 & 1 & 0 
 \end{bmatrix} 
-\end{array}$$, $$\mathbf{Z} = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\
+\end{array}$$, $$\mathbf{Z} = \begin{array}{cc}
+\text{f}1 \phantom{-} \text{f}2 \phantom{-} \text{f}3 \phantom{-} \text{f}4 \phantom{-} \text{f}5 \\ 
+\begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 \\
@@ -471,7 +470,7 @@ Some good references:
 We can easily come up with two models:
 
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
-2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u) \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
+2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u); \ \ \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
 
 <html lang="en">
 <head>
@@ -492,6 +491,7 @@ We can easily come up with two models:
     <pre>
 <code>
 library(glmmTMB)
+library(agridat)
 
 data(gilmour.serpentine)
 dd <- gilmour.serpentine
@@ -503,12 +503,65 @@ m2 <- glmmTMB(yield ~ 1 + gen + (1|rep), data = dd)
 </body>
 </html>
 
+{% highlight text %}
+## m1
+## 
+## Formula:          yield ~ 1 + gen + rep
+## Data: dd
+##       AIC       BIC    logLik  df.resid 
+##  4159.176  4577.076 -1969.588       220 
+## 
+## Number of obs: 330
+## 
+## Dispersion estimate for gaussian family (sigma^2): 8.95e+03 
+## 
+## Fixed Effects:
+## 
+## Conditional model:
+##     (Intercept)  gen(WqKPWmH*3Ag         genAMERY         genANGAS        genAROONA       genBATAVIA  
+##        720.2473          24.3341         -93.3320        -132.6651        -153.6650        -175.3316  
+##        genBD231        genBEULAH         genBLADE  genBT_SCHOMBURG        genCADOUX        genCONDOR  
+##        -70.3321        -173.6649        -269.9978         -48.9988        -223.3313        -124.3318  
+##     genCORRIGIN    genCUNNINGHAM  genDGR/MNX-9-9e    genDOLLARBIRD     genEXCALIBUR        genGOROKE  
+##       -217.6647        -254.6645         -47.6655        -200.6648         -54.9988        -141.6651  
+##      genHALBERD       genHOUTMAN          genJANZ      genK2011-5*       genKATUNGA         genKIATA  
+##        -53.3322        -209.3314        -214.6647         -87.3320        -110.3319        -165.6649  
+##         genKITE         genKULIN          genLARK         genLOWAN         genM4997         genM5075  
+##       -179.9982         -90.9986        -336.3308        -152.3317        -145.9984        -194.6648  
+##        genM5097       genMACHETE       genMEERING      genMOLINEUX        genOSPREY         genOUYEN  
+##       -102.6653        -231.3313        -247.6646        -165.6649        -161.9983        -136.6651  
+##        genOXLEY       genPELSART       genPEROUSE        genRAC655     genRAC655'S'        genRAC696  
+##       -221.6647        -200.3314        -283.6644        -112.6652        -113.6652          -3.6657  
+##       genRAC710        genRAC750        genRAC759        genRAC772        genRAC777        genRAC779  
+##        -50.9988         -77.3320         -41.9989           5.0009        -172.3316           3.6676  
+##       genRAC787        genRAC791        genRAC792        genRAC798        genRAC804        genRAC805  
+##       -117.9985         -72.6654        -102.3319          -1.6657         -44.9989         -42.9989  
+##       genRAC806        genRAC807        genRAC808        genRAC809        genRAC810        genRAC811  
+##        -35.3322         -91.3320         -53.9988         -43.3322        -131.6651          42.3340  
+##       genRAC812        genRAC813        genRAC814        genRAC815        genRAC816        genRAC817  
+##        -93.9986         -83.3320         -72.3321        -110.9985         -66.3321         -99.9986  
+##       genRAC818        genRAC819        genRAC820        genRAC821       genROSELLA    genSCHOMBURGK  
+##       -106.9986        -121.3318          -0.9991         -98.3319        -184.3315        -132.3318  
+##       genSHRIKE         genSPEAR      genSTILETTO        genSUNBRI      genSUNFIELD       genSUNLAND  
+##       -127.9985        -254.6645        -156.9983        -218.3314        -206.6647        -182.6649  
+##        genSWIFT        genTASMAN       genTATIARA     genTINCURRIN       genTRIDENT         genVF299  
+##       -196.9981        -160.9983         -64.3321         -18.9984        -132.6651         -66.3321  
+##        genVF300         genVF302         genVF508         genVF519         genVF655         genVF664  
+##       -111.6652        -108.3319          11.6675          -0.9991        -160.1644        -106.6652  
+##        genVG127         genVG503         genVG506         genVG701         genVG714         genVG878  
+##       -109.6652         -42.9989        -108.6652         -19.3323        -108.3319          52.3340  
+##      genWARBLER         genWI216         genWI221         genWI231         genWI232      genWILGOYNE  
+##       -216.9980           4.0009         -17.3323        -218.3314         -56.3321        -130.9984  
+##       genWW1402        genWW1477        genWW1831         genWYUNA    genYARRALINKA            repR2  
+##       -117.3318        -185.6643         -86.6653        -176.6649        -244.9979          96.0996  
+##           repR3  
+##       -129.8458
+{% endhighlight %}
+
 ------
 
 ## Wrap-up  
 
-- Assumptions in mixed models. 
-- 
 
 ## What's next  
 
