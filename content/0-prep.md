@@ -16,7 +16,7 @@ this is optional, but a good starting point.
 
 - **Install R and RStudio:** Install [R](https://cran.r-project.org/){:target="_blank" rel="noopener"} and [RStudio](https://posit.co/download/rstudio-desktop/){:target="_blank" rel="noopener"}.
 - **Install these R packages:** We'll need `tidyverse`, `glmmTMB`, `DHARMa`, `car`, `emmeans`, `multcomp`, and `agridat`.
-- **Check out R for Data Science** (Garrett Grolemund and Hadley Wickham, 2016) is a free online book that 
+- **Check out R for Data Science** [(Garrett Grolemund and Hadley Wickham, 2016)](https://r4ds.hadley.nz/) is a free online book that 
 contains basic and advanced information about R programming. 
 
 -------------
