@@ -82,7 +82,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
     </tr>
     <tr>
         <th>Assumptions</th>
-        <td>$$\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$</td>
+        <td>$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^T \mathbf{R}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{R}^{-1} \mathbf{y}$$</td>
         <td>$$u_j \sim N(0, \sigma^2_u)$$</td>
     </tr>
     <tr>

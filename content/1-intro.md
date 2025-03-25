@@ -510,7 +510,7 @@ Restricted maximum likelihood estimation (REML) is the default in most mixed eff
 **Group discussion:** what determines if an effect should be random of fixed? 
 Consider the assumptions:  
 
-- $$\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$ 
+- $$\hat{\boldsymbol{\beta}} = (\mathbf{X}^T \mathbf{R}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{R}^{-1} \mathbf{y}$$ 
 - $$u_j \sim N(0, \sigma^2_u)$$ 
 - What process is being studied?  
 - How were the levels selected? (randomly, carefully selected)  
@@ -745,7 +745,7 @@ Now we know what we mean when we say "factor A was considered fixed and factor B
     </tr>
     <tr>
         <th>Assumptions</th>
-        <td>$$\hat{\boldsymbol{\beta}} \sim N(\boldsymbol{\beta}, \frac{\sigma^2}{(n-1)s^2_\mathbf{x}})$$</td>
+        <td>$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^T \mathbf{R}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{R}^{-1} \mathbf{y}$$</td>
         <td>$$u_j \sim N(0, \sigma^2_u)$$</td>
     </tr>
     <tr>
