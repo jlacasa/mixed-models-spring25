@@ -296,7 +296,7 @@ Now, the random effects are blocks and the whole plot (genotype)and thus,
 the matrix $$\mathbf{Z}$$ gets bigger:   
 
 $$\mathbf{Z} = \begin{array}{cc}
-\text{b}1 \ \ \text{b}2 \text{b}3 \text{b}4 \text{b}5 \ \ \text{b}6 \\ 
+\text{b}1 \ \ \text{b}2 \ \text{b}3 \ \text{b}4 \ \text{b}5 \ \ \text{b}6 \\ 
 \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 \\
 1 & 0 & 0 & 0 & 0 & 0 \\
 1 & 0 & 0 & 0 & 0 & 0 \\
@@ -445,7 +445,12 @@ cld(marginal_means_splitplot,
 
 ## Applied example II -- repeated measures    
 
+For this last example, one of our attendees was so kind to share his data with us. 
+The data were generated from an experiment that was studying the effect of different 
+as potential replacements for antibiotics in swine production. 
+A total of 300 pigs were used in this study, 
 
+The same pig was measured throughout the study. What about independence?  
 
 ------
 
