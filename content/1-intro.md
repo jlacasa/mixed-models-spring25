@@ -472,24 +472,7 @@ We can easily come up with two models:
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
 2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u); \ \ \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed R Code</title>
-    <style>
-        pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow-x: auto; /* Enables horizontal scrolling if the code is too wide */
-        }
-    </style>
-</head>
-<body>
-    <pre>
-<code>
+{% highlight r %}
 library(glmmTMB)
 library(agridat)
 
@@ -498,14 +481,12 @@ dd <- gilmour.serpentine
 
 m1 <- glmmTMB(yield ~ 1 + gen + rep, data = dd)
 m2 <- glmmTMB(yield ~ 1 + gen + (1|rep), data = dd)
-</code>
-    </pre>
-</body>
-</html>
+
+m1
+{% endhighlight %}
+
 
 {% highlight text %}
-## m1
-## 
 ## Formula:          yield ~ 1 + gen + rep
 ## Data: dd
 ##       AIC       BIC    logLik  df.resid 
@@ -557,6 +538,70 @@ m2 <- glmmTMB(yield ~ 1 + gen + (1|rep), data = dd)
 ##           repR3  
 ##       -129.8458
 {% endhighlight %}
+
+
+{% highlight r %}
+m2
+{% endhighlight %}
+
+{% highlight text %}
+## Formula:          yield ~ 1 + gen + (1 | rep)
+## Data: dd
+##       AIC       BIC    logLik  df.resid 
+##  4174.135  4588.237 -1978.068       221 
+## Random-effects (co)variances:
+## 
+## Conditional model:
+##  Groups   Name        Std.Dev.
+##  rep      (Intercept) 92.14   
+##  Residual             95.02   
+## 
+## Number of obs: 330 / Conditional model: rep, 3
+## 
+## Dispersion estimate for gaussian family (sigma^2): 9.03e+03 
+## 
+## Fixed Effects:
+## 
+## Conditional model:
+##     (Intercept)  gen(WqKPWmH*3Ag         genAMERY         genANGAS        genAROONA       genBATAVIA  
+##         709.000           24.333          -93.333         -132.667         -153.667         -175.333  
+##        genBD231        genBEULAH         genBLADE  genBT_SCHOMBURG        genCADOUX        genCONDOR  
+##         -70.333         -173.667         -270.000          -49.000         -223.333         -124.333  
+##     genCORRIGIN    genCUNNINGHAM  genDGR/MNX-9-9e    genDOLLARBIRD     genEXCALIBUR        genGOROKE  
+##        -217.667         -254.667          -47.667         -200.667          -55.000         -141.667  
+##      genHALBERD       genHOUTMAN          genJANZ      genK2011-5*       genKATUNGA         genKIATA  
+##         -53.333         -209.333         -214.667          -87.333         -110.333         -165.667  
+##         genKITE         genKULIN          genLARK         genLOWAN         genM4997         genM5075  
+##        -180.000          -91.000         -336.333         -152.333         -146.000         -194.667  
+##        genM5097       genMACHETE       genMEERING      genMOLINEUX        genOSPREY         genOUYEN  
+##        -102.667         -231.333         -247.667         -165.667         -162.000         -136.667  
+##        genOXLEY       genPELSART       genPEROUSE        genRAC655     genRAC655'S'        genRAC696  
+##        -221.667         -200.333         -283.667         -112.667         -113.667           -3.667  
+##       genRAC710        genRAC750        genRAC759        genRAC772        genRAC777        genRAC779  
+##         -51.000          -77.333          -42.000            5.000         -172.333            3.667  
+##       genRAC787        genRAC791        genRAC792        genRAC798        genRAC804        genRAC805  
+##        -118.000          -72.667         -102.333           -1.667          -45.000          -43.000  
+##       genRAC806        genRAC807        genRAC808        genRAC809        genRAC810        genRAC811  
+##         -35.333          -91.333          -54.000          -43.333         -131.667           42.333  
+##       genRAC812        genRAC813        genRAC814        genRAC815        genRAC816        genRAC817  
+##         -94.000          -83.333          -72.333         -111.000          -66.333         -100.000  
+##       genRAC818        genRAC819        genRAC820        genRAC821       genROSELLA    genSCHOMBURGK  
+##        -107.000         -121.333           -1.000          -98.333         -184.333         -132.333  
+##       genSHRIKE         genSPEAR      genSTILETTO        genSUNBRI      genSUNFIELD       genSUNLAND  
+##        -128.000         -254.667         -157.000         -218.333         -206.667         -182.667  
+##        genSWIFT        genTASMAN       genTATIARA     genTINCURRIN       genTRIDENT         genVF299  
+##        -197.000         -161.000          -64.333          -19.000         -132.667          -66.333  
+##        genVF300         genVF302         genVF508         genVF519         genVF655         genVF664  
+##        -111.667         -108.333           11.667           -1.000         -160.167         -106.667  
+##        genVG127         genVG503         genVG506         genVG701         genVG714         genVG878  
+##        -109.667          -43.000         -108.667          -19.333         -108.333           52.333  
+##      genWARBLER         genWI216         genWI221         genWI231         genWI232      genWILGOYNE  
+##        -217.000            4.000          -17.333         -218.333          -56.333         -131.000  
+##       genWW1402        genWW1477        genWW1831         genWYUNA    genYARRALINKA  
+##        -117.333         -185.667          -86.667         -176.667         -245.000
+{% endhighlight %}
+
+
 
 ------
 
