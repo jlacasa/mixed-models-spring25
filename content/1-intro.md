@@ -10,9 +10,10 @@ topics: Linear models review; Fixed effects vs. random effects
 - [Linear models review](#linear-models-review)
   * [The famous intercept-and-slope linear model](#the-famous-intercept-and-slope-linear-model)
   * [Let's fit the same statistical model using distribution notation and matrix notation](#let-s-fit-the-same-statistical-model-using-distribution-notation-and-matrix-notation)
-  * [Variance-covariance matrices](#variance-covariance-matrices)
-    + [What does variance even mean?](#what-does-variance-even-mean-)
-    + [On the covariance of two random variables $$y_1$$ and $$y_2$$](#on-the-covariance-of-two-random-variables---y-1---and---y-2--)
+  * [Whiteboard example - qualitative predictor](#whiteboard-example---qualitative-predictor)
+- [Variance-covariance matrices](#variance-covariance-matrices)
+  * [What does variance even mean?](#what-does-variance-even-mean-)
+  * [On the covariance of two random variables $$y_1$$ and $$y_2$$](#on-the-covariance-of-two-random-variables---y-1---and---y-2--)
 - [Adding a random effect to the model](#adding-a-random-effect-to-the-model)
   * [Independent observations](#independent-observations)
   * [Non-independent observations](#non-independent-observations)
@@ -138,10 +139,12 @@ Cov(y_2, y_1) & Var(y_2) & \dots & Cov(y_2, y_n)\\
 \vdots & \vdots & \ddots & \vdots \\ 
 Cov(y_n, y_1) & Cov(y_n, y_2) & \dots & Var(y_n) \end{bmatrix} \right).$$
 
+### Whiteboard example - qualitative predictor  
 
-### Variance-covariance matrices  
 
-#### What does variance even mean?  
+## Variance-covariance matrices  
+
+### What does variance even mean?  
 
 Random variables are usually described with their properties like the expected value and variance. 
 The expected value and variance are the first and second central moments of a distribution, respectively. 
@@ -156,7 +159,7 @@ The variance measures the dispersion of $$Y$$, i.e. how far the possible outcome
 -   Variance  
 -   Covariance?
 
-#### On the covariance of two random variables $$y_1$$ and $$y_2$$    
+### On the covariance of two random variables $$y_1$$ and $$y_2$$    
 
 Covariance between two random variables means how the two random variables behave relative to each other. 
 Essentially, it quantifies the relationship between their joint variability. 
