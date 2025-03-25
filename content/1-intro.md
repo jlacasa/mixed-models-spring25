@@ -325,7 +325,7 @@ where $$u_j$$ is the effect of the $$j$$th field on the intercept (i.e., on the 
 In this case, $$u_j$$ is a fixed effect, which means it may be estimated via least squares estimation or maximum likelihood estimation. 
 Under both least squares and maximum likelihood (assuming normal distribution), we may estimate the parameters by computing 
 
-$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^TX)^{-1}\mathbf{X}^T\mathbf{y},$$
+$$\hat{\boldsymbol{\beta}}_{ML} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y},$$
 
 which yields the minimum variance unbiased estimate of $$\boldsymbol{\beta}$$. 
 
@@ -338,6 +338,9 @@ $$u_j \sim N(0, \sigma^2_b).$$
 
 Now, we don't estimate the effect, but the variance $$\sigma^2_b$$. 
 Note that there are $$J$$ levels of the random effects, meaning they are **categorical**.  
+Also, now 
+
+$$\hat{\boldsymbol{\beta}}_{REML} = (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{V}^{-1} \mathbf{y},$$
 
 ## Generalities -- what are mixed models anyways?
 
@@ -473,6 +476,8 @@ Take your time to digest the variance-covariance matrix above. What type of data
 - Calculating degrees of freedom can get much more complex than in all-fixed effects models (e.g., with unbalanced data, spatio-temporally correlated data, or non-normal data).  
 - In the context of designed experiments, random effects are assumed to be independent to each other and independent to the residual.  
 
+
+**Estimation**  
 
 Restricted maximum likelihood estimation (REML) is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
 - In REML, the likelihood is maximized after accounting for the model’s fixed effects.  
