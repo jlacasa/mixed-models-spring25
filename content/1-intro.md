@@ -337,7 +337,7 @@ The most common assumption (and the default in most statistical software) is tha
 $$u_j \sim N(0, \sigma^2_b).$$
 
 Now, we don't estimate the effect, but the variance $$\sigma^2_b$$. 
-Note that random effects are **categorical**.  
+Note that there are $$J$$ levels of the random effects, meaning they are **categorical**.  
 
 ## Generalities -- what are mixed models anyways?
 
@@ -430,7 +430,17 @@ $$\begin{array}{ccc}
 0 & 0 & 0 & 0 & 1 \end{bmatrix}$$
 " %}
 
-Using the probability distribution form, we can then say that $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta}$$ and $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$. Then,   
+Using the probability distribution form, we can then say that $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta}$$ 
+and $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$. 
+Usually, we assume $$\mathbf{G} = \sigma^2_u 
+\begin{bmatrix} 1 & 0 & 0 & \dots 0 \\
+0 & 1 & 0 & \dots 0 \\
+0 & 0 & 1 & \dots 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \dots 1
+\end{bmatrix} $$. 
+
+Then,   
 
 $$\mathbf{y} \sim N(\boldsymbol{\mu}, \Sigma),$$  
 
