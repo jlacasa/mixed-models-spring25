@@ -146,8 +146,8 @@ $$\sigma^2$$ is the residual variance.
 Since blocks are our only random effect, $$\mathbf{Z}$$ can be defined as 
 
 $$\mathbf{Z} = \begin{array}{cc}
-\text{b}1 \phantom{-} \text{b}2 \phantom{-} \text{b}3 \phantom{-} \text{b}4 \\ 
-\begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\
+\text{b}1 \text{b}2 \text{b}3 \text{b}4 \\ 
+\begin{bmatrix} 1 & 0 & 0 & 0 \\
 1 & 0 & 0 & 0 \\
 1 & 0 & 0 & 0 \\
 1 & 0 & 0 & 0 \\
@@ -285,8 +285,8 @@ Now, the random effects are blocks and the whole plot (genotype).
 Then, $$\mathbf{Z}$$ can be defined as 
 
 $$\mathbf{Z} = \begin{array}{cc}
-\text{b}1 \phantom{-} \text{b}2 \phantom{-} \text{b}3 \phantom{-} \text{b}4 \phantom{-} \text{b}5 \phantom{-} \text{b}6 \\ 
-\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\text{b}1 \text{b}2 \text{b}3 \text{b}4 \text{b}5 \text{b}6 \\ 
+\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 \\
 1 & 0 & 0 & 0 & 0 & 0 \\
 1 & 0 & 0 & 0 & 0 & 0 \\
 1 & 0 & 0 & 0 & 0 & 0 \\
