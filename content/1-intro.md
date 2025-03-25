@@ -166,7 +166,9 @@ The data shown in [Figure 4](#multivariate_normal) arise from the multivariate n
 
 $$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} 10 \\ 8 \end{bmatrix} , \begin{bmatrix}1 & 0.6 \\ 0.6 & 1 \end{bmatrix} \right),$$
 
-where the means of $$y_1$$ and $$y_2$$ are 10 and 8, respectively, and their covariance structure is represented in the variance-covariance matrix. 
+where the means of $$y_1$$ and $$y_2$$ are 10 and 8, respectively, and their covariance structure is represented in the variance-covariance matrix. Remember, 
+
+$$\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} \sim MVN \left( \begin{bmatrix} E(y_1) \\ E(y_2) \end{bmatrix} , \begin{bmatrix} Var(y_1) & Cov(y_1, y_2) \\ Cov(y_2,y_2) & Var(y_2) \end{bmatrix} \right).$$
 
 {% include figure.html img="day1/normal_multivariate.jpg" alt="Multivariate Normal distribution" caption="Figure 4. Multivariate Normal distribution showing the correlation between two random normal variables." width="75%" id = "multivariate_normal" %}
 
