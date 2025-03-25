@@ -117,92 +117,6 @@ Cov(y_2, y_1) & Var(y_2) & \dots & Cov(y_2, y_n)\\
 \vdots & \vdots & \ddots & \vdots \\ 
 Cov(y_n, y_1) & Cov(y_n, y_2) & \dots & Var(y_n) \end{bmatrix} \right).$$
 
-{% include modal.html button="Example data" color="success" title="Example data" 
-text='<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixed vs Random Effects Table</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-            font-weight: bold;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-    </style>
-</head>
-
-<body>
-    <table>
-        <tr>
-            <th>day</th>
-            <th>diameter_cm</th>
-            <th>field</th>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>2.9</td>
-            <td>A</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>2.8</td>
-            <td>B</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>2.9</td>
-            <td>C</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>2.7</td>
-            <td>D</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>3.0</td>
-            <td>E</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>3.6</td>
-            <td>A</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>3.9</td>
-            <td>B</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>3.7</td>
-            <td>C</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>3.8</td>
-            <td>D</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>3.7</td>
-            <td>E</td>
-        </tr>
-    </table>
-</body>' %}
-
 
 ### Variance-covariance matrices  
 
@@ -289,6 +203,93 @@ In this case, we expect the growth rate to be similar among fields, but the base
 
 $$y_{ij} = \beta_{0j} + x_{ij} \beta_1 + \varepsilon_{ij}, \\ \varepsilon_{ij} \sim N(0, \sigma^2),$$  
 
+
+{% include modal.html button="Example data" color="success" title="Example data" 
+text='<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed vs Random Effects Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>day</th>
+            <th>diameter_cm</th>
+            <th>field</th>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.9</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.8</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.9</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2.7</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3.0</td>
+            <td>E</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.6</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.9</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.7</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.8</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>3.7</td>
+            <td>E</td>
+        </tr>
+    </table>
+</body>' %}
+
 ### How do we define $$\beta_{0j}$$?
 
 #### Fixed   
@@ -337,6 +338,8 @@ $$\mathbf{G}$$ is the variance-covariance matrix of the random effects,
 and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
 Note that $$\mathbf{X} \boldsymbol{\beta}$$ is the fixed effects part of the model, and 
 $$\mathbf{Z}\mathbf{u}$$ is the random effects part of the model.
+
+
 
 {% include modal.html button="Example for <strong>X</strong> and <strong>Z</strong>" color="success" 
 title="Example for <strong>X</strong> and <strong>Z</strong>" 
@@ -434,7 +437,7 @@ Restricted maximum likelihood estimation (REML) is the default in most mixed eff
 - In REML, the likelihood is maximized after accounting for the model’s fixed effects.  
 
 - In ML, $$-\ell_{ML}(\boldsymbol{\sigma; \boldsymbol{\beta}, \mathbf{y}}) = - (\frac{n}{2}) \log(2\pi)-(\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2}) (\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})$$  
-- In REML, $$\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2})log \left(  \vert \mathbf{X}^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{X} \vert \right) - (\frac{1}{2})\mathbf{r}[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{r}$$, where $$p = rank(\mathbf{X})$$ and $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
+- In REML, $$-\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2})log \left(  \vert \mathbf{X}^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{X} \vert \right) - (\frac{1}{2})\mathbf{r}[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{r}$$, where $$p = rank(\mathbf{X})$$ and $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
   - Start with initial values for $$\boldsymbol{\sigma}$$, $$\tilde{\boldsymbol{\sigma}}$$.  
   - Compute $$\mathbf{G}(\tilde{\boldsymbol{\sigma}})$$ and $$\mathbf{R}(\tilde{\boldsymbol{\sigma}})$$.  
   - Obtain $$\boldsymbol{\beta}$$ and $$\mathbf{b}$$.   
