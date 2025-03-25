@@ -354,7 +354,7 @@ Now, we don't estimate the effect, but the variance $$\sigma^2_b$$.
 Note that there are $$J$$ levels of the random effects, meaning they are **categorical**.  
 Also, now 
 
-$$\hat{\boldsymbol{\beta}}_{REML} = (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{V}^{-1} \mathbf{y},$$
+$$\hat{\boldsymbol{\beta}}_{REML} = (\mathbf{X}^T \mathbf{R}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{R}^{-1} \mathbf{y},$$
 
 ## Generalities -- what are mixed models anyways?
 
@@ -496,8 +496,8 @@ Take your time to digest the variance-covariance matrix above. What type of data
 Restricted maximum likelihood estimation (REML) is the default in most mixed effects models because, for small data (aka most experimental data), maximum likelihood (ML) provides variance estimates that are downward biased.
 - In REML, the likelihood is maximized after accounting for the model’s fixed effects.  
 
-- In ML, $$-\ell_{ML}(\boldsymbol{\sigma; \boldsymbol{\beta}, \mathbf{y}}) = - (\frac{n}{2}) \log(2\pi)-(\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2}) (\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})$$  
-- In REML, $$-\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2})log \left(  \vert \mathbf{X}^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{X} \vert \right) - (\frac{1}{2})\mathbf{r}[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{r}$$, where $$p = rank(\mathbf{X})$$ and $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
+- In ML, $$-\ell_{ML}(\boldsymbol{\sigma; \boldsymbol{\beta}, \mathbf{y}}) = - (\frac{n}{2}) \log(2\pi)-(\frac{1}{2}) \log ( \vert \mathbf{R}(\boldsymbol\sigma) \vert ) - (\frac{1}{2}) (\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^T[\mathbf{R}(\boldsymbol\sigma)]^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})$$  
+- In REML, $$-\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log ( \vert \mathbf{R}(\boldsymbol\sigma) \vert ) - (\frac{1}{2})log \left(  \vert \mathbf{X}^T[\mathbf{R}(\boldsymbol\sigma)]^{-1}\mathbf{X} \vert \right) - (\frac{1}{2})\mathbf{r}[\mathbf{R}(\boldsymbol\sigma)]^{-1}\mathbf{r}$$, where $$p = rank(\mathbf{X})$$ and $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
   - Start with initial values for $$\boldsymbol{\sigma}$$, $$\tilde{\boldsymbol{\sigma}}$$.  
   - Compute $$\mathbf{G}(\tilde{\boldsymbol{\sigma}})$$ and $$\mathbf{R}(\tilde{\boldsymbol{\sigma}})$$.  
   - Obtain $$\boldsymbol{\beta}$$ and $$\mathbf{b}$$.   
