@@ -703,7 +703,7 @@ Now we know what we mean when we say "factor A was considered fixed and factor B
     <tr>
         <th>Research objective</th>
         <td>Usually, carefully selected treatments or genotypes</td>
-        <td>Usually, not the central point of the study.</td>
+        <td>Usually, the study design (aka structure in the data, or what is similar to what).</td>
     </tr>
     <tr>
         <th>Assumptions</th>

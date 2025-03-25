@@ -78,7 +78,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
     <tr>
         <th>Research objective</th>
         <td>Usually, carefully selected treatments or genotypes</td>
-        <td>Usually, not the central point of the study.</td>
+        <td>Usually, the study design (aka structure in the data, or what is similar to what).</td>
     </tr>
     <tr>
         <th>Assumptions</th>
@@ -476,7 +476,7 @@ The residuals are not independent because we are not accounting for the repeated
 Because we assume a first-order autoregressive structure, we say 
 
 $$\mathbf{y}_{i k l} \sim N(\boldsymbol{0}, \Sigma_ikl), \\
-\Sigma_ikl = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 \\
+\Sigma_{ikl} = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 \\
 \rho & 1 & \rho \\
 \rho^2 & \rho & 1\end{bmatrix}.$$
 
