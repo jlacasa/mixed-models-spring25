@@ -296,17 +296,17 @@ Now, the random effects are blocks and the whole plot (genotype)and thus,
 the matrix $$\mathbf{Z}$$ gets bigger:   
 
 $$\mathbf{Z} = \begin{array}{cc}
-\text{b}1 \ \ \text{b}2 \ \text{b}3 \ \text{b}4 \ \text{b}5 \ \ \text{b}6 \\ 
-\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 \\
-1 & 0 & 0 & 0 & 0 & 0 \\
-1 & 0 & 0 & 0 & 0 & 0 \\
-1 & 0 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 \\
-\vdots & \vdots & \vdots & \vdots \\
-0 & 0 & 0 & 0 & 0 & 1\end{bmatrix}
+\text{b}1 \ \ \text{b}2 \ \text{b}3 \ \text{b}4 \ \text{b}5 \ \ \text{b}6 \text{g}1\text{b}1 \ \text{g}2\text{b}1 \dots \\ 
+\begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & \dots & 0\\
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & \dots & 0\\
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & 0\\
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & 0\\
+0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & \dots & 0\\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & \dots & 0\\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & 0\\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & 0\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & \dots & 1 \end{bmatrix}
 \end{array}.$$
 
 
