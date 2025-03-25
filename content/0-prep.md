@@ -32,68 +32,13 @@ It is **not expected** that you walk out of this workshop as a math notation wiz
 
 *Examples:*   
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notation Table</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-            font-weight: bold;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-    </style>
-</head>
 
-<body>
-    <table>
-        <tr>
-            <th>Variable</th>
-            <th>Scalar</th>
-            <th>Vector</th>
-            <th>Matrix</th>
-        </tr>
-        <tr>
-            <td>Response variable</td>
-            <td>$$y$$ (e.g., $$y = 4$$)</td>
-            <td>$$\mathbf{y} \equiv (y_1, y_2, ..., y_n)'$$</td>
-            <td>$$\mathbf{y}_{n\times1}$$</td>
-        </tr>
-        <tr>
-            <td>Predictor variable</td>
-            <td>$$x_{1 i}$$, $$x_{2 i}$$, etc.</td>
-            <td>
-                $$\mathbf{x}_1 \equiv (x_{1,1}, x_{1,2}, ..., x_{1,n})$$ <br>
-                $$\mathbf{x}_2 \equiv (x_{2,1}, x_{2,2}, ..., x_{2,n})$$
-            </td>
-            <td>$$\mathbf{X}_{n\times p}$$</td>
-        </tr>
-        <tr>
-            <td>Effect parameters</td>
-            <td>$$\beta_0$$, $$\beta_1$$, etc.</td>
-            <td>$$\boldsymbol{\beta} \equiv (\beta_0, \beta_1, ..., \beta_p)'$$</td>
-            <td>$$\boldsymbol{\beta}_{p\times1}$$</td>
-        </tr>
-        <tr>
-            <td>Variance</td>
-            <td>$$\sigma^2$$</td>
-            <td></td>
-            <td>$$\Sigma$$ (very often we assume $$\Sigma = \sigma^2 \mathbf{I}$$)</td>
-        </tr>
-    </table>
-</body>
+| Variable | Scalar | Vector | Matrix |
+|------------------|------------------|------------------|------------------|
+| Response variable | $$y$$ (e.g., $$y = 4$$) | $$\mathbf{y} \equiv (y_1, y_2, ..., y_n)'$$ | $$\mathbf{y}_{n\times1}$$ |
+| Predictor variable | $$x_{1 i}$$, $$x_{2 i}$$, etc. | $$\mathbf{x}_1 \equiv (x_{1,1}, x_{1, 2}, ..., x_{1, n})$$ $$\mathbf{x}_2 \equiv (x_{2,1}, x_{2, 2}, ..., x_{2, n})$$ | $$\mathbf{X}_{n\times p}$$ |
+| Effect parameters | $$\beta_0$$, $$\beta_1$$, etc. | $$\boldsymbol{\beta} \equiv (\beta_0, \beta_1, ..., \beta_p)'$$ | $$\boldsymbol{\beta}_{p\times1}$$ |
+| Variance | $$\sigma^2$$ |  | $$\Sigma$$ (very often we assume $$\Sigma = \sigma^2 \mathbf{I}$$ ) |
 
 {% endcapture %}
 {% include alert.html text=text color=secondary %}  
