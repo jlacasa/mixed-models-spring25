@@ -54,7 +54,8 @@ contains basic and advanced information about R programming.
 -------------
 
 {% capture text %}
-**Notation we will use in this workshop**
+**Notation we will use in this workshop**  
+
 **DON'T PANIC** when you see the math notation. 
 It is **not expected** that you walk out of this workshop as a math notation wizard! 
 
