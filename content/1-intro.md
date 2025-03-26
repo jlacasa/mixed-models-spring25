@@ -510,7 +510,7 @@ Restricted maximum likelihood estimation (REML) is the default in most mixed eff
 **Group discussion:** what determines if an effect should be random of fixed? 
 Consider the assumptions:  
 
-- $$\hat{\boldsymbol{\beta}} \sim N \left( (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{V}^{-1} \mathbf{y}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$ 
+- $$\hat{\boldsymbol{\beta}} \sim N \left( \boldsymbol{\beta}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$ 
 - $$u_j \sim N(0, \sigma^2_u)$$ 
 - What process is being studied?  
 - How were the levels selected? (randomly, carefully selected)  
