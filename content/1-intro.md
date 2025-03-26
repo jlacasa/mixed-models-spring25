@@ -526,8 +526,13 @@ Some good references:
 -   One treatment factor: genotype (treatment structure).  
 -   Randomized Complete Block Design with 3 repetitions (design structure).  
 
+
 {% include figure.html img="day1/applied_example_rcbd.jpg" alt="" caption="Figure 5. Designed experiment. Colors indicate different genotypes." width="50%" id = "applied_ex" %}
 
+### Builiding the model  
+
+1. What is the *experiment blueprint*? (aka design structure)  
+2. What are the treatments?  
 
 We can easily come up with two models:
 
