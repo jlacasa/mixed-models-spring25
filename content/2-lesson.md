@@ -505,45 +505,36 @@ cld(marginal_means_feces,
 
 
 {% highlight text %}
-## Trt = A:
-##  Day emmean   SE  df lower.CL upper.CL .group
-##  10    15.9 1.26 517     12.9     18.9  a    
-##  17    18.6 1.24 517     15.6     21.5  ab   
-##  5     19.8 1.18 517     17.0     22.7   b   
+## Day = 5:
+##  Trt emmean   SE  df lower.CL upper.CL .group
+##  A     19.8 1.18 517     16.7     23.0  a    
+##  E     20.8 1.18 517     17.7     23.9  a    
+##  D     21.4 1.18 517     18.3     24.6  a    
+##  F     22.2 1.18 517     19.0     25.3  a    
+##  C     22.4 1.18 517     19.3     25.5  a    
+##  B     23.7 1.18 517     20.6     26.8  a    
 ## 
-## Trt = B:
-##  Day emmean   SE  df lower.CL upper.CL .group
-##  17    21.8 1.24 517     18.8     24.7  a    
-##  10    23.6 1.26 517     20.6     26.6  a    
-##  5     23.7 1.18 517     20.8     26.5  a    
+## Day = 10:
+##  Trt emmean   SE  df lower.CL upper.CL .group
+##  F     13.7 1.26 517     10.4     17.0  a    
+##  D     15.3 1.26 517     12.0     18.6  a    
+##  A     15.9 1.26 517     12.6     19.2  a    
+##  C     16.3 1.26 517     13.0     19.6  a    
+##  E     16.7 1.26 517     13.3     20.0  a    
+##  B     23.6 1.26 517     20.2     26.9   b   
 ## 
-## Trt = C:
-##  Day emmean   SE  df lower.CL upper.CL .group
-##  10    16.3 1.26 517     13.3     19.3  a    
-##  17    18.3 1.24 517     15.3     21.2  a    
-##  5     22.4 1.18 517     19.6     25.3   b   
-## 
-## Trt = D:
-##  Day emmean   SE  df lower.CL upper.CL .group
-##  10    15.3 1.26 517     12.3     18.3  a    
-##  17    18.9 1.24 517     15.9     21.8  ab   
-##  5     21.4 1.18 517     18.6     24.3   b   
-## 
-## Trt = E:
-##  Day emmean   SE  df lower.CL upper.CL .group
-##  10    16.7 1.26 517     13.6     19.7  a    
-##  17    19.1 1.24 517     16.1     22.1  ab   
-##  5     20.8 1.18 517     18.0     23.6   b   
-## 
-## Trt = F:
-##  Day emmean   SE  df lower.CL upper.CL .group
-##  10    13.7 1.26 517     10.7     16.7  a    
-##  17    18.2 1.24 517     15.2     21.1   b   
-##  5     22.2 1.18 517     19.3     25.0    c  
+## Day = 17:
+##  Trt emmean   SE  df lower.CL upper.CL .group
+##  F     18.2 1.24 517     14.9     21.5  a    
+##  C     18.3 1.24 517     15.0     21.5  a    
+##  A     18.6 1.24 517     15.3     21.8  a    
+##  D     18.9 1.24 517     15.6     22.1  a    
+##  E     19.1 1.24 517     15.8     22.4  a    
+##  B     21.8 1.24 517     18.5     25.0  a    
 ## 
 ## Confidence level used: 0.95 
-## Conf-level adjustment: sidak method for 3 estimates 
-## P value adjustment: sidak method for 3 tests 
+## Conf-level adjustment: sidak method for 6 estimates 
+## P value adjustment: sidak method for 15 tests 
 ## significance level used: alpha = 0.05 
 ## NOTE: If two or more means share the same grouping symbol,
 ##       then we cannot show them to be different.
