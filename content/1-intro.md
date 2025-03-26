@@ -410,7 +410,7 @@ Also, now
 
 $$\hat{\boldsymbol{\beta}}_{REML} = (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{V}^{-1} \mathbf{y},$$
 
-where $$\mathbf{V} = Var(\amthbf{y})$$ is the variance-covariance matrix of $$\mathbf{y}$$, 
+where $$\mathbf{V} = Var(\mathbf{y})$$ is the variance-covariance matrix of $$\mathbf{y}$$, 
 including residual variance and random-effects variance. Note that this formula yields 
 the same point estimate for $$\boldsymbol{\beta}$$, but with a different confidence interval.  
 
