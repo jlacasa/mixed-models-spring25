@@ -691,9 +691,10 @@ m2
 
 Now we know what we mean when we say "factor A was considered fixed and factor B was considered random"!  
 
-**Group discussion** what to write in the Materials and Methods section of a paper. 
+**Group discussion:** What to write in the Materials and Methods section of a paper. 
 - Field-specific consensus  
 - Enough to be reproducible 
+
 
 <head>
     <meta charset="UTF-8">

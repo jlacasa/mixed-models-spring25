@@ -7,6 +7,7 @@ nav: Resources
 
 - Dixon, P. (2016). SHOULD BLOCKS BE FIXED OR RANDOM?, Conference on Applied Statistics in Agriculture. [https://doi.org/10.4148/2475-7772.1474](https://newprairiepress.org/cgi/viewcontent.cgi?article=1474&context=agstatconference)
 - Gelman, A. (2005). Analysis of variance—why it is more important than ever. Ann. Statist. 33 (1) 1 - 53. [https://doi.org/10.1214/009053604000001048](https://projecteuclid.org/journals/annals-of-statistics/volume-33/issue-1/Analysis-of-variancewhy-it-is-more-important-than-ever/10.1214/009053604000001048.full)
+- Schielzeth, H. and Nakagawa, S. (2013), Nested by design: model fitting and interpretation in a mixed model era. Methods Ecol Evol, 4: 14-24. [https://doi.org/10.1111/j.2041-210x.2012.00251.x](https://doi.org/10.1111/j.2041-210x.2012.00251.x)
 
 ### Recommended Textbooks:  
 
