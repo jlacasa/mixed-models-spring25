@@ -25,7 +25,7 @@ nav: Resources
 
 ### Credits  
 
-I am thankful for having conted with the following resources to build this website:  
+I am thankful for the following resources that were very useful to build this website:  
 - [Wiki TOC generator](https://ecotrust-canada.github.io/markdown-toc/)
 - [evanwill's workshop template](https://github.com/evanwill/workshop-template-b)
 
