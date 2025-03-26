@@ -505,7 +505,7 @@ $$\mathbf{Z} = \begin{array}{cc}
 " %}
 
 Using the probability distribution form, we can then say that $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta}$$ 
-and $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$. 
+and $$Var(\mathbf{y}) = \mathbf{V} = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$. 
 Usually, we assume $$\mathbf{G} = \sigma^2_u 
 \begin{bmatrix} 1 & 0 & 0 & \dots 0 \\
 0 & 1 & 0 & \dots 0 \\
@@ -554,7 +554,7 @@ Restricted maximum likelihood estimation (REML) is the default in most mixed eff
 
 - In ML, $$\ell_{ML}(\boldsymbol{\sigma; \boldsymbol{\beta}, \mathbf{y}}) = - (\frac{n}{2}) \log(2\pi)-(\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2}) (\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})$$  
 - In REML, $$\ell_{REML}(\boldsymbol{\sigma};\mathbf{y}) = - (\frac{n-p}{2}) \log (2\pi) - (\frac{1}{2}) \log ( \vert \mathbf{V}(\boldsymbol\sigma) \vert ) - (\frac{1}{2})log \left(  \vert \mathbf{X}^T[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{X} \vert \right) - (\frac{1}{2})\mathbf{r}[\mathbf{V}(\boldsymbol\sigma)]^{-1}\mathbf{r}$$, 
-where $$p = rank(\mathbf{X})$$, $$\mathbf{V}= Var(\mathbf{y})$$ and $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
+where $$p = rank(\mathbf{X})$$, $$\mathbf{r} = \mathbf{y}-\mathbf{X}\hat{\boldsymbol{\beta}}_{ML}$$.  
   - Start with initial values for $$\boldsymbol{\sigma}$$, $$\tilde{\boldsymbol{\sigma}}$$.  
   - Compute $$\mathbf{G}(\tilde{\boldsymbol{\sigma}})$$ and $$\mathbf{R}(\tilde{\boldsymbol{\sigma}})$$.  
   - Obtain $$\boldsymbol{\beta}$$ and $$\mathbf{b}$$.   
