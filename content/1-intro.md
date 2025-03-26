@@ -24,6 +24,7 @@ topics: Linear models review; Fixed effects vs. random effects
   * [Random effects](#random-effects)
   * [Fixed effects versus random effects](#fixed-effects-versus-random-effects)
 - [Applied example](#applied-example)
+  * [Building the model](#building-the-model)
 - [Wrap-up](#wrap-up)
 - [What's next](#what-s-next)
 
@@ -355,6 +356,7 @@ $$\mathbf{X} = \begin{bmatrix}
 1 & 6 & 0 & 0 & 0 & 0 & 1 \end{bmatrix}.$$
 
 For the mixed model, 
+
 $$\mathbf{X} = \begin{bmatrix} 
 1 & 3 \\
 1 & 3 \\
@@ -592,7 +594,8 @@ Some good references:
 We can easily come up with two models:
 
 1.  Blocks fixed $$y_{ijk} = \mu + \tau_i + \rho_j + \varepsilon_{ijk}; \ \ \varepsilon \sim N(0, \sigma^2)$$.  
-2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u); \ \ \varepsilon \sim N(0, \sigma^2) \ \text{and} \ \text{cov}(u, \varepsilon)=0$$.
+2.  Blocks random $$y_{ijk} = \mu + \tau_i + u_j + \varepsilon_{ijk}; \ \ u_j \sim N(0, \sigma^2_u); \ \ \varepsilon \sim N(0, \sigma^2)$$, 
+where $$u$$ and $$\varepsilon$$ are independent.
 
 <html lang="en">
 <head>
