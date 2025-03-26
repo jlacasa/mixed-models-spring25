@@ -325,7 +325,10 @@ text='<head>
             <td>E</td>
         </tr>
     </table>
-</body>' %}
+</body>
+
+These data would yield 
+' %}
 
 ### How do we define $$\beta_{0j}$$?
 
