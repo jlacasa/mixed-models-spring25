@@ -745,7 +745,7 @@ Now we know what we mean when we say "factor A was considered fixed and factor B
     </tr>
     <tr>
         <th>Assumptions</th>
-        <td>$$\hat{\boldsymbol{\beta}} \sim N \left( (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1}\mathbf{X}^T \mathbf{V}^{-1} \mathbf{y}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$</td>
+        <td>$$\hat{\boldsymbol{\beta}} \sim N \left( \boldsymbol{\beta}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$</td>
         <td>$$u_j \sim N(0, \sigma^2_u)$$</td>
     </tr>
     <tr>
