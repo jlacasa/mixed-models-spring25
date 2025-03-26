@@ -375,7 +375,7 @@ $$\boldsymbol{\beta}$$ is the vector containing the fixed-effects,
 $$\mathbf{u}$$ is the vector containing the random effects, 
 $$\boldsymbol{\varepsilon}$$ is the vector containing the residuals, 
 $$\mathbf{G}$$ is the variance-covariance matrix of the random effects, 
-and $$\mathbf{V}$$ is the variance-covariance matrix of the residuals. 
+and $$\mathbf{R}$$ is the variance-covariance matrix of the residuals. 
 Note that $$\mathbf{X} \boldsymbol{\beta}$$ is the fixed effects part of the model, and 
 $$\mathbf{Z}\mathbf{u}$$ is the random effects part of the model.
 
@@ -449,14 +449,14 @@ $$\mathbf{Z} = \begin{array}{cc}
 " %}
 
 Using the probability distribution form, we can then say that $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta}$$ 
-and $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{V}$$. 
+and $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$. 
 Usually, we assume $$\mathbf{G} = \sigma^2_u 
 \begin{bmatrix} 1 & 0 & 0 & \dots 0 \\
 0 & 1 & 0 & \dots 0 \\
 0 & 0 & 1 & \dots 0 \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & 0 & \dots 1
-\end{bmatrix} $$ and  $$\mathbf{V} = \sigma^2 
+\end{bmatrix} $$ and  $$\mathbf{R} = \sigma^2 
 \begin{bmatrix} 1 & 0 & 0 & \dots 0 \\
 0 & 1 & 0 & \dots 0 \\
 0 & 0 & 1 & \dots 0 \\
