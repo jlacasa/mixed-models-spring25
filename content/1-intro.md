@@ -810,7 +810,7 @@ Now we know what we mean when we say "factor A was considered fixed and factor B
     <tr>
         <th>Assumptions</th>
         <td>$$\hat{\boldsymbol{\beta}} \sim N \left( \boldsymbol{\beta}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$</td>
-        <td>$$\hat{u}_j \sim N(0, \sigma^2_u)$$</td>
+        <td>$$u_j \sim N(0, \sigma^2_u)$$</td>
     </tr>
     <tr>
         <th>Method of estimation</th>
