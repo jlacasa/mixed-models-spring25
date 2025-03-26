@@ -436,7 +436,8 @@ $$\begin{array}{ccc}
 \end{array}$$, 
 $$\mathbf{Z} = \begin{array}{cc}
 \text{f}1 \phantom{-} \text{f}2 \phantom{-} \text{f}3 \phantom{-} \text{f}4 \phantom{-} \text{f}5 \\ 
-\begin{bmatrix} 1 & 0 & 0 & 0 & 0 \\
+\begin{bmatrix} 
+1 & 0 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 \\
@@ -445,7 +446,8 @@ $$\mathbf{Z} = \begin{array}{cc}
 0 & 1 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1 \end{bmatrix}$$
+0 & 0 & 0 & 0 & 1 \end{bmatrix}
+\end{array}$$
 " %}
 
 Using the probability distribution form, we can then say that $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta}$$ 
