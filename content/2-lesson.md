@@ -164,8 +164,8 @@ $$\mathbf{Z} = \begin{array}{cc}
 \end{array}.$$
 
 Note that the matrix columns are labeled according to the block they are indicating.   
-If $$z{ij} = 1$$, that means that that observation ($$i$$th row) belongs to that block ($$j$$th column).  
-Otherwise, (i.e., $$z{ij} = 0$$), that observation did not belong to that block. 
+If $$z_{ij} = 1$$, that means that that observation ($$i$$th row) belongs to that block ($$j$$th column).  
+Otherwise, (i.e., $$z_{ij} = 0$$), that observation did not belong to that block. 
 
 <html lang="en">
 <head>
@@ -475,7 +475,7 @@ Now, the residuals are not $$\varepsilon \sim N(0, \sigma^2)$$ like we used to w
 The residuals are not independent because we are not accounting for the repeated measures in time yet. 
 Because we assume a first-order autoregressive structure, we say 
 
-$$\mathbf{y}_{i k l} \sim N(\boldsymbol{0}, \Sigma_ikl), \\
+$$\mathbf{y}_{i k l} \sim N(\boldsymbol{\mu}, \Sigma_ikl), \\
 \Sigma_{ikl} = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 \\
 \rho & 1 & \rho \\
 \rho^2 & \rho & 1\end{bmatrix}.$$
