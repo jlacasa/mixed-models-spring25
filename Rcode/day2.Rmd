@@ -1,0 +1,85 @@
+---
+title: "models day 2"
+output: html_document
+date: "2025-03-25"
+---
+```{r}
+knitr::opts_chunk$set(fig.width=8, fig.height=4) 
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(agridat)
+library(tidyverse)
+library(glmmTMB)
+library(DHARMa)
+library(emmeans)
+library(multcomp)
+
+dat <- omer.sorghum
+dat <- dat %>% 
+  filter(env == "E3")
+
+m_rcbd <- glmmTMB(yield ~ gen + (1|rep), data = dat)
+
+simulateResiduals(m_rcbd, plot = TRUE)
+```
+
+```{r}
+car::Anova(m_rcbd)
+```
+
+```{r}
+marginal_means <- emmeans(m_rcbd, ~gen)
+
+cld(marginal_means, 
+    adjust = "sidak", 
+    Letters = letters)
+```
+
+
+```{r}
+dat <- yates.oats
+dat$nf <- factor(dat$nitro)
+
+m_splitplot <- glmmTMB(yield ~ gen*nf + (1|block/gen), data = dat)
+
+summary(m_splitplot)
+
+simulateResiduals(m_splitplot, plot = TRUE)
+```
+
+```{r}
+car::Anova(m_splitplot)
+```
+
+```{r}
+marginal_means_splitplot <- emmeans(m_splitplot, ~nf)
+marginal_means_splitplot <- emmeans(m_splitplot, ~gen:nf)
+```
+
+
+```{r}
+cld(marginal_means_splitplot, 
+    adjust = "sidak", 
+    Letters = letters)
+```
+
+```{r}
+dd_fecal <- read.csv("data/fecal_dm.csv")
+dd_fecal <- dd_fecal %>% 
+  mutate(across(Pig:Day, ~as.factor(.)))
+
+m_subsampling_repeated <- glmmTMB(dry_matter_perc ~ Trt * Day + ar1(1 + Day |Pig) + (1|Room/Pen),
+                                  data = dd_fecal)
+
+res <- simulateResiduals(m_subsampling_repeated, plot = TRUE)
+```
+
+```{r}
+marginal_means_feces <- emmeans(m_subsampling_repeated, ~ Trt|Day)
+
+cld(marginal_means_feces, 
+    adjust = "sidak", 
+    Letters = letters)
+```
+
