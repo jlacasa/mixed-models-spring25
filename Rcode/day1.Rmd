@@ -25,6 +25,18 @@ m1
 m2
 ```
 
+```{r}
+getME(m1, "X")
+getME(m1, "Z")
+getME(m1, "theta")
+
+getME(m2, "X")
+getME(m2, "Z")
+getME(m2, "theta")
+getME(m2, "b")
+```
+
+
 ## Figures
 
 ```{r}
