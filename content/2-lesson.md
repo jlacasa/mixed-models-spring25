@@ -312,61 +312,61 @@ Assuming observations 1 to 4 belong to:
         <td>1</td>
         <td>H</td>
         <td>a</td>
-        <td>16.8</td>
+        <td>17.2</td>
     </tr>
     <tr>
         <td>1</td>
         <td>H</td>
         <td>c</td>
-        <td>16.8</td>
+        <td>16.2</td>
     </tr>
     <tr>
         <td>1</td>
         <td>H</td>
         <td>b</td>
-        <td>16.8</td>
+        <td>16.9</td>
     </tr>
     <tr>
         <td>1</td>
         <td>H</td>
         <td>d</td>
-        <td>16.8</td>
+        <td>16.7</td>
     </tr>
     <tr>
         <td>1</td>
         <td>C</td>
         <td>d</td>
-        <td>14.02</td>
+        <td>14.7</td>
     </tr>
     <tr>
         <td>1</td>
         <td>C</td>
         <td>c</td>
-        <td>14.02</td>
+        <td>14.1</td>
     </tr>
     <tr>
         <td>1</td>
         <td>C</td>
         <td>b</td>
-        <td>14.02</td>
+        <td>13.7</td>
     </tr>
     <tr>
         <td>1</td>
         <td>C</td>
         <td>a</td>
-        <td>14.02</td>
+        <td>13.5</td>
     </tr>
     <tr>
         <td>1</td>
         <td>A</td>
         <td>c</td>
-        <td>11.37</td>
+        <td>11.5</td>
     </tr>
     <tr>
         <td>1</td>
         <td>A</td>
         <td>d</td>
-        <td>11.37</td>
+        <td>11.1</td>
     </tr>
 </table>
 </body>
