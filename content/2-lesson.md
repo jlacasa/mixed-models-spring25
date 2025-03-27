@@ -495,7 +495,7 @@ m_repeated <- glmmTMB(Temperature_C ~ Treatment * Time + ar1(1 + Time |Pig) + (1
 res_repeated <- simulateResiduals(m_repeated, plot = TRUE)
 {% endhighlight %}
 
-![center](https://jlacasa.github.io/mixed-models-spring25/figs/models_day_2/unnamed-chunk-9-1.png)
+{% include figure.html img="day2/DHARMa_repeated.png" alt="" caption="" width="80%" %}
 
 {% highlight r %}
 marginal_means_temp <- emmeans(m_repeated, ~ Treatment|Time)
@@ -608,7 +608,7 @@ m_subsampling_repeated <- glmmTMB(dry_matter_perc ~ Trt * Day + ar1(1 + Day |Pig
 res <- simulateResiduals(m_subsampling_repeated, plot = TRUE)
 {% endhighlight %}
 
-{% include figure.html img="day2/DHARMa_repeated.png" alt="" caption="" width="80%" %}
+{% include figure.html img="day2/DHARMa_repeated_subsampling.png" alt="" caption="" width="80%" %}
 
 {% highlight r %}
 marginal_means_feces <- emmeans(m_subsampling_repeated, ~ Day|Trt)
