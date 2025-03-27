@@ -121,6 +121,20 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 - Completely Randomized Design (CRD)  
 
+Independence holds. 
+
+$$y_{i} = \mu + \tau_i + \varepsilon_{i},\\
+\varepsilon_{i} \sim N(0, \sigma^2).$$
+
+$$\Sigma = \begin{bmatrix} \sigma^2 & 0 & 0 & 0 & \dots & 0 \\ 
+0 & \sigma^2 & 0 & 0 & \dots & 0 \\
+0 & 0 & \sigma^2 & 0 & \dots & 0 \\
+0 & 0 & 0 & \sigma^2 & \dots & 0 \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
+0 & 0 & 0 & 0 & \dots & \sigma^2 \end{bmatrix}
+\right)$$
+
+
 {% include figure.html img="day2/designs_crd.PNG" alt="" caption="Figure 1. Schematic diagram of a Completely Randomized Design (CRD)" width="100%" %}
 
 {% capture figure_content_crd %}
@@ -131,6 +145,119 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 - Randomized complete block design (RCBD)  
 
+All observations from the same block share the same random effect and thus, are correlated.  
+
+$$y_{ij} = \mu + \tau_i + u_j + \varepsilon_{ij},\\
+\u_{j} \sim N(0, \sigma^2_u), \\
+\varepsilon_{ij} \sim N(0, \sigma^2).$$
+
+Assuming observations 1 to 4 belong to:  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed vs Random Effects Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+<table>
+    <tr>
+        <th>Block</th>
+        <th>Treatment</th>
+        <th>Response</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>H</td>
+        <td>16.8</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>C</td>
+        <td>14.02</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>11.37</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>G</td>
+        <td>12.30</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>D</td>
+        <td>12.1</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>E</td>
+        <td>12.04</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>F</td>
+        <td>14.5</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>B</td>
+        <td>9.8</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>E</td>
+        <td>10.5</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>F</td>
+        <td>14.1</td>
+    </tr>
+</table>
+</body>
+
+{% endcapture %}
+{% include card.html text=text header= "Example data" color="#a9d9a9" %}
+
+
+$$\Sigma = \begin{bmatrix} 
+\sigma^2 + \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\ 
+\sigma^2_u & \sigma^2 + \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u & 0 & 0 & \dots & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \sigma^2 + \sigma^2_u & \sigma^2_u & \dots & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \sigma^2_u & \sigma^2 + \sigma^2_u & \dots & 0 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u \end{bmatrix}
+\right).$$
+
+
 {% include figure.html img="day2/designs_rcbd.PNG" alt="" caption="Figure 2. Schematic diagram of a Randomized Complete Block Design (RCBD)" width="100%" %}
 
 {% capture figure_content_rcbd %}
@@ -140,6 +267,134 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 {% include modal.html button="Animal example for RCBD" color="success" id="modal-rcbd" title="Animal example" text=figure_content_rcbd %}
 
 - Split-plot design    
+
+All observations from the same block share the same random effect and thus, are correlated.  
+Likewise, all observations from the same whole plot ($$\sim$$"mini block") are correlated.  
+
+$$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_k + v_{jk} \varepsilon_{ij},\\
+\u_{k} \sim N(0, \sigma^2_u), \\
+\v_{jk} \sim N(0, \sigma^2_v), \\
+\varepsilon_{ij} \sim N(0, \sigma^2).$$
+
+Assuming observations 1 to 4 belong to:  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed vs Random Effects Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+<table>
+    <tr>
+        <th>Block</th>
+        <th>Treatment Factor 1</th>
+        <th>Treatment Factor 2</th>
+        <th>Response</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>H</td>
+        <td>a</td>
+        <td>16.8</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>H</td>
+        <td>c</td>
+        <td>16.8</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>H</td>
+        <td>b</td>
+        <td>16.8</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>H</td>
+        <td>d</td>
+        <td>16.8</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>C</td>
+        <td>d</td>
+        <td>14.02</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>C</td>
+        <td>c</td>
+        <td>14.02</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>C</td>
+        <td>b</td>
+        <td>14.02</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>C</td>
+        <td>a</td>
+        <td>14.02</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>c</td>
+        <td>11.37</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>d</td>
+        <td>11.37</td>
+    </tr>
+</table>
+</body>
+
+{% endcapture %}
+{% include card.html text=text header= "Example data" color="#a9d9a9" %}
+
+
+$$\Sigma = \begin{bmatrix} 
+\sigma^2 + \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\ 
+\sigma^2_u +\sigma^2_v & \sigma^2 + \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u + \sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2 + \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2 + \sigma^2_u +\sigma^2_v & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u +\sigma^2_v & \sigma^2 + \sigma^2_v + \sigma^2_u +\sigma^2_v+\sigma^2_v & \sigma^2_u & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v& \sigma^2 + \sigma^2_u +\sigma^2_v +\sigma^2_v & \sigma^2_u & 0 & 0 & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u +\sigma^2_v & \sigma^2_u +\sigma^2_v& \sigma^2_u +\sigma^2_v & \sigma^2 + \sigma^2_u +\sigma^2_v & 0 & 0 & \dots & 0 \\
+
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u +\sigma^2_v & \sigma^2_u  +\sigma^2_v & \dots & 0 \\
+\sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u +\sigma^2_v & \sigma^2 + \sigma^2_u +\sigma^2_v & \dots & 0 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u +\sigma^2_v \end{bmatrix}
+\right).$$
+
 
 {% include figure.html img="day2/designs_splitplot.PNG" alt="" caption="Figure 3. Schematic diagram of a Split-Plot Design in a Randomized Complete Block Design" width="100%" %}
 
