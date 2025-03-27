@@ -131,8 +131,7 @@ $$\Sigma = \begin{bmatrix} \sigma^2 & 0 & 0 & 0 & \dots & 0 \\
 0 & 0 & \sigma^2 & 0 & \dots & 0 \\
 0 & 0 & 0 & \sigma^2 & \dots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
-0 & 0 & 0 & 0 & \dots & \sigma^2 \end{bmatrix}
-\right)$$
+0 & 0 & 0 & 0 & \dots & \sigma^2 \end{bmatrix}$$
 
 
 {% include figure.html img="day2/designs_crd.PNG" alt="" caption="Figure 1. Schematic diagram of a Completely Randomized Design (CRD)" width="100%" %}
@@ -254,8 +253,7 @@ $$\Sigma = \begin{bmatrix}
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \sigma^2 + \sigma^2_u & \sigma^2_u & \dots & 0 \\
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \sigma^2_u & \sigma^2 + \sigma^2_u & \dots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u \end{bmatrix}
-\right).$$
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u \end{bmatrix}.$$
 
 
 {% include figure.html img="day2/designs_rcbd.PNG" alt="" caption="Figure 2. Schematic diagram of a Randomized Complete Block Design (RCBD)" width="100%" %}
@@ -392,8 +390,7 @@ $$\Sigma = \begin{bmatrix}
 \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2 + \sigma^2_u +\sigma^2_v & \sigma^2_u  +\sigma^2_v & \dots & 0 \\
 \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u & \sigma^2_u +\sigma^2_v & \sigma^2 + \sigma^2_u +\sigma^2_v & \dots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\  
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u +\sigma^2_v \end{bmatrix}
-\right).$$
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \dots & \sigma^2 + \sigma^2_u +\sigma^2_v \end{bmatrix}.$$
 
 
 {% include figure.html img="day2/designs_splitplot.PNG" alt="" caption="Figure 3. Schematic diagram of a Split-Plot Design in a Randomized Complete Block Design" width="100%" %}
