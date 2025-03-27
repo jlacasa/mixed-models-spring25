@@ -151,6 +151,8 @@ $$y_{ij} = \mu + \tau_i + u_j + \varepsilon_{ij},\\
 \varepsilon_{ij} \sim N(0, \sigma^2).$$
 
 Assuming observations 1 to 4 belong to:  
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -236,9 +238,6 @@ Assuming observations 1 to 4 belong to:
     </tr>
 </table>
 </body>
-
-{% endcapture %}
-{% include card.html text=text header= "Example data" color="#a9d9a9" %}
 
 
 $$\Sigma = \begin{bmatrix} 
@@ -371,9 +370,6 @@ Assuming observations 1 to 4 belong to:
     </tr>
 </table>
 </body>
-
-{% endcapture %}
-{% include card.html text=text header= "Example data 2" color="#a9d9a9" %}
 
 
 $$\Sigma = \begin{bmatrix} 
