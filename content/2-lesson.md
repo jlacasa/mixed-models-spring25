@@ -127,7 +127,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 {% include figure.html img="day2/pigs_crd.PNG" alt="" caption="Schematic diagram of a Completely Randomized Design (CRD). Each pen of 4 pigs is an experimental unit." width="100%" %}
 {% endcapture %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content_crd %}
+{% include modal.html button="Animal example" color="success" id="modal-crd" title="Animal example" text=figure_content_crd %}
 
 - Randomized complete block design (RCBD)  
 
@@ -137,7 +137,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 {% include figure.html img="day2/pigs_rcbd.PNG" alt="" caption="Schematic diagram of a Randomized Complete Block Design (RCBD). Each pen of 4 pigs is an experimental unit." width="100%" %}
 {% endcapture %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content_rcbd %}
+{% include modal.html button="Animal example" color="success" id="modal-rcbd" title="Animal example" text=figure_content_rcbd %}
 
 - Split-plot design    
 
@@ -147,7 +147,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 {% include figure.html img="day2/pigs_splitplot.PNG" alt="" caption="Schematic diagram of a Split-plot design." width="100%" %}
 {% endcapture %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content_splitplot %}
+{% include modal.html button="Animal example" color="success" id="modal-splitplot" title="Animal example" text=figure_content_splitplot %}
 
 - Repeated measures
 
@@ -157,7 +157,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 {% include figure.html img="day2/pigs_repeated.PNG" alt="" caption="Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
 {% endcapture %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content_repeated %}
+{% include modal.html button="Animal example" color="success" id="modal-repeated" title="Animal example" text=figure_content_repeated %}
 
 ------
 
