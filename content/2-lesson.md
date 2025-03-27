@@ -375,7 +375,7 @@ Assuming observations 1 to 4 belong to:
 </body>
 
 {% endcapture %}
-{% include card.html text=text header= "Example data" color="#a9d9a9" %}
+{% include card.html text=text header= "Example data 2" color="#a9d9a9" %}
 
 
 $$\Sigma = \begin{bmatrix} 
