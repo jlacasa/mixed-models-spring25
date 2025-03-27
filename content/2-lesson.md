@@ -143,9 +143,22 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 {% include figure.html img="day2/designs_splitplot.PNG" alt="" caption="Figure 3. Schematic diagram of a Split-Plot Design in a Randomized Complete Block Design" width="100%" %}
 
+{% capture figure_content_splitplot %}
+{% include figure.html img="day2/pigs_splitplot.PNG" alt="" caption="Schematic diagram of a Split-plot design." width="100%" %}
+{% endcapture %}
+
+{% include modal.html button="Animal example for split-plots" color="success" id="modal-splitplot" title="Animal example" text=figure_content_splitplot %}
+
 - Repeated measures
 
 {% include figure.html img="day2/designs_repeated.PNG" alt="" caption="Figure 4. Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
+
+{% capture figure_content_repeated %}
+{% include figure.html img="day2/pigs_repeated.PNG" alt="" caption="Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
+{% endcapture %}
+
+{% include modal.html button="Animal example for repeated measures" color="success" id="modal-repeated" title="Animal example" text=figure_content_repeated %}
+
 
 ------
 
