@@ -123,7 +123,6 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 <script type="text/tikz">
 \begin{center}
-    \tikz \node [scale=0.9, inner sep=0] {
                 \begin{tikzpicture}[
                     region/.style={
                         draw=black!50,
@@ -157,8 +156,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
                             \draw [region,fill=brown!30] (6,ymin)  rectangle (xmax,ymax)  node [Node, color = black, xshift=0, yshift=0] {Block 3};
                         \end{axis}
                 \end{tikzpicture}
-                }
-    \end{center}</script>
+</script>
 
 - Split-plot design    
 
