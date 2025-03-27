@@ -119,47 +119,21 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 ### Common types of designed experiments  
 
+- Completely Randomized Design (CRD)  
+
+{% include figure.html img="day2/designs_crd.PNG" alt="" caption="Figure 1. Schematic diagram of a Completely Randomized Design (CRD)" width="100%" %}
+
 - Randomized complete block design (RCBD)  
 
-<script type="text/tikz">
-                \begin{tikzpicture}[
-                    region/.style={
-                        draw=black!50,
-                        dashed,
-                    },
-                    Node/.style={
-                        midway,
-                        red,
-                    },
-                    declare function={
-                        xmin=0;
-                        xmax=9;
-                        ymin=0;
-                        ymax=10;
-                    }
-                    ]
-                    \begin{axis}[%hide axis,
-                        xlabel=Longitude,
-                        ylabel=Latitude,
-                        xmin=xmin,
-                        xmax=xmax,
-                        ymin=ymin,
-                        ymax=ymax,
-                        axis background/.style={},
-                        extra x ticks={},
-                        extra y ticks={},
-                        title=Block layout,
-                        ]
-                            \draw [region,fill=brown!45] (xmin,ymin) rectangle (3,ymax)  node [Node, color = black, xshift=0, yshift=0] {Block 1};
-                            \draw [region,fill=brown!70] (3,ymin) rectangle (6,ymax)  node [Node, color = black, xshift=0, yshift=0] {Block 2};
-                            \draw [region,fill=brown!30] (6,ymin)  rectangle (xmax,ymax)  node [Node, color = black, xshift=0, yshift=0] {Block 3};
-                        \end{axis}
-                \end{tikzpicture}
-</script>
+{% include figure.html img="day2/designs_rcbd.PNG" alt="" caption="Figure 2. Schematic diagram of a Randomized Complete Block Design (RCBD)" width="100%" %}
 
 - Split-plot design    
 
+{% include figure.html img="day2/designs_splitplot.PNG" alt="" caption="Figure 3. Schematic diagram of a Split-Plot Design in a Randomized Complete Block Design" width="100%" %}
+
 - Repeated measures
+
+{% include figure.html img="day2/designs_repeated.PNG" alt="" caption="Figure 4. Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
 
 ------
 
