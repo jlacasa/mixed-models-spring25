@@ -123,8 +123,11 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 {% include figure.html img="day2/designs_crd.PNG" alt="" caption="Figure 1. Schematic diagram of a Completely Randomized Design (CRD)" width="100%" %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" 
-text='{% include figure.html img="day2/designs_crd_pigs.PNG" alt="" caption="Schematic diagram of a Completely Randomized Design (CRD). Eeach pen of 4 pigs is an experimental unit." width="100%" %}' %}
+{% capture figure_content %}
+{% include figure.html img="day2/designs_crd_pigs.PNG" alt="" caption="Schematic diagram of a Completely Randomized Design (CRD). Each pen of 4 pigs is an experimental unit." width="100%" %}
+{% endcapture %}
+
+{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content %}
 
 - Randomized complete block design (RCBD)  
 
@@ -500,8 +503,11 @@ $$\mathbf{y}_{i k l} \sim N(\boldsymbol{\mu}, \Sigma_ikl), \\
 
 {% highlight r %}
 dd_fecal <- read.csv("data/fecal_dm.csv")
-dd_fecal <- dd_fecal %>% 
-  mutate(across(Pig:Day, ~as.factor(.)))
+dd_fecal$Pig <- as.factor(dd_fecal$Pig)
+dd_fecal$Trt <- as.factor(dd_fecal$Trt)
+dd_fecal$Room <- as.factor(dd_fecal$Room)
+dd_fecal$Pen <- as.factor(dd_fecal$Pen)
+dd_fecal$Day <- as.factor(dd_fecal$Day)
 
 m_subsampling_repeated <- glmmTMB(dry_matter_perc ~ Trt * Day + ar1(1 + Day |Pig) + (1|Room/Pen),
                                   data = dd_fecal)
