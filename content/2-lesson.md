@@ -480,7 +480,81 @@ cld(marginal_means_splitplot,
 
 ## Applied example III -- repeated measures    
 
+{% highlight r %}
+dd_temp <- read.csv("data/temperature.csv")
+dd_temp$Pig <- as.factor(dd_temp$Pig)
+dd_temp$Treatment <- as.factor(dd_temp$Treatment)
+dd_temp$Pen <- as.factor(dd_temp$Pen)
+dd_temp$Time <- as.factor(dd_temp$Time)
 
+m_repeated <- glmmTMB(Temperature_C ~ Treatment * Time + ar1(1 + Time |Pig) + (1|Pen/Pig),
+              family = gaussian(link = "identity"),
+              data = dd_temp )
+
+res_repeated <- simulateResiduals(m_repeated, plot = TRUE)
+{% endhighlight %}
+
+![center](https://jlacasa.github.io/mixed-models-spring25/figs/models_day_2/unnamed-chunk-9-1.png)
+
+{% highlight r %}
+marginal_means_temp <- emmeans(m_repeated, ~ Treatment|Time)
+
+cld(marginal_means_temp, 
+    adjust = "sidak", 
+    Letters = letters)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Time = 0:
+##  Treatment emmean     SE  df lower.CL upper.CL .group
+##  E          39.91 0.0730 670    39.72    40.10  a    
+##  B          39.92 0.0730 670    39.73    40.11  a    
+##  D          39.97 0.0730 670    39.78    40.15  a    
+##  C          39.97 0.0730 670    39.78    40.16  a    
+##  A          39.98 0.0730 670    39.80    40.17  a    
+## 
+## Time = 2:
+##  Treatment emmean     SE  df lower.CL upper.CL .group
+##  E          40.57 0.0961 670    40.33    40.82  a    
+##  A          40.59 0.0961 670    40.34    40.83  a    
+##  B          40.65 0.0961 670    40.40    40.89  a    
+##  C          40.85 0.0961 670    40.60    41.10  a    
+##  D          40.91 0.0961 670    40.67    41.16  a    
+## 
+## Time = 4:
+##  Treatment emmean     SE  df lower.CL upper.CL .group
+##  B          40.33 0.0915 670    40.09    40.56  a    
+##  A          40.58 0.0915 670    40.35    40.82  ab   
+##  C          40.70 0.0915 670    40.46    40.93   b   
+##  D          40.72 0.0915 670    40.48    40.95   b   
+##  E          40.72 0.0915 670    40.49    40.96   b   
+## 
+## Time = 6:
+##  Treatment emmean     SE  df lower.CL upper.CL .group
+##  E          40.28 0.0886 670    40.06    40.51  a    
+##  B          40.31 0.0886 670    40.08    40.53  a    
+##  A          40.36 0.0886 670    40.13    40.59  a    
+##  D          40.47 0.0886 670    40.24    40.70  a    
+##  C          40.51 0.0886 670    40.29    40.74  a    
+## 
+## Time = 12:
+##  Treatment emmean     SE  df lower.CL upper.CL .group
+##  E          40.01 0.0869 670    39.78    40.23  a    
+##  B          40.04 0.0869 670    39.81    40.26  a    
+##  A          40.05 0.0869 670    39.82    40.27  a    
+##  D          40.10 0.0869 670    39.88    40.33  a    
+##  C          40.14 0.0869 670    39.92    40.36  a    
+## 
+## Confidence level used: 0.95 
+## Conf-level adjustment: sidak method for 5 estimates 
+## P value adjustment: sidak method for 10 tests 
+## significance level used: alpha = 0.05 
+## NOTE: If two or more means share the same grouping symbol,
+##       then we cannot show them to be different.
+##       But we also did not show them to be the same.
+{% endhighlight %}
 
 ## Applied example IV -- repeated measures with subsampling    
 
