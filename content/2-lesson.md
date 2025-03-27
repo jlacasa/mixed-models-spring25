@@ -123,41 +123,41 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 {% include figure.html img="day2/designs_crd.PNG" alt="" caption="Figure 1. Schematic diagram of a Completely Randomized Design (CRD)" width="100%" %}
 
-{% capture figure_content %}
+{% capture figure_content_crd %}
 {% include figure.html img="day2/pigs_crd.PNG" alt="" caption="Schematic diagram of a Completely Randomized Design (CRD). Each pen of 4 pigs is an experimental unit." width="100%" %}
 {% endcapture %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content %}
+{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content_crd %}
 
 - Randomized complete block design (RCBD)  
 
 {% include figure.html img="day2/designs_rcbd.PNG" alt="" caption="Figure 2. Schematic diagram of a Randomized Complete Block Design (RCBD)" width="100%" %}
 
-{% capture figure_content %}
+{% capture figure_content_rcbd %}
 {% include figure.html img="day2/pigs_rcbd.PNG" alt="" caption="Schematic diagram of a Randomized Complete Block Design (RCBD). Each pen of 4 pigs is an experimental unit." width="100%" %}
 {% endcapture %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content %}
+{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content_rcbd %}
 
 - Split-plot design    
 
 {% include figure.html img="day2/designs_splitplot.PNG" alt="" caption="Figure 3. Schematic diagram of a Split-Plot Design in a Randomized Complete Block Design" width="100%" %}
 
-{% capture figure_content %}
+{% capture figure_content_splitplot %}
 {% include figure.html img="day2/pigs_splitplot.PNG" alt="" caption="Schematic diagram of a Split-plot design." width="100%" %}
 {% endcapture %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content %}
+{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content_splitplot %}
 
 - Repeated measures
 
 {% include figure.html img="day2/designs_repeated.PNG" alt="" caption="Figure 4. Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
 
-{% capture figure_content %}
+{% capture figure_content_repeated %}
 {% include figure.html img="day2/pigs_repeated.PNG" alt="" caption="Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
 {% endcapture %}
 
-{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content %}
+{% include modal.html button="Animal example" color="success" title="Animal example" text=figure_content_repeated %}
 
 ------
 
