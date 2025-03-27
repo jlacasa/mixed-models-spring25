@@ -147,7 +147,7 @@ $$\Sigma = \begin{bmatrix} \sigma^2 & 0 & 0 & 0 & \dots & 0 \\
 All observations from the same block share the same random effect and thus, are correlated.  
 
 $$y_{ij} = \mu + \tau_i + u_j + \varepsilon_{ij},\\
-\u_{j} \sim N(0, \sigma^2_u), \\
+u_{j} \sim N(0, \sigma^2_u), \\
 \varepsilon_{ij} \sim N(0, \sigma^2).$$
 
 Assuming observations 1 to 4 belong to:  
@@ -269,8 +269,8 @@ All observations from the same block share the same random effect and thus, are 
 Likewise, all observations from the same whole plot ($$\sim$$"mini block") are correlated.  
 
 $$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_k + v_{jk} \varepsilon_{ij},\\
-\u_{k} \sim N(0, \sigma^2_u), \\
-\v_{jk} \sim N(0, \sigma^2_v), \\
+u_{k} \sim N(0, \sigma^2_u), \\
+v_{jk} \sim N(0, \sigma^2_v), \\
 \varepsilon_{ij} \sim N(0, \sigma^2).$$
 
 Assuming observations 1 to 4 belong to:  
