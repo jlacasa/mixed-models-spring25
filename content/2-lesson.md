@@ -122,7 +122,6 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 - Randomized complete block design (RCBD)  
 
 <script type="text/tikz">
-\begin{center}
                 \begin{tikzpicture}[
                     region/.style={
                         draw=black!50,
