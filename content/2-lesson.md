@@ -389,10 +389,10 @@ as "mini blocks" for the second treatment factor.
 Again, all observations from the same block share the same random effect and are correlated.  
 Likewise, all observations from the same whole plot ($$\sim$$"mini block") are correlated. 
 
-$$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_k + v_{i \vert j} + \varepsilon_{ij},\\
+$$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_k + v_{i \vert k} + \varepsilon_{ij},\\
 u_{k} \sim N(0, \sigma^2_u), \\
-v_{i \vert j} \sim N(0, \sigma^2_v), \\
-\varepsilon_{ij} \sim N(0, \sigma^2),$$
+v_{i \vert k} \sim N(0, \sigma^2_v), \\
+\varepsilon_{ijk} \sim N(0, \sigma^2),$$
 
 where $$y_{ijk}$$ is the observation for the $$i$$th level of treatment factor 1, $$j$$th level of treatment factor 2, in the $$k$$th block, 
 $$\mu$$ is the overall mean, 
@@ -400,7 +400,7 @@ $$\tau_i$$ is the main effect of the $$i$$th level of treatment factor 1,
 $$\alpha_j$$ is the main effect of the $$j$$th level of treatment factor 2, 
 $$(\tau \alpha)_{ij}$$ is their interaction, 
 $$u_k$$ is the random effect of the $$k$$th block, 
-$$v_{i \vert j}$$ is the random effect of the $$i$$th "miniblock" (whole plot) in the $$k$$th block,
+$$v_{i \vert k}$$ is the random effect of the $$i$$th "miniblock" (whole plot) in the $$k$$th block,
 and $$\varepsilon_{ij}$$ is the residual. 
 
 Assuming observations 1 to 4 belong to:  
