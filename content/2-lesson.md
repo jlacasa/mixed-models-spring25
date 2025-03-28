@@ -119,7 +119,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 ### Common types of designed experiments  
 
-- Completely Randomized Design (CRD)  
+#### Completely Randomized Design (CRD)  
 
 We assume that all experimental units experienced similar conditions. 
 In a field experiment setting, that means that all plots were located in an
@@ -152,7 +152,7 @@ assumption of independence (for now...).
 
 {% include modal.html button="Animal example for CRD" color="success" id="modal-crd" title="Animal example" text=figure_content_crd %}
 
-- Randomized complete block design (RCBD)  
+#### Randomized complete block design (RCBD)  
 
 We assume that the experimental units did not experience similar conditions, 
 but that an expert could determine groups of experimental units that did experience similar conditions. 
@@ -178,11 +178,11 @@ Assuming observations 1 to 10 belong to:
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width= 70%, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fixed vs Random Effects Table</title>
     <style>
         table {
-            width: 100%;
+            width: 70%;
             border-collapse: collapse;
             margin: 20px 0;
         }
@@ -286,7 +286,7 @@ $$\Sigma = \begin{bmatrix}
 
 {% include modal.html button="Animal example for RCBD" color="success" id="modal-rcbd" title="Animal example" text=figure_content_rcbd %}
 
-- Split-plot design    
+#### Split-plot design    
 
 Sometimes, some treatments have practical limitations for their application that 
 make split-plot designs more convenient. 
@@ -426,7 +426,7 @@ $$\Sigma = \begin{bmatrix}
 
 {% include modal.html button="Animal example for split-plots" color="success" id="modal-splitplot" title="Animal example" text=figure_content_splitplot %}
 
-- Repeated measures  
+#### Repeated measures  
 
 Repeated measures designs are similar to split-plot desings, where time is at the subplot level. 
 However, an important difference is that time cannot be randomly allocated, 
