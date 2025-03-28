@@ -288,10 +288,16 @@ $$\Sigma = \begin{bmatrix}
 
 - Split-plot design    
 
-All observations from the same block share the same random effect and thus, are correlated.  
-Likewise, all observations from the same whole plot ($$\sim$$"mini block") are correlated.  
+Sometimes, some treatments have practical limitations for their application that 
+make split-plot designs more convenient. 
+In split-plot designs, the levels of one treatment factor are randomly assigned to its 
+experimental units (whole plots) *within* the blocks. 
+The levels of the other treatment factor are randomly assigned to its 
+experimental units (split plots) **within the whole plots**. 
+Again, all observations from the same block share the same random effect and are correlated.  
+Likewise, all observations from the same whole plot ($$\sim$$"mini block") are correlated. 
 
-$$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_k + v_{jk} \varepsilon_{ij},\\
+$$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_k + v_{jk} + \varepsilon_{ij},\\
 u_{k} \sim N(0, \sigma^2_u), \\
 v_{jk} \sim N(0, \sigma^2_v), \\
 \varepsilon_{ij} \sim N(0, \sigma^2).$$
@@ -420,7 +426,21 @@ $$\Sigma = \begin{bmatrix}
 
 {% include modal.html button="Animal example for split-plots" color="success" id="modal-splitplot" title="Animal example" text=figure_content_splitplot %}
 
-- Repeated measures
+- Repeated measures  
+
+Repeated measures designs are similar to split-plot desings, where time is at the subplot level. 
+However, an important difference is that time cannot be randomly allocated, 
+because it is unidirectional! 
+The independence assumption does not hold and should be included in the model. 
+
+
+$$y_{ij} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{ij} + \varepsilon_{ij},$$
+
+$$\mathbf{y}_{i l} \sim N(\boldsymbol{\mu}, \Sigma_{il}), \\
+\Sigma_{il} = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 \\
+\rho & 1 & \rho \\
+\rho^2 & \rho & 1\end{bmatrix}.$$
+
 
 {% include figure.html img="day2/designs_repeated.PNG" alt="" caption="Figure 4. Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
 
