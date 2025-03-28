@@ -566,9 +566,12 @@ $$\mathbf{v}_{ik} \sim N(\boldsymbol{0}, \Sigma_{v, ik}), \\
 This example shows a first order autoregressive covariance structure. 
 
 Note that we are still affecting the $$\mathbf{G}$$ matrix, not the $$\mathbf{R}$$ matrix. 
-This difference may affect inference, especially for non-normal responses (not the case yet). 
-This is a more advanced topic - for other types of correlation functions and a discussion of the implications of 
-G-side versus R-side correlations see Stroup et al. (2024), and [Muff et al. (2016)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12623).  
+This difference may affect inference in non-normal responses (not the case yet). 
+If the response is normally distributed, the interpretations are equivalent.  
+For other types of correlation functions and a discussion of the implications of 
+G-side versus R-side correlations see [Johnson and Milliken (2009)](https://doi.org/10.1201/EBK1584883340), 
+[Stroup et al. (2024)](https://www.routledge.com/Generalized-Linear-Mixed-Models-Modern-Concepts-Methods-and-Applications/Stroup-Ptukhina-Garai/p/book/9781498755566?srsltid=AfmBOop80SBSwTFMCIzkiTtYe-5uir_Xnw2KVZxa1oXb4LJWrLRx0Wwq), 
+and [Muff et al. (2016)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12623).  
 
 {% include figure.html img="day2/designs_repeated.PNG" alt="" caption="Figure 4. Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
 
