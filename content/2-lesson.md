@@ -409,6 +409,9 @@ $$\Sigma = \begin{bmatrix}
 
 
 ------
+## Applied examples   
+
+Follow along the R code [here]().
 
 ## Applied example I - RCBD   
 
@@ -473,6 +476,8 @@ library(agridat)
 library(tidyverse)
 library(DHARMa)
 
+knitr::opts_chunk$set(fig.width=8, fig.height=4) 
+
 data(omer.sorghum)
 dat <- omer.sorghum
 dat <- dat %>% 
@@ -480,11 +485,42 @@ dat <- dat %>%
 
 m_rcbd <- glmmTMB(yield ~ gen + (1|rep), data = dat)
 
-simulateResiduals(m_rcbd, plot = TRUE)
 </code>
     </pre>
 </body>
 </html>
+
+{% highlight text %}
+## Formula:          yield ~ gen + (1 | rep)
+## Data: dat
+##       AIC       BIC    logLik  df.resid 
+##  958.9649 1004.4982 -459.4824        52 
+## Random-effects (co)variances:
+## 
+## Conditional model:
+##  Groups   Name        Std.Dev.
+##  rep      (Intercept)  46.69  
+##  Residual             138.64  
+## 
+## Number of obs: 72 / Conditional model: rep, 4
+## 
+## Dispersion estimate for gaussian family (sigma^2): 1.92e+04 
+## 
+## Fixed Effects:
+## 
+## Conditional model:
+## (Intercept)         gen1         gen2         gen3         gen4         gen5         gen6  
+##      671.15       -89.29      -155.81       133.78        78.11       -28.24      -356.50  
+##        gen7         gen8         gen9        gen10        gen11        gen12        gen13  
+##      265.91        70.23       142.01        67.37        56.99      -132.17       153.88  
+##       gen14        gen15        gen16        gen17  
+##      -88.23       -24.57       -66.49      -385.95
+{% endhighlight %}
+
+{% highlight r %}
+simulateResiduals(m_rcbd, plot = TRUE)
+{% endhighlight %}
+
 
 {% include figure.html img="day2/DHARMa_rcbd.png" alt="" caption="" width="80%" %}
 
@@ -625,22 +661,23 @@ summary(m_splitplot)
 ## Dispersion estimate for gaussian family (sigma^2):  148 
 ## 
 ## Conditional model:
-##                     Estimate Std. Error z value Pr(>|z|)    
-## (Intercept)          80.0000     8.3135   9.623  < 2e-16 ***
-## genMarvellous         6.6667     8.8686   0.752  0.45222    
-## genVictory           -8.5000     8.8686  -0.958  0.33784    
-## nf0.2                18.5000     7.0135   2.638  0.00835 ** 
-## nf0.4                34.6667     7.0135   4.943 7.70e-07 ***
-## nf0.6                44.8333     7.0135   6.392 1.63e-10 ***
-## genMarvellous:nf0.2   3.3333     9.9187   0.336  0.73682    
-## genVictory:nf0.2     -0.3334     9.9187  -0.034  0.97319    
-## genMarvellous:nf0.4  -4.1666     9.9187  -0.420  0.67443    
-## genVictory:nf0.4      4.6667     9.9187   0.470  0.63800    
-## genMarvellous:nf0.6  -4.6666     9.9187  -0.470  0.63800    
-## genVictory:nf0.6      2.1667     9.9187   0.218  0.82708    
+##              Estimate Std. Error z value Pr(>|z|)    
+## (Intercept) 103.97216    6.06204  17.151  < 2e-16 ***
+## gen1          0.52775    3.73090   0.141   0.8875    
+## gen2          5.81948    3.73090   1.560   0.1188    
+## nf1         -24.58331    2.47966  -9.914  < 2e-16 ***
+## nf2          -5.08333    2.47966  -2.050   0.0404 *  
+## nf3          10.24998    2.47966   4.134 3.57e-05 ***
+## gen1:nf1      0.08333    3.50677   0.024   0.9810    
+## gen2:nf1      1.45833    3.50677   0.416   0.6775    
+## gen1:nf2     -0.91668    3.50677  -0.261   0.7938    
+## gen2:nf2      3.79168    3.50677   1.081   0.2796    
+## gen1:nf3     -0.08331    3.50677  -0.024   0.9810    
+## gen2:nf3     -2.87502    3.50677  -0.820   0.4123    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 {% endhighlight %}
+
 
 
 
@@ -653,7 +690,7 @@ simulateResiduals(m_splitplot, plot = TRUE)
 {% highlight text %}
 ## Object of Class DHARMa with simulated residuals based on 250 simulations with refit = FALSE . See ?DHARMa::simulateResiduals for help. 
 ##  
-## Scaled residual values: 0.512 0.14 0.704 0.972 0.192 0.288 0.232 0.52 0.212 0.748 0.636 0.676 0.148 0.072 0.088 0.992 0.824 0.708 0.556 0.056 ...
+## Scaled residual values: 0.484 0.12 0.752 0.96 0.196 0.276 0.22 0.496 0.212 0.792 0.584 0.696 0.196 0.064 0.06 0.98 0.832 0.716 0.564 0.064 ...
 {% endhighlight %}
 
 
@@ -674,18 +711,6 @@ car::Anova(m_splitplot)
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 {% endhighlight %}
-
-
-{% highlight r %}
-marginal_means_splitplot <- emmeans(m_splitplot, ~nf)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NOTE: Results may be misleading due to involvement in interactions
-{% endhighlight %}
-
 
 
 {% highlight r %}
@@ -836,7 +861,7 @@ Now, the residuals are not $$\varepsilon \sim N(0, \sigma^2)$$ like we used to w
 The residuals are not independent because we are not accounting for the repeated measures in time yet. 
 Because we assume a first-order autoregressive structure, we say 
 
-$$\mathbf{y}_{i k l} \sim N(\boldsymbol{\mu}, \Sigma_ikl), \\
+$$\mathbf{y}_{i k l} \sim N(\boldsymbol{\mu}, \Sigma_{ikl}), \\
 \Sigma_{ikl} = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 \\
 \rho & 1 & \rho \\
 \rho^2 & \rho & 1\end{bmatrix}.$$
