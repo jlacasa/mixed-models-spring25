@@ -90,10 +90,13 @@ m_repeated <- glmmTMB(Temperature_C ~ Treatment * Time + ar1(1 + Time |Pig) + (1
               data = dd_temp)
 
 m_repeated <- glmmTMB(Temperature_F ~ Treatment * Time + ar1(1 + Time |Pig) + (1|Pen),
-              family = t_family(link = "identity"),
+              family = gaussian(link = "identity"),
               data = dd_temp)
 
 res_repeated <- simulateResiduals(m_repeated, plot = TRUE)
+```
+```{r}
+summary(m_repeated)
 ```
 
 
@@ -108,7 +111,7 @@ cld(marginal_means_temp,
 ## Example IV  
 
 ```{r}
-dd_fecal <- read.csv("data/fecal_dm.csv")
+dd_fecal <- read.csv("../../data/fecal_dm.csv")
 dd_fecal$Pig <- as.factor(dd_fecal$Pig)
 dd_fecal$Trt <- as.factor(dd_fecal$Trt)
 dd_fecal$Room <- as.factor(dd_fecal$Room)
