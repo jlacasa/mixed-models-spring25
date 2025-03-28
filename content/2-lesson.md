@@ -875,6 +875,60 @@ res_repeated <- simulateResiduals(m_repeated, plot = TRUE)
 {% include figure.html img="day2/DHARMa_repeated.png" alt="" caption="" width="80%" %}
 
 {% highlight r %}
+summary(m_repeated)
+{% endhighlight %}
+
+{% highlight text %}
+## Family: gaussian  ( identity )
+## Formula:          Temperature_F ~ Treatment * Time + ar1(1 + Time | Pig) + (1 |      Pen)
+## Data: dd_temp
+## 
+##      AIC      BIC   logLik deviance df.resid 
+##    844.6    956.5   -393.3    786.6      321 
+## 
+## Random effects:
+## 
+## Conditional model:
+##  Groups   Name        Variance  Std.Dev.  Corr      
+##  Pig      (Intercept) 2.612e-01 5.111e-01 0.55 (ar1)
+##  Pen      (Intercept) 9.568e-10 3.093e-05           
+##  Residual             2.545e-01 5.045e-01           
+## Number of obs: 350, groups:  Pig, 70; Pen, 70
+## 
+## Dispersion estimate for gaussian family (sigma^2): 0.255 
+## 
+## Conditional model:
+##                     Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)        1.037e+02  1.919e-01   540.2  < 2e-16 ***
+## TreatmentB         2.286e-01  2.714e-01     0.8 0.399753    
+## TreatmentC         2.643e-01  2.714e-01     1.0 0.330236    
+## TreatmentD         1.357e-01  2.714e-01     0.5 0.617092    
+## TreatmentE         2.357e-01  2.714e-01     0.9 0.385187    
+## Time2              1.136e+00  2.346e-01     4.8 1.29e-06 ***
+## Time4              1.086e+00  2.346e-01     4.6 3.68e-06 ***
+## Time6              8.286e-01  2.346e-01     3.5 0.000412 ***
+## Time12             2.357e-01  2.346e-01     1.0 0.314949    
+## TreatmentB:Time2   5.714e-02  3.317e-01     0.2 0.863235    
+## TreatmentC:Time2   3.357e-01  3.317e-01     1.0 0.311531    
+## TreatmentD:Time2   7.143e-01  3.317e-01     2.2 0.031301 *  
+## TreatmentE:Time2  -7.143e-02  3.317e-01    -0.2 0.829516    
+## TreatmentB:Time4  -5.643e-01  3.317e-01    -1.7 0.088933 .  
+## TreatmentC:Time4   3.571e-02  3.317e-01     0.1 0.914265    
+## TreatmentD:Time4   3.714e-01  3.317e-01     1.1 0.262851    
+## TreatmentE:Time4  -1.000e-01  3.317e-01    -0.3 0.763069    
+## TreatmentB:Time6  -2.357e-01  3.317e-01    -0.7 0.477353    
+## TreatmentC:Time6   9.286e-02  3.317e-01     0.3 0.779540    
+## TreatmentD:Time6   2.000e-01  3.317e-01     0.6 0.546574    
+## TreatmentE:Time6  -6.286e-01  3.317e-01    -1.9 0.058114 .  
+## TreatmentB:Time12 -1.071e-01  3.317e-01    -0.3 0.746707    
+## TreatmentC:Time12  8.571e-02  3.317e-01     0.3 0.796108    
+## TreatmentD:Time12 -5.447e-07  3.317e-01     0.0 0.999999    
+## TreatmentE:Time12 -3.857e-01  3.317e-01    -1.2 0.244935    
+## ---
+## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+{% endhighlight %}
+
+{% highlight r %}
 marginal_means_temp <- emmeans(m_repeated, ~ Treatment|Time)
 
 cld(marginal_means_temp, 
