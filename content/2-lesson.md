@@ -152,6 +152,12 @@ assumption of independence (for now...).
 
 {% include modal.html button="Animal example for CRD" color="success" id="modal-crd" title="Animal example" text=figure_content_crd %}
 
+{% capture figure_content_crd_lab %}
+{% include figure.html img="day2/lab_crd.PNG" alt="" caption="Schematic diagram of a Completely Randomized Design (CRD)." width="100%" %}
+{% endcapture %}
+
+{% include modal.html button="Lab example for CRD" color="success" id="modal-crd-lab" title="Lab example" text=figure_content_crd_lab %}
+
 #### Randomized complete block design (RCBD)  
 
 We assume that the experimental units did not experience similar conditions, 
@@ -285,6 +291,12 @@ $$\Sigma = \begin{bmatrix}
 {% endcapture %}
 
 {% include modal.html button="Animal example for RCBD" color="success" id="modal-rcbd" title="Animal example" text=figure_content_rcbd %}
+
+{% capture figure_content_rcbd_lab %}
+{% include figure.html img="day2/lab_rcbd.PNG" alt="" caption="Schematic diagram of a Randomized Complete Block Design (RCBD)." width="100%" %}
+{% endcapture %}
+
+{% include modal.html button="Lab example for RCBD" color="success" id="modal-rcbd-lab" title="Lab example" text=figure_content_rcbd_lab %}
 
 #### Split-plot design    
 
@@ -426,6 +438,12 @@ $$\Sigma = \begin{bmatrix}
 
 {% include modal.html button="Animal example for split-plots" color="success" id="modal-splitplot" title="Animal example" text=figure_content_splitplot %}
 
+{% capture figure_content_splitplot_lab %}
+{% include figure.html img="day2/lab_splitplot.PNG" alt="" caption="Schematic diagram of a Split-plot design." width="100%" %}
+{% endcapture %}
+
+{% include modal.html button="Lab example for split-plots" color="success" id="modal-splitplot-lab" title="Lab example" text=figure_content_splitplot_lab %}
+
 #### Repeated measures  
 
 Repeated measures designs are similar to split-plot desings, where time is at the subplot level. 
@@ -450,6 +468,11 @@ $$\mathbf{y}_{i l} \sim N(\boldsymbol{\mu}, \Sigma_{il}), \\
 
 {% include modal.html button="Animal example for repeated measures" color="success" id="modal-repeated" title="Animal example" text=figure_content_repeated %}
 
+{% capture figure_content_repeated_lab %}
+{% include figure.html img="day2/lab_repeated.PNG" alt="" caption="Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
+{% endcapture %}
+
+{% include modal.html button="Lab example for repeated measures" color="success" id="modal-repeated-lab" title="Lab example" text=figure_content_repeated_lab %}
 
 ------
 ## Applied examples   
