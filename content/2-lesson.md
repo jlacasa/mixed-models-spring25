@@ -938,7 +938,7 @@ Pig body temperature was measured at 5 points in time.
 The researchers wished to know if the feeding treatments affect body temperature. 
 
 $$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{k} + v_{i j k} + \varepsilon_{ijk},\\
-u_{k} \sim N(0, \sigma^2_u),
+u_{k} \sim N(0, \sigma^2_u), \\
 \varepsilon_{ijk} \sim N(0, \sigma^2),$$
 
 where $$y_{ij}$$ is the observed temperature for the $$i$$th feed treatment, 
