@@ -948,7 +948,7 @@ $$\varepsilon_{ijk}$$ is the residual (i.e., the difference between predicted an
 in the $$k$$th pen, 
 on the $$j$$th day,  
 
-Note that we didn't specify the distribution for $$\v_{i \vert k}$$. 
+Note that we didn't specify the distribution for $$v_{i \vert k}$$. 
 Normally we would have said $$v_{ijk} \sim N(0, \sigma^2)$$, but now, the observations are 
 not completely independent because they are following the same experimental unit through time. 
 Assuming a first-order autoregressive structure, we can say 
