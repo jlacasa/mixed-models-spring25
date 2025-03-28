@@ -196,7 +196,13 @@ sharing a block are correlated. We can write out the statistical model
 
 $$y_{ij} = \mu + \tau_i + u_j + \varepsilon_{ij},\\
 u_{j} \sim N(0, \sigma^2_u), \\
-\varepsilon_{ij} \sim N(0, \sigma^2).$$
+\varepsilon_{ij} \sim N(0, \sigma^2),$$
+
+where $$y_{ijk}$$ is the observation for the $$i$$th treatment in the $$j$$th block, 
+$$\mu$$ is the overall mean, 
+$$\tau_i$$ is the effect of the $$i$$th treatment, 
+$$u_k$$ is the random effect of the $$k$$th block, 
+and $$\varepsilon_{ij}$$ is the residual. 
 
 Assuming observations 1 to 10 belong to:  
 
@@ -387,10 +393,10 @@ u_{k} \sim N(0, \sigma^2_u), \\
 v_{i \vert j} \sim N(0, \sigma^2_v), \\
 \varepsilon_{ij} \sim N(0, \sigma^2),$$
 
-where $$y_{ijk}$$ is the observation, 
+where $$y_{ijk}$$ is the observation for the $$i$$th level of treatment factor 1, $$j$$th level of treatment factor 2, in the $$k$$th block, 
 $$\mu$$ is the overall mean, 
-$$\tau_i$$ is the main effect of the $$i$$th level of Factor 1, 
-$$\alpha_j$$ is the main effect of the $$j$$th level of Factor 2, 
+$$\tau_i$$ is the main effect of the $$i$$th level of treatment factor 1, 
+$$\alpha_j$$ is the main effect of the $$j$$th level of treatment factor 2, 
 $$(\tau \alpha)_{ij}$$ is their interaction, 
 $$u_k$$ is the random effect of the $$k$$th block, 
 $$v_{i \vert j}$$ is the random effect of the $$i$$th "miniblock" (whole plot) in the $$k$$th block,
@@ -535,7 +541,19 @@ The independence assumption does not hold and should be included in the model.
 
 
 $$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{k} + v_{ik} + \varepsilon_{ijk},\\
-u_{k} \sim N(0, \sigma^2_u).$$
+u_{k} \sim N(0, \sigma^2_u),$$
+
+where $$y_{ijk}$$ is the observation for the $$i$$th treatment, $$j$$th time, in the $$k$$th block, 
+$$\mu$$ is the overall mean, 
+$$\tau_i$$ is the main effect of the $$i$$th level of treatment factor 1 (treatment), 
+$$\alpha_j$$ is the main effect of the $$j$$th level of treatment factor 2 (time), 
+$$(\tau \alpha)_{ij}$$ is their interaction, 
+$$u_k$$ is the random effect of the $$k$$th block, 
+$$v_{i j}$$ is the random effect of the $$i$$th "miniblock" (whole plot) in the $$k$$th block,
+and $$\varepsilon_{ij}$$ is the residual. 
+
+This time, unlike split-plots, $$v_{ij} \text{ is not } \sim N(0, \sigma^2_v)$$ because 
+the treatment levels are not randomly assigned! Time is unidirectional and cannot be randomized. 
 
 $$\mathbf{v}_{ik} \sim N(\boldsymbol{0}, \Sigma_{v, ik}), \\
 \Sigma_{v, ik} = \sigma^2_v \begin{bmatrix} 1 & \rho & \rho^2 \\
