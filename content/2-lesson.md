@@ -369,7 +369,8 @@ Check out [Dixon (2016).](https://newprairiepress.org/cgi/viewcontent.cgi?articl
 
 #### Split-plot design    
 
-Split-plot designs are hierarchical types of designs where the experimental unit for one 
+Split-plot designs are hierarchical types of designs with at least two 
+treatment factors, where the experimental unit for one 
 treatment contains multiple experimental units of another treatment factor.
 The reason for this type of designs often go back to practical limitations 
 for the application of some treatment factor (e.g., agricultural machinery that 
