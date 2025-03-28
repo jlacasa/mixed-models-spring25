@@ -525,11 +525,11 @@ because it is unidirectional!
 The independence assumption does not hold and should be included in the model. 
 
 
-$$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{k} + \varepsilon_{ijk},\\
+$$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{k} + v_{ik} + \varepsilon_{ijk},\\
 u_{k} \sim N(0, \sigma^2_u).$$
 
-$$\mathbf{y}_{ik} \sim N(\boldsymbol{\mu}, \Sigma_{ik}), \\
-\Sigma_{ik} = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 \\
+$$\mathbf{v}_{ik} \sim N(\boldsymbol{0}, \Sigma_{v, ik}), \\
+\Sigma_{v, ik} = \sigma^2_v \begin{bmatrix} 1 & \rho & \rho^2 \\
 \rho & 1 & \rho \\
 \rho^2 & \rho & 1\end{bmatrix}.$$
 
