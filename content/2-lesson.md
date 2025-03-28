@@ -300,12 +300,22 @@ $$\Sigma = \begin{bmatrix}
 
 #### Split-plot design    
 
-Sometimes, some treatments have practical limitations for their application that 
-make split-plot designs more convenient. 
-In split-plot designs, the levels of one treatment factor are randomly assigned to its 
-experimental units (whole plots) *within* the blocks. 
-The levels of the other treatment factor are randomly assigned to its 
-experimental units (split plots) **within the whole plots**. 
+Split-plot designs are hierarchical types of designs where the experimental unit for one 
+treatment contains multiple experimental units of another treatment factor.
+The reason for this type of designs often go back to practical limitations 
+for the application of some treatment factor (e.g., agricultural machinery that 
+imposes the experimental unit size), making
+split-plot designs more convenient. 
+
+Treatments are randomized in a stepwise fashion:  
+1. The levels of one treatment factor are randomly assigned to its 
+experimental units (whole plots). In an RCBD, the treatments for the whole plots 
+are randomly assigned within each block. 
+2. **Within the whole plots**, the levels of the other treatment factor are 
+randomly assigned to its experimental units (split plots), which are 
+subsections of the whole plots. Note: we could think of the whole plots acting 
+as "mini blocks" for the second treatment factor. 
+
 Again, all observations from the same block share the same random effect and are correlated.  
 Likewise, all observations from the same whole plot ($$\sim$$"mini block") are correlated. 
 
@@ -452,10 +462,11 @@ because it is unidirectional!
 The independence assumption does not hold and should be included in the model. 
 
 
-$$y_{ij} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{ij} + \varepsilon_{ij},$$
+$$y_{ijk} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{k} + \varepsilon_{ijk},\\
+u_{k} \sim N(0, \sigma^2_u).$$
 
-$$\mathbf{y}_{i l} \sim N(\boldsymbol{\mu}, \Sigma_{il}), \\
-\Sigma_{il} = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 \\
+$$\mathbf{y}_{ik} \sim N(\boldsymbol{\mu}, \Sigma_{ik}), \\
+\Sigma_{ik} = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 \\
 \rho & 1 & \rho \\
 \rho^2 & \rho & 1\end{bmatrix}.$$
 
