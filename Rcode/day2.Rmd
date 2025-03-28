@@ -7,6 +7,7 @@ date: "2025-03-25"
 knitr::opts_chunk$set(fig.width=8, fig.height=4) 
 ```
 
+## Library  
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(agridat)
 library(tidyverse)
@@ -14,7 +15,15 @@ library(glmmTMB)
 library(DHARMa)
 library(emmeans)
 library(multcomp)
+```
 
+```{r}
+options(contrasts = c("contr.sum", "contr.poly"))
+```
+
+## Example I  
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 dat <- omer.sorghum
 dat <- dat %>% 
   filter(env == "E3")
@@ -36,6 +45,8 @@ cld(marginal_means,
     Letters = letters)
 ```
 
+
+## Example II  
 
 ```{r}
 dat <- yates.oats
@@ -64,10 +75,45 @@ cld(marginal_means_splitplot,
     Letters = letters)
 ```
 
+## Example III  
+
+```{r}
+dd_temp <- read.csv("../../data/temperature_2.csv")
+dd_temp$Pig <- as.factor(dd_temp$Pig)
+dd_temp$Treatment <- as.factor(dd_temp$Treatment)
+dd_temp$Pen <- as.factor(dd_temp$Pen)
+dd_temp$Time <- as.factor(dd_temp$Time)
+dd_temp$Temperature_F <- (dd_temp$Temperature_C *9/5) + 32  
+
+m_repeated <- glmmTMB(Temperature_C ~ Treatment * Time + ar1(1 + Time |Pig) + (1|Pen),
+              family = gaussian(link = "identity"),
+              data = dd_temp)
+
+m_repeated <- glmmTMB(Temperature_F ~ Treatment * Time + ar1(1 + Time |Pig) + (1|Pen),
+              family = t_family(link = "identity"),
+              data = dd_temp)
+
+res_repeated <- simulateResiduals(m_repeated, plot = TRUE)
+```
+
+
+```{r}
+marginal_means_temp <- emmeans(m_repeated, ~ Treatment|Time)
+
+cld(marginal_means_temp, 
+    adjust = "sidak", 
+    Letters = letters)
+```
+
+## Example IV  
+
 ```{r}
 dd_fecal <- read.csv("data/fecal_dm.csv")
-dd_fecal <- dd_fecal %>% 
-  mutate(across(Pig:Day, ~as.factor(.)))
+dd_fecal$Pig <- as.factor(dd_fecal$Pig)
+dd_fecal$Trt <- as.factor(dd_fecal$Trt)
+dd_fecal$Room <- as.factor(dd_fecal$Room)
+dd_fecal$Pen <- as.factor(dd_fecal$Pen)
+dd_fecal$Day <- as.factor(dd_fecal$Day)
 
 m_subsampling_repeated <- glmmTMB(dry_matter_perc ~ Trt * Day + ar1(1 + Day |Pig) + (1|Room/Pen),
                                   data = dd_fecal)
