@@ -553,7 +553,7 @@ $$u_k$$ is the random effect of the $$k$$th block,
 $$v_{i j}$$ is the random effect of the $$i$$th "miniblock" (whole plot) in the $$k$$th block,
 and $$\varepsilon_{ij}$$ is the residual. 
 
-This time, unlike split-plots, $$v_{ij} \text{ is not } \sim N(0, \sigma^2_v)$$ because 
+This time, unlike split-plots, $$v_{ij} \nsim \sim N(0, \sigma^2_v)$$ because 
 the treatment levels are not randomly assigned! Time is unidirectional and cannot be randomized. 
 
 $$\mathbf{v}_{ik} \sim N(\boldsymbol{0}, \Sigma_{v, ik}), \\
