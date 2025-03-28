@@ -340,16 +340,6 @@ This discussion has been very controversial among applied statisticians.
         <td>less</td>
     </tr>
     <tr>
-        <th>Usually used to model</th>
-        <td>Carefully selected treatments or genotypes</td>
-        <td>The study design (aka structure in the data, or what is similar to what)</td>
-    </tr>
-    <tr>
-        <th>Assumptions</th>
-        <td>$$\hat{\boldsymbol{\beta}} \sim N \left( \boldsymbol{\beta}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$</td>
-        <td>$$b_j \sim N(0, \sigma^2_b)$$</td>
-    </tr>
-    <tr>
         <th>Point estimates</th>
         <td>same</td>
         <td>same</td>
