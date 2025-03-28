@@ -1124,7 +1124,7 @@ $$\tau_i$$ is the (fixed) effect of the $$i$$th feed treatment,
 $$\alpha_j$$ is the (fixed) effect of the $$j$$th day, 
 $$(\tau \alpha)_{ij}$$ is the interaction between the $$i$$th feed treatment and the $$j$$th day, 
 $$u_k$$ is the (random) effect of the $$k$$th room, 
-$$v_{i \vert k}$$ is the (random) effect of the $$i$$th pen in the$$k$$th room, 
+$$v_{i \vert k}$$ is the (random) effect of the $$i$$th pen in the $$k$$th room, 
 $$\varepsilon_{ijkl}$$ is the residual (i.e., the difference between predicted and observed) of the $$i$$th feed treatment, in $$j$$th room ($$\sim$$ block) 
 $$k$$th pen, and $$l$$th pig, 
 $$\sigma^2_u$$ is the variance among rooms, 
