@@ -974,6 +974,9 @@ did not converge! More on troubleshooting in the [Resources](5-resources) page.
 
 
 {% highlight r %}
+
+options(contrasts = c("contr.treatment", "contr.poly"))
+
 dd_temp$Pig <- as.factor(dd_temp$Pig)
 dd_temp$Treatment <- as.factor(dd_temp$Treatment)
 dd_temp$Pen <- as.factor(dd_temp$Pen)
@@ -985,14 +988,6 @@ m_repeated <- glmmTMB(Temperature_C ~ Treatment * Time + ar1(1 + Time |Pen),
               data = dd_temp)
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Warning in getReStruc(reTrms, ss, aa, reXterms, fr): AR1 not meaningful with intercept
-{% endhighlight %}
-
-
-
 {% highlight r %}
 m_repeated <- glmmTMB(Temperature_F ~ Treatment * Time + ar1(1 + Time |Pen) ,
               family = gaussian(link = "identity"),
@@ -1000,21 +995,8 @@ m_repeated <- glmmTMB(Temperature_F ~ Treatment * Time + ar1(1 + Time |Pen) ,
 {% endhighlight %}
 
 
-
-{% highlight text %}
-## Warning in getReStruc(reTrms, ss, aa, reXterms, fr): AR1 not meaningful with intercept
-{% endhighlight %}
-
-
-
 {% highlight r %}
 res_repeated <- simulateResiduals(m_repeated, plot = TRUE)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## Warning in getReStruc(reTrms, ss, aa, reXterms, fr): AR1 not meaningful with intercept
 {% endhighlight %}
 
 
