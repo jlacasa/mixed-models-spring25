@@ -34,7 +34,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport1" content="width=device-width, initial-scale=1.0">
     <title>Fixed vs Random Effects Table</title>
     <style>
         table {
