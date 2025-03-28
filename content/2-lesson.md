@@ -96,6 +96,24 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 {% endcapture %}
 {% include card.html text=text header= "Review" color="#a9d9a9" %}
 
+------
+
+- [Outline for today](#outline-for-today)
+- [Designed experiments](#designed-experiments)
+  * [Common types of designed experiments](#common-types-of-designed-experiments)
+    + [Completely Randomized Design (CRD)](#completely-randomized-design--crd-)
+    + [Randomized complete block design (RCBD)](#randomized-complete-block-design--rcbd-)
+    + [Split-plot design](#split-plot-design)
+    + [Repeated measures](#repeated-measures)
+- [Applied examples](#applied-examples)
+- [Applied example I - RCBD](#applied-example-i---rcbd)
+- [Applied example II -- Split-plot design (nested random effects)](#applied-example-ii----split-plot-design--nested-random-effects-)
+- [Applied example III -- repeated measures](#applied-example-iii----repeated-measures)
+- [Applied example IV -- repeated measures with subsampling](#applied-example-iv----repeated-measures-with-subsampling)
+- [What's next](#what-s-next)
+
+------
+
 ## Outline for today
 
 -   **Review on designed experiments.** 
