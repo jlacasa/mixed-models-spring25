@@ -199,8 +199,6 @@ m1 <- glmmTMB(y ~ trt + (1|block),
 res1 <- simulateResiduals(m1, plot = T)
 {% endhighlight %}
 
-![center](https://jlacasa.github.io/mixed-models-spring25/figs/models_day_3/unnamed-chunk-72-1.png)
-
 {% highlight r %}
 m2 <- glmmTMB(y ~ trt + (1|block),
               family = nbinom1(link = "log"),
@@ -210,6 +208,7 @@ res2 <- simulateResiduals(m2, plot = T)
 summary(m2)
 {% endhighlight %}
 
+{% include figure.html img="day3/DHARMa_negbinomial.png" alt="" caption="" width="80%" %}
 
 
 {% highlight text %}
@@ -253,7 +252,7 @@ m1 <- glmmTMB(cbind(germ, n-germ) ~ extract*gen + (1|plate),
 res1 <- simulateResiduals(m1, plot = T)
 {% endhighlight %}
 
-![center](https://jlacasa.github.io/mixed-models-spring25/figs/models_day_3/unnamed-chunk-73-1.png)
+{% include figure.html img="day3/DHARMa_binomial.png" alt="" caption="" width="80%" %}
 
 {% highlight r %}
 summary(m1)
