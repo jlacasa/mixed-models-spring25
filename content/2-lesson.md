@@ -103,6 +103,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
   * [Common types of designed experiments](#common-types-of-designed-experiments)
     + [Completely Randomized Design (CRD)](#completely-randomized-design--crd-)
     + [Randomized complete block design (RCBD)](#randomized-complete-block-design--rcbd-)
+      - [Discussion: Should blocks be fixed or random?](#discussion--should-blocks-be-fixed-or-random-)
     + [Split-plot design](#split-plot-design)
     + [Repeated measures](#repeated-measures)
 - [Applied examples](#applied-examples)
@@ -315,6 +316,60 @@ $$\Sigma = \begin{bmatrix}
 {% endcapture %}
 
 {% include modal.html button="Lab example for RCBD" color="success" id="modal-rcbd-lab" title="Lab example" text=figure_content_rcbd_lab %}
+
+##### Discussion: Should blocks be fixed or random?  
+
+This discussion has been very controversial among applied statisticians. 
+
+<body>
+
+<table class="unique-table">
+    <tr>
+        <th> </th>
+        <th>Blocks fixed</th>
+        <th>Blocks random</th>
+    </tr>
+    <tr>
+        <th>What is being estimated</th>
+        <td>$$\hat{\boldsymbol{\beta}}_{b \times 1}$$</td>
+        <td>$$\sigma^2_u$$</td>
+    </tr>
+    <tr>
+        <th>Estimation cost in degrees of freedom</th>
+        <td>more</td>
+        <td>less</td>
+    </tr>
+    <tr>
+        <th>Usually used to model</th>
+        <td>Carefully selected treatments or genotypes</td>
+        <td>The study design (aka structure in the data, or what is similar to what)</td>
+    </tr>
+    <tr>
+        <th>Assumptions</th>
+        <td>$$\hat{\boldsymbol{\beta}} \sim N \left( \boldsymbol{\beta}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$</td>
+        <td>$$b_j \sim N(0, \sigma^2_b)$$</td>
+    </tr>
+    <tr>
+        <th>Point estimates</th>
+        <td>same</td>
+        <td>same</td>
+    </tr>
+    <tr>
+        <th>Standard error of treatment means</th>
+        <td>$$\sqrt{\frac{\sigma^2}{b}}$$</td>
+        <td>$$\sqrt{\frac{\sigma^2 + \sigma^2_b}{b}}$$</td>
+    </tr>
+    <tr>
+        <th>Standard error of mean differences</th>
+        <td>$$\sqrt{\frac{2\sigma^2}{b}}$$</td>
+        <td>$$\sqrt{\frac{2\sigma^2}{b}}$$</td>
+    </tr>
+</table>
+</body>
+
+{% include figure.html img="day2/dixon2016.jpg" alt="" caption="Extracted from Dixon (2016)" width="100%" %}
+
+Check out [Dixon (2016).](https://newprairiepress.org/cgi/viewcontent.cgi?article=1474&context=agstatconference) 
 
 #### Split-plot design    
 
