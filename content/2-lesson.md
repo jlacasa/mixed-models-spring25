@@ -974,18 +974,49 @@ did not converge! More on troubleshooting in the [Resources](5-resources) page.
 
 
 {% highlight r %}
-dd_temp <- read.csv("data/temperature.csv")
 dd_temp$Pig <- as.factor(dd_temp$Pig)
 dd_temp$Treatment <- as.factor(dd_temp$Treatment)
 dd_temp$Pen <- as.factor(dd_temp$Pen)
 dd_temp$Time <- as.factor(dd_temp$Time)
+dd_temp$Temperature_F <- (dd_temp$Temperature_C *9/5) + 32  
 
-m_repeated <- glmmTMB(Temperature_C ~ Treatment * Time + ar1(1 + Time |Pig) + (1|Pen/Pig),
+m_repeated <- glmmTMB(Temperature_C ~ Treatment * Time + ar1(1 + Time |Pen),
               family = gaussian(link = "identity"),
-              data = dd_temp )
+              data = dd_temp)
+{% endhighlight %}
 
+
+
+{% highlight text %}
+## Warning in getReStruc(reTrms, ss, aa, reXterms, fr): AR1 not meaningful with intercept
+{% endhighlight %}
+
+
+
+{% highlight r %}
+m_repeated <- glmmTMB(Temperature_F ~ Treatment * Time + ar1(1 + Time |Pen) ,
+              family = gaussian(link = "identity"),
+              data = dd_temp)
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Warning in getReStruc(reTrms, ss, aa, reXterms, fr): AR1 not meaningful with intercept
+{% endhighlight %}
+
+
+
+{% highlight r %}
 res_repeated <- simulateResiduals(m_repeated, plot = TRUE)
 {% endhighlight %}
+
+
+
+{% highlight text %}
+## Warning in getReStruc(reTrms, ss, aa, reXterms, fr): AR1 not meaningful with intercept
+{% endhighlight %}
+
 
 {% include figure.html img="day2/DHARMa_repeated.png" alt="" caption="" width="80%" %}
 
@@ -993,55 +1024,58 @@ res_repeated <- simulateResiduals(m_repeated, plot = TRUE)
 summary(m_repeated)
 {% endhighlight %}
 
+
+
 {% highlight text %}
-## Family: gaussian  ( identity )
-## Formula:          Temperature_F ~ Treatment * Time + ar1(1 + Time | Pig) + (1 |      Pen)
+##  Family: gaussian  ( identity )
+## Formula:          Temperature_F ~ Treatment * Time + ar1(1 + Time | Pen)
 ## Data: dd_temp
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
-##    844.6    956.5   -393.3    786.6      321 
+##    842.6    950.6   -393.3    786.6      322 
 ## 
 ## Random effects:
 ## 
 ## Conditional model:
-##  Groups   Name        Variance  Std.Dev.  Corr      
-##  Pig      (Intercept) 2.612e-01 5.111e-01 0.55 (ar1)
-##  Pen      (Intercept) 9.568e-10 3.093e-05           
-##  Residual             2.545e-01 5.045e-01           
-## Number of obs: 350, groups:  Pig, 70; Pen, 70
+##  Groups   Name        Variance Std.Dev. Corr      
+##  Pen      (Intercept) 0.2612   0.5111   0.55 (ar1)
+##  Residual             0.2545   0.5045             
+## Number of obs: 350, groups:  Pen, 70
 ## 
 ## Dispersion estimate for gaussian family (sigma^2): 0.255 
 ## 
 ## Conditional model:
 ##                     Estimate Std. Error z value Pr(>|z|)    
 ## (Intercept)        1.037e+02  1.919e-01   540.2  < 2e-16 ***
-## TreatmentB         2.286e-01  2.714e-01     0.8 0.399753    
-## TreatmentC         2.643e-01  2.714e-01     1.0 0.330236    
-## TreatmentD         1.357e-01  2.714e-01     0.5 0.617092    
-## TreatmentE         2.357e-01  2.714e-01     0.9 0.385187    
+## TreatmentB         2.286e-01  2.714e-01     0.8 0.399758    
+## TreatmentC         2.643e-01  2.714e-01     1.0 0.330235    
+## TreatmentD         1.357e-01  2.714e-01     0.5 0.617085    
+## TreatmentE         2.357e-01  2.714e-01     0.9 0.385195    
 ## Time2              1.136e+00  2.346e-01     4.8 1.29e-06 ***
 ## Time4              1.086e+00  2.346e-01     4.6 3.68e-06 ***
 ## Time6              8.286e-01  2.346e-01     3.5 0.000412 ***
-## Time12             2.357e-01  2.346e-01     1.0 0.314949    
-## TreatmentB:Time2   5.714e-02  3.317e-01     0.2 0.863235    
-## TreatmentC:Time2   3.357e-01  3.317e-01     1.0 0.311531    
-## TreatmentD:Time2   7.143e-01  3.317e-01     2.2 0.031301 *  
-## TreatmentE:Time2  -7.143e-02  3.317e-01    -0.2 0.829516    
-## TreatmentB:Time4  -5.643e-01  3.317e-01    -1.7 0.088933 .  
+## Time12             2.357e-01  2.346e-01     1.0 0.314950    
+## TreatmentB:Time2   5.714e-02  3.317e-01     0.2 0.863239    
+## TreatmentC:Time2   3.357e-01  3.317e-01     1.0 0.311537    
+## TreatmentD:Time2   7.143e-01  3.317e-01     2.2 0.031302 *  
+## TreatmentE:Time2  -7.143e-02  3.317e-01    -0.2 0.829510    
+## TreatmentB:Time4  -5.643e-01  3.317e-01    -1.7 0.088935 .  
 ## TreatmentC:Time4   3.571e-02  3.317e-01     0.1 0.914265    
-## TreatmentD:Time4   3.714e-01  3.317e-01     1.1 0.262851    
-## TreatmentE:Time4  -1.000e-01  3.317e-01    -0.3 0.763069    
-## TreatmentB:Time6  -2.357e-01  3.317e-01    -0.7 0.477353    
-## TreatmentC:Time6   9.286e-02  3.317e-01     0.3 0.779540    
-## TreatmentD:Time6   2.000e-01  3.317e-01     0.6 0.546574    
-## TreatmentE:Time6  -6.286e-01  3.317e-01    -1.9 0.058114 .  
-## TreatmentB:Time12 -1.071e-01  3.317e-01    -0.3 0.746707    
-## TreatmentC:Time12  8.571e-02  3.317e-01     0.3 0.796108    
-## TreatmentD:Time12 -5.447e-07  3.317e-01     0.0 0.999999    
+## TreatmentD:Time4   3.714e-01  3.317e-01     1.1 0.262855    
+## TreatmentE:Time4  -1.000e-01  3.317e-01    -0.3 0.763077    
+## TreatmentB:Time6  -2.357e-01  3.317e-01    -0.7 0.477366    
+## TreatmentC:Time6   9.286e-02  3.317e-01     0.3 0.779536    
+## TreatmentD:Time6   2.000e-01  3.317e-01     0.6 0.546565    
+## TreatmentE:Time6  -6.286e-01  3.317e-01    -1.9 0.058115 .  
+## TreatmentB:Time12 -1.071e-01  3.317e-01    -0.3 0.746711    
+## TreatmentC:Time12  8.571e-02  3.317e-01     0.3 0.796107    
+## TreatmentD:Time12 -2.190e-06  3.317e-01     0.0 0.999995    
 ## TreatmentE:Time12 -3.857e-01  3.317e-01    -1.2 0.244935    
 ## ---
-## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 {% endhighlight %}
+
+
 
 {% highlight r %}
 marginal_means_temp <- emmeans(m_repeated, ~ Treatment|Time)
@@ -1055,44 +1089,44 @@ cld(marginal_means_temp,
 
 {% highlight text %}
 ## Time = 0:
-##  Treatment emmean     SE  df lower.CL upper.CL .group
-##  E          39.91 0.0730 670    39.72    40.10  a    
-##  B          39.92 0.0730 670    39.73    40.11  a    
-##  D          39.97 0.0730 670    39.78    40.15  a    
-##  C          39.97 0.0730 670    39.78    40.16  a    
-##  A          39.98 0.0730 670    39.80    40.17  a    
+##  Treatment emmean    SE  df lower.CL upper.CL .group
+##  A          103.7 0.192 322    103.2    104.2  a    
+##  D          103.8 0.192 322    103.3    104.3  a    
+##  B          103.9 0.192 322    103.4    104.4  a    
+##  E          103.9 0.192 322    103.4    104.4  a    
+##  C          104.0 0.192 322    103.5    104.4  a    
 ## 
 ## Time = 2:
-##  Treatment emmean     SE  df lower.CL upper.CL .group
-##  E          40.57 0.0961 670    40.33    40.82  a    
-##  A          40.59 0.0961 670    40.34    40.83  a    
-##  B          40.65 0.0961 670    40.40    40.89  a    
-##  C          40.85 0.0961 670    40.60    41.10  a    
-##  D          40.91 0.0961 670    40.67    41.16  a    
+##  Treatment emmean    SE  df lower.CL upper.CL .group
+##  A          104.8 0.276 322    104.1    105.5  a    
+##  E          105.0 0.276 322    104.3    105.7  a    
+##  B          105.1 0.276 322    104.4    105.8  a    
+##  C          105.4 0.276 322    104.7    106.1  a    
+##  D          105.7 0.276 322    105.0    106.4  a    
 ## 
 ## Time = 4:
-##  Treatment emmean     SE  df lower.CL upper.CL .group
-##  B          40.33 0.0915 670    40.09    40.56  a    
-##  A          40.58 0.0915 670    40.35    40.82  ab   
-##  C          40.70 0.0915 670    40.46    40.93   b   
-##  D          40.72 0.0915 670    40.48    40.95   b   
-##  E          40.72 0.0915 670    40.49    40.96   b   
+##  Treatment emmean    SE  df lower.CL upper.CL .group
+##  B          104.4 0.259 322    103.8    105.1  a    
+##  A          104.8 0.259 322    104.1    105.4  a    
+##  E          104.9 0.259 322    104.2    105.6  a    
+##  C          105.1 0.259 322    104.4    105.7  a    
+##  D          105.3 0.259 322    104.6    105.9  a    
 ## 
 ## Time = 6:
-##  Treatment emmean     SE  df lower.CL upper.CL .group
-##  E          40.28 0.0886 670    40.06    40.51  a    
-##  B          40.31 0.0886 670    40.08    40.53  a    
-##  A          40.36 0.0886 670    40.13    40.59  a    
-##  D          40.47 0.0886 670    40.24    40.70  a    
-##  C          40.51 0.0886 670    40.29    40.74  a    
+##  Treatment emmean    SE  df lower.CL upper.CL .group
+##  E          104.1 0.249 322    103.5    104.8  a    
+##  B          104.5 0.249 322    103.9    105.1  a    
+##  A          104.5 0.249 322    103.9    105.2  a    
+##  D          104.9 0.249 322    104.2    105.5  a    
+##  C          104.9 0.249 322    104.2    105.5  a    
 ## 
 ## Time = 12:
-##  Treatment emmean     SE  df lower.CL upper.CL .group
-##  E          40.01 0.0869 670    39.78    40.23  a    
-##  B          40.04 0.0869 670    39.81    40.26  a    
-##  A          40.05 0.0869 670    39.82    40.27  a    
-##  D          40.10 0.0869 670    39.88    40.33  a    
-##  C          40.14 0.0869 670    39.92    40.36  a    
+##  Treatment emmean    SE  df lower.CL upper.CL .group
+##  E          103.8 0.243 322    103.1    104.4  a    
+##  A          103.9 0.243 322    103.3    104.5  a    
+##  B          104.0 0.243 322    103.4    104.7  a    
+##  D          104.1 0.243 322    103.4    104.7  a    
+##  C          104.3 0.243 322    103.6    104.9  a    
 ## 
 ## Confidence level used: 0.95 
 ## Conf-level adjustment: sidak method for 5 estimates 
@@ -1102,6 +1136,8 @@ cld(marginal_means_temp,
 ##       then we cannot show them to be different.
 ##       But we also did not show them to be the same.
 {% endhighlight %}
+
+
 
 ## Applied example IV -- repeated measures with subsampling    
 
@@ -1159,6 +1195,55 @@ res <- simulateResiduals(m_subsampling_repeated, plot = TRUE)
 {% endhighlight %}
 
 {% include figure.html img="day2/DHARMa_repeated_subsampling.png" alt="" caption="" width="80%" %}
+
+{% highlight r %}
+summary(m_subsampling_repeated)
+{% endhighlight %}
+
+{% highlight text %}
+##  Family: gaussian  ( identity )
+## Formula:          dry_matter_perc ~ Trt * Day + ar1(1 + Day | Pig) + (1 | Room/Pen)
+## Data: dd_fecal
+## 
+##      AIC      BIC   logLik deviance df.resid 
+##   3601.8   3700.6  -1777.9   3555.8      517 
+## 
+## Random effects:
+## 
+## Conditional model:
+##  Groups   Name        Variance  Std.Dev. Corr      
+##  Pig      (Intercept)  3.069620 1.75203  0.41 (ar1)
+##  Pen:Room (Intercept)  1.002794 1.00140            
+##  Room     (Intercept)  0.001016 0.03188            
+##  Residual             35.916285 5.99302            
+## Number of obs: 540, groups:  Pig, 180; Pen:Room, 60; Room, 2
+## 
+## Dispersion estimate for gaussian family (sigma^2): 35.9 
+## 
+## Conditional model:
+##             Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)  19.8414     1.1834  16.767   <2e-16 ***
+## TrtB          3.8369     1.6732   2.293   0.0218 *  
+## TrtC          2.5830     1.6732   1.544   0.1227    
+## TrtD          1.5962     1.6732   0.954   0.3401    
+## TrtE          0.9596     1.6732   0.574   0.5663    
+## TrtF          2.3335     1.6732   1.395   0.1631    
+## Day10        -3.9525     1.5801  -2.501   0.0124 *  
+## Day17        -1.2710     1.5801  -0.804   0.4212    
+## TrtB:Day10    3.8430     2.2346   1.720   0.0855 .  
+## TrtC:Day10   -2.1745     2.2346  -0.973   0.3305    
+## TrtD:Day10   -2.1634     2.2346  -0.968   0.3330    
+## TrtE:Day10   -0.1957     2.2346  -0.088   0.9302    
+## TrtF:Day10   -4.5199     2.2346  -2.023   0.0431 *  
+## TrtB:Day17   -0.6552     2.2346  -0.293   0.7694    
+## TrtC:Day17   -2.8789     2.2346  -1.288   0.1976    
+## TrtD:Day17   -1.2935     2.2346  -0.579   0.5627    
+## TrtE:Day17   -0.4463     2.2346  -0.200   0.8417    
+## TrtF:Day17   -2.7244     2.2346  -1.219   0.2228    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+{% endhighlight %}
+
 
 {% highlight r %}
 marginal_means_feces <- emmeans(m_subsampling_repeated, ~ Day|Trt)
