@@ -182,13 +182,13 @@ Assuming observations 1 to 10 belong to:
     <title>Fixed vs Random Effects Table</title>
     <style>
         table {
-            width: 70%;
+            width: 50%;
             border-collapse: collapse;
             margin: 20px 0;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 4px;
             text-align: left;
         }
         th {
@@ -309,13 +309,13 @@ Assuming observations 1 to 4 belong to:
     <title>Fixed vs Random Effects Table</title>
     <style>
         table {
-            width: 100%;
+            width: 50%;
             border-collapse: collapse;
             margin: 20px 0;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 4px;
             text-align: left;
         }
         th {
