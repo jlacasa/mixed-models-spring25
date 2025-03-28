@@ -533,6 +533,9 @@ $$\mathbf{v}_{ik} \sim N(\boldsymbol{0}, \Sigma_{v, ik}), \\
 \rho & 1 & \rho \\
 \rho^2 & \rho & 1\end{bmatrix}.$$
 
+Note that we are still affecting the $$\mathbf{G}$$ matrix, not the $$\mathbf{R}$$ matrix. 
+This difference may affect inference, especially for non-normal responses (not the case yet). 
+This is a more advanced topic - see Stroup et al. (2024) for more discussions on G-side versus R-side correlations.  
 
 {% include figure.html img="day2/designs_repeated.PNG" alt="" caption="Figure 4. Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
 
