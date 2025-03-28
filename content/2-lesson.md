@@ -555,15 +555,20 @@ and $$\varepsilon_{ij}$$ is the residual.
 
 This time, unlike split-plots, $$v_{ij} \nsim \sim N(0, \sigma^2_v)$$ because 
 the treatment levels are not randomly assigned! Time is unidirectional and cannot be randomized. 
+We can describe how different observations of a treatment $$i$$ in block $$k$$ are correlated, by looking at
+the distribution of $$\mathbf{v}_{ik}$$:
 
 $$\mathbf{v}_{ik} \sim N(\boldsymbol{0}, \Sigma_{v, ik}), \\
 \Sigma_{v, ik} = \sigma^2_v \begin{bmatrix} 1 & \rho & \rho^2 \\
 \rho & 1 & \rho \\
 \rho^2 & \rho & 1\end{bmatrix}.$$
 
+This example shows a first order autoregressive covariance structure. 
+
 Note that we are still affecting the $$\mathbf{G}$$ matrix, not the $$\mathbf{R}$$ matrix. 
 This difference may affect inference, especially for non-normal responses (not the case yet). 
-This is a more advanced topic - see Stroup et al. (2024) for more discussions on G-side versus R-side correlations.  
+This is a more advanced topic - for other types of correlation functions and a discussion of the implications of 
+G-side versus R-side correlations see Stroup et al. (2024).  
 
 {% include figure.html img="day2/designs_repeated.PNG" alt="" caption="Figure 4. Schematic diagram of a Randomized Complete Block Design with Repeated Measures" width="100%" %}
 
