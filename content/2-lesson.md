@@ -506,7 +506,7 @@ $$\mathbf{y}_{ik} \sim N(\boldsymbol{\mu}, \Sigma_{ik}), \\
 ------
 ## Applied examples   
 
-Follow along the R code [here](../Rcode/day2.Rmd).  
+Follow along with the R code [here](../Rcode/day2.Rmd).  
 
 ## Applied example I - RCBD   
 
