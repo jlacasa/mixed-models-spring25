@@ -34,24 +34,24 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport1" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fixed vs Random Effects Table</title>
     <style>
-        table {
+        table.unique-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        th, td {
+        table.unique-table th, table.unique-table td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
-        th {
+        table.unique-table th {
             background-color: #f4f4f4;
             font-weight: bold;
         }
-        tr:nth-child(even) {
+        table.unique-table tr:nth-child(even) {
             background-color: #f9f9f9;
         }
     </style>
@@ -59,7 +59,7 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
 
 <body>
 
-<table>
+<table class="unique-table">
     <tr>
         <th> </th>
         <th>Fixed effects</th>
