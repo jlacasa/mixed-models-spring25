@@ -130,7 +130,7 @@ relatively different amon themselves. Some important distributions are:
     <tr>
         <td>t  distribution  
         $$y \sim t_{\nu}(\mu, \sigma^2)$$
-        $E(y) = \mu$ for $\nu>1$, otherwise undefined.
+        $$E(y) = \mu$$for$$\nu>1$$, otherwise undefined.
         $$Var(y) = \frac{\nu}{\nu-2}\sigma^2$$ for $$\nu>2$$, otherwise undefined.
         Note, for $$\nu \rightarrow \infty$$, the distribution approximates to a normal.  
         </td>
@@ -160,30 +160,6 @@ relatively different amon themselves. Some important distributions are:
 </table>
 </body>
 
-
-### Normal distribution  
-
-{% include figure.html img="day3/dist1_normal.png" alt="" caption="" width="80%" %}
-
-
-### t distribution  
-
-{% include figure.html img="day3/dist2_t.png" alt="" caption="" width="80%" %}
-
-
-### Gamma distribution  
-
-{% include figure.html img="day3/dist3_gamma.png" alt="" caption="" width="80%" %}
-
-
-### Beta distribution  
-
-{% include figure.html img="day3/dist4_beta.png" alt="" caption="" width="80%" %}
-
-
-### Poisson distribution  
-
-{% include figure.html img="day3/dist5_poisson.png" alt="" caption="" width="80%" %}
 
 ------
 
