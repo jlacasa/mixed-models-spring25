@@ -121,16 +121,27 @@ relatively different amon themselves. Some important distributions are:
 
 <table>
     <tr>
+        <td>Normal distribution  
+        $$y \sim N(\mu, \sigma^2)$$
+        $$E(y) = \mu$$
+        $$Var(y) = \sigma^2$$</td>
         <td><img src="../images/day3/dist1_normal.png" alt="Normal distribution" width="400" height="400"></td>
+    </tr>
+    <tr>
+        <td>t  distribution  </td>
         <td><img src="../images/day3/dist2_t.png" alt="t distribution" width="400" height="400"></td>
     </tr>
     <tr>
+        <td>Gamma distribution  </td>
         <td><img src="../images/day3/dist3_gamma.png" alt="Gamma distribution" width="400" height="400"></td>
+    </tr>
+    <tr>
+        <td>Beta distribution  </td>
         <td><img src="../images/day3/dist4_beta.png" alt="Beta distribution" width="400" height="400"></td>
     </tr>
     <tr>
+        <td>Poisson distribution</td>
         <td><img src="../images/day3/dist5_poisson" alt="Poisson distribution" width="400" height="400"></td>
-        <td></td>
     </tr>
 </table>
 </body>
@@ -169,16 +180,13 @@ relatively different amon themselves. Some important distributions are:
 3. Identify a link function that connects $$E(y)$$ to $$\eta$$  
 
 ### Why to bother modeling different distributions  
-- ‘If the data are not Gaussian, we must make them “act Gaussian”’, 
-essentially amounts to the modeling version of the “when you have a hammer, 
-try to make every problem look like a nail” [(Stroup et al., 2024)](https://www.routledge.com/Generalized-Linear-Mixed-Models-Modern-Concepts-Methods-and-Applications/Stroup-Ptukhina-Garai/p/book/9781498755566?srsltid=AfmBOop80SBSwTFMCIzkiTtYe-5uir_Xnw2KVZxa1oXb4LJWrLRx0Wwq)
+- *If the data are not Gaussian, we must make them “act Gaussian”, essentially amounts to the modeling version of the “when you have a hammer, try to make every problem look like a nail”* [(Stroup et al., 2024)](https://www.routledge.com/Generalized-Linear-Mixed-Models-Modern-Concepts-Methods-and-Applications/Stroup-Ptukhina-Garai/p/book/9781498755566?srsltid=AfmBOop80SBSwTFMCIzkiTtYe-5uir_Xnw2KVZxa1oXb4LJWrLRx0Wwq)
 
 ------
 
 ## Applied examples
 
-## Applied example II - counts  
-
+## Applied example I - counts  
 
 <html lang="en">
 <head>
