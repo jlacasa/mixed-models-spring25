@@ -7,7 +7,8 @@ topics: Non-normal data; Repeated Measures; Wrap-up
 
 {% capture text %}
 Mixed-effects models combine fixed effects and random effects. 
-Typically, we can define a mixed-effects model as 
+Assuming $$\mathbf{y}$$ arises from a normal distribution, 
+we can define a mixed-effects model as 
 
 $$\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \mathbf{Z}\mathbf{u} + \boldsymbol{\varepsilon}, \\ 
 \begin{bmatrix}\mathbf{u} \\ \boldsymbol{\varepsilon} \end{bmatrix} \sim \left(
@@ -29,7 +30,10 @@ If we do the math, we get that
 
 $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta},$$
 
-$$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
+$$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}.$$  
+
+**Now, that will change a bit if we assume other distributions for** $$mathbf{y}$$.  
+
 
 **Fixed effects versus random effects**  
 
@@ -82,11 +86,6 @@ $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}$$
         <td>The study design (aka structure in the data, or what is similar to what)</td>
     </tr>
     <tr>
-        <th>Assumptions</th>
-        <td>$$\hat{\boldsymbol{\beta}} \sim N \left( \boldsymbol{\beta}, (\mathbf{X}^T \mathbf{V}^{-1} \mathbf{X})^{-1} \right) $$</td>
-        <td>$$u_j \sim N(0, \sigma^2_u)$$</td>
-    </tr>
-    <tr>
         <th>Method of estimation</th>
         <td>Maximum likelihood, least squares</td>
         <td>Restricted maximum likelihood (shrinkage)</td>
@@ -115,6 +114,27 @@ The exponential family is a family of distributions that share common structure,
 relatively different amon themselves. Some important distributions are:  
 - **For continuous data:** Normal, t, Gamma, Beta.
 - **For discrete data:** Binomial, Poisson, Negative Binomial.
+
+
+
+<body>
+
+<table>
+    <tr>
+        <td><img src="day3/dist1_normal.png" alt="Image 1" width="100" height="100"></td>
+        <td><img src="day3/dist2_t.png" alt="Image 1" width="100" height="100"></td>
+    </tr>
+    <tr>
+        <td><img src="day3/dist3_gamma.png" alt="Image 1" width="100" height="100"></td>
+        <td><img src="day3/dist4_beta.png" alt="Image 1" width="100" height="100"></td>
+    </tr>
+    <tr>
+        <td><img src="day3/dist5_poisson" alt="Image 1" width="100" height="100"></td>
+        <td></td>
+    </tr>
+</table>
+</body>
+
 
 ### Normal distribution  
 
