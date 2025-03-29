@@ -125,23 +125,37 @@ relatively different amon themselves. Some important distributions are:
         $$y \sim N(\mu, \sigma^2)$$
         $$E(y) = \mu$$
         $$Var(y) = \sigma^2$$</td>
-        <td><img src="../images/day3/dist1_normal.png" alt="Normal distribution" width="400" height="400"></td>
+        <td><img src="../images/day3/dist1_normal.png" alt="Normal distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>t  distribution  </td>
-        <td><img src="../images/day3/dist2_t.png" alt="t distribution" width="400" height="400"></td>
+        <td>t  distribution  
+        $$y \sim t_{\nu}(\mu, \sigma^2)$$
+        $$E(y) = \mu$$ for $$\nu>1$$, otherwise undefined.
+        $$Var(y) = \frac{\nu}{\nu-2}\sigma^2$$ for $$\nu>2$$, otherwise undefined.
+        Note, for $$\nu \rightarrow \infty$$, the distribution approximates to a normal.  
+        </td>
+        <td><img src="../images/day3/dist2_t.png" alt="t distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>Gamma distribution  </td>
-        <td><img src="../images/day3/dist3_gamma.png" alt="Gamma distribution" width="400" height="400"></td>
+        <td>Gamma distribution  
+        $$y \sim Gamma(\alpha, \beta)$$
+        $$E(y) = \frac{\alpha}{\beta}$$
+        $$Var(y) = \frac{\alpha}{\beta^2}$$</td>
+        <td><img src="../images/day3/dist3_gamma.png" alt="Gamma distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>Beta distribution  </td>
-        <td><img src="../images/day3/dist4_beta.png" alt="Beta distribution" width="400" height="400"></td>
+        <td>Beta distribution  
+        $$y \sim Beta(\alpha, \beta)$$
+        $$E(y) = \frac{\alpha}{\alpha+\beta}$$
+        $$Var(y) = \frac{\alpha \beta }{(\alpha+\beta)^2(\alpha+\beta+1)}$$</td>
+        <td><img src="../images/day3/dist4_beta.png" alt="Beta distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>Poisson distribution</td>
-        <td><img src="../images/day3/dist5_poisson" alt="Poisson distribution" width="400" height="400"></td>
+        <td>Poisson distribution  
+        $$y \sim Pois(\lambda)$$
+        $$E(y) = \lambda$$
+        $$Var(y) = \lambda$$</td>
+        <td><img src="../images/day3/dist5_poisson" alt="Poisson distribution" width="300" height="300"></td>
     </tr>
 </table>
 </body>
