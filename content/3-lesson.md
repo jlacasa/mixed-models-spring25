@@ -128,10 +128,10 @@ relatively different amon themselves. Some important distributions are:
         <td><img src="../images/day3/dist1_normal.png" alt="Normal distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>t  distribution  
+        <td>Student t  distribution  
         $$y \sim t_{\nu}(\mu, \sigma^2)$$
         $$E(y) = \mu \text{ for } \nu>1 \text{, otherwise undefined}$$
-        $$Var(y) = \frac{\nu}{\nu-2}\sigma^2$$ for $$\nu>2$$, otherwise undefined.
+        $$Var(y) = \frac{\nu}{\nu-2}\sigma^2 \text{ for } \nu>2 \text{, otherwise undefined}$$
         Note, for $$\nu \rightarrow \infty$$, the distribution approximates to a normal.  
         </td>
         <td><img src="../images/day3/dist2_t.png" alt="t distribution" width="300" height="300"></td>
@@ -155,7 +155,7 @@ relatively different amon themselves. Some important distributions are:
         $$y \sim Pois(\lambda)$$
         $$E(y) = \lambda$$
         $$Var(y) = \lambda$$</td>
-        <td><img src="../images/day3/dist5_poisson" alt="Poisson distribution" width="300" height="300"></td>
+        <td><img src="../images/day3/dist5_poisson.png" alt="Poisson distribution" width="300" height="300"></td>
     </tr>
 </table>
 </body>
