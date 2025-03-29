@@ -130,7 +130,7 @@ relatively different amon themselves. Some important distributions are:
     <tr>
         <td>t  distribution  
         $$y \sim t_{\nu}(\mu, \sigma^2)$$
-        $$E(y) = \mu$$ for $$\nu>1$$, otherwise undefined.
+        $E(y) = \mu$ for $\nu>1$, otherwise undefined.
         $$Var(y) = \frac{\nu}{\nu-2}\sigma^2$$ for $$\nu>2$$, otherwise undefined.
         Note, for $$\nu \rightarrow \infty$$, the distribution approximates to a normal.  
         </td>
