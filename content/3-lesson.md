@@ -121,15 +121,15 @@ relatively different amon themselves. Some important distributions are:
 
 <table>
     <tr>
-        <td><img src="../images/day3/dist1_normal.png" alt="Image 1" width="100" height="100"></td>
-        <td><img src="../images/day3/dist2_t.png" alt="Image 1" width="100" height="100"></td>
+        <td><img src="../images/day3/dist1_normal.png" alt="Normal distribution" width="400" height="400"></td>
+        <td><img src="../images/day3/dist2_t.png" alt="t distribution" width="400" height="400"></td>
     </tr>
     <tr>
-        <td><img src="../images/day3/dist3_gamma.png" alt="Image 1" width="100" height="100"></td>
-        <td><img src="../images/day3/dist4_beta.png" alt="Image 1" width="100" height="100"></td>
+        <td><img src="../images/day3/dist3_gamma.png" alt="Gamma distribution" width="400" height="400"></td>
+        <td><img src="../images/day3/dist4_beta.png" alt="Beta distribution" width="400" height="400"></td>
     </tr>
     <tr>
-        <td><img src="../images/day3/dist5_poisson" alt="Image 1" width="100" height="100"></td>
+        <td><img src="../images/day3/dist5_poisson" alt="Poisson distribution" width="400" height="400"></td>
         <td></td>
     </tr>
 </table>
