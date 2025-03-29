@@ -132,7 +132,6 @@ relatively different amon themselves. Some important distributions are:
         $$y \sim t_{\nu}(\mu, \sigma^2)$$
         $$E(y) = \mu \text{ for } \nu>1 \text{, otherwise undefined}$$
         $$Var(y) = \frac{\nu}{\nu-2}\sigma^2 \text{ for } \nu>2 \text{, otherwise undefined}$$
-        Note, for $$\nu \rightarrow \infty$$, the distribution approximates to a normal.  
         </td>
         <td><img src="../images/day3/dist2_t.png" alt="t distribution" width="300" height="300"></td>
     </tr>
@@ -170,7 +169,10 @@ relatively different amon themselves. Some important distributions are:
 3. Identify a link function that connects $$E(y)$$ to $$\eta$$  
 
 ### Why to bother modeling different distributions  
+
+Issues with log-transformations  
 - *If the data are not Gaussian, we must make them “act Gaussian”, essentially amounts to the modeling version of the “when you have a hammer, try to make every problem look like a nail”* [(Stroup et al., 2024)](https://www.routledge.com/Generalized-Linear-Mixed-Models-Modern-Concepts-Methods-and-Applications/Stroup-Ptukhina-Garai/p/book/9781498755566?srsltid=AfmBOop80SBSwTFMCIzkiTtYe-5uir_Xnw2KVZxa1oXb4LJWrLRx0Wwq)
+
 
 ------
 
