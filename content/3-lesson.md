@@ -32,7 +32,7 @@ $$E(\mathbf{y}) = \mathbf{X}\boldsymbol{\beta},$$
 
 $$Var(\mathbf{y}) = \mathbf{Z}\mathbf{G}\mathbf{Z}' + \mathbf{R}.$$  
 
-**Now, that will change a bit if we assume other distributions for** $$mathbf{y}$$.  
+**Now, that will change a bit if we assume other distributions for** $$\mathbf{y}$$.  
 
 
 **Fixed effects versus random effects**  
@@ -121,15 +121,15 @@ relatively different amon themselves. Some important distributions are:
 
 <table>
     <tr>
-        <td><img src="day3/dist1_normal.png" alt="Image 1" width="100" height="100"></td>
-        <td><img src="day3/dist2_t.png" alt="Image 1" width="100" height="100"></td>
+        <td><img src="../images/day3/dist1_normal.png" alt="Image 1" width="100" height="100"></td>
+        <td><img src="../images/day3/dist2_t.png" alt="Image 1" width="100" height="100"></td>
     </tr>
     <tr>
-        <td><img src="day3/dist3_gamma.png" alt="Image 1" width="100" height="100"></td>
-        <td><img src="day3/dist4_beta.png" alt="Image 1" width="100" height="100"></td>
+        <td><img src="../images/day3/dist3_gamma.png" alt="Image 1" width="100" height="100"></td>
+        <td><img src="../images/day3/dist4_beta.png" alt="Image 1" width="100" height="100"></td>
     </tr>
     <tr>
-        <td><img src="day3/dist5_poisson" alt="Image 1" width="100" height="100"></td>
+        <td><img src="../images/day3/dist5_poisson" alt="Image 1" width="100" height="100"></td>
         <td></td>
     </tr>
 </table>
