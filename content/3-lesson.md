@@ -166,7 +166,7 @@ relatively different amon themselves. Some important distributions are:
 
 1. Identify the probability distribution of $$y$$  
 2. State the linear predictor $$\eta$$   
-3. Identify a link function that connects $$E(y)$$ to $$\eta$$  
+3. Identify a link function that connects $$E(y)$$ to $$\eta$$   
 
 ### Why to bother modeling different distributions  
 
@@ -179,6 +179,11 @@ Issues with log-transformations
 ## Applied examples
 
 ## Applied example I - counts  
+
+The following data come from an experiment designed to study 
+the effect of different treatments on the population of webworms 
+[(Beall, 1940)](https://doi.org/10.2307/1930285). 
+The experiment was an RCBD with 4 treatments and 13 repetitions.  
 
 <html lang="en">
 <head>
@@ -309,7 +314,30 @@ summary(m1)
 
 ## Wrap-up - Why hierarchical models are more important than ever  
 
-Coming soon...
+### Why are mixed models sometimes called 'hierarchical' or 'multilevel' models?  
+
+{% include figure.html img="day3/hierarchical_diagram.jpg" alt="" caption="" width="80%" %}
+
+### Major benefits we get from mixed models   
+
+- Information is **shared** across groups  
+- More robust under imbalanced scenarios  
+- No need to average across observations - information is preserved!  
+
+>I want to convince the reader of something that appears unreasonable: 
+*multilevel regression deserves to be the default form of regression.* 
+Papers that do not use multilevel models should have to justify 
+not using a multilevel approach. Certainly some data and contexts do
+not need the multilevel treatment. But most contemporary studies in the social and natural
+sciences, whether experimental or not, would benefit from it. Perhaps the most important
+reason is that even well-controlled treatments interact with unmeasured aspects 
+of the individuals, groups, or populations studied. 
+This leads to variation in treatment effects, in which individuals or groups vary
+in how they respond to the same circumstance. Multilevel models attempt to quantify
+the extent of this variation, as well as identify which units in the data
+responded in which ways.
+
+--[Statistical Rethinking, Richard McElreath](https://civil.colorado.edu/~balajir/CVEN6833/bayes-resources/RM-StatRethink-Bayes.pdf).
 
 
 ------
@@ -318,4 +346,5 @@ Coming soon...
 
 - I'll be teaching STAT 720 this summer and STAT 870 this fall. 
 - Feel free to reach out with questions/concerns/more advanced questions.  
+- Please answer this [survey](https://forms.gle/Tm9rnzgSVDcVLAik7) to help me improve future editions of the same workshop/create a follow-up based on demand. 
 
