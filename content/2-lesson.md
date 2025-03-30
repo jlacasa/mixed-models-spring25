@@ -1133,9 +1133,9 @@ randomized complete block design.
 3 pigs per pen were sampled on day 5, 10, and 17 and fecal sample was then placed in 
 drying oven at 55 C for 48 hours to determine fecal dry matter. 
 
-$$y_{ijkl} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{k} + v_{i \vert k} + w_{ijkl} + \varepsilon_{ijkl},\\
+$$y_{ijklm} = \mu + \tau_i + \alpha_j + (\tau \alpha)_{ij} + u_{k} + v_{l \vert k} + w_{ijklm} + \varepsilon_{ijklm},\\
 u_{k} \sim N(0, \sigma^2_u), \\
-v_{i \vert k} \sim N(0, \sigma^2_v),\\
+v_{l \vert k} \sim N(0, \sigma^2_v),\\
 \varepsilon_{ijkl} \sim N(0, \sigma^2),$$
 
 where $$y_{ijkl}$$ is the observed fecal dry matter for the $$i$$th feed treatment, in $$j$$th room ($$\sim$$ block) 
@@ -1145,19 +1145,20 @@ $$\tau_i$$ is the (fixed) effect of the $$i$$th feed treatment,
 $$\alpha_j$$ is the (fixed) effect of the $$j$$th day, 
 $$(\tau \alpha)_{ij}$$ is the interaction between the $$i$$th feed treatment and the $$j$$th day, 
 $$u_k$$ is the (random) effect of the $$k$$th room, 
-$$v_{i \vert k}$$ is the (random) effect of the $$i$$th pen in the $$k$$th room, 
-$$\varepsilon_{ijkl}$$ is the residual (i.e., the difference between predicted and observed) of the $$i$$th feed treatment, in $$j$$th room ($$\sim$$ block) 
-$$k$$th pen, and $$l$$th pig, 
+$$v_{l \vert k}$$ is the (random) effect of the $$l$$th pen in the $$k$$th room, 
+$$\varepsilon_{ijklm}$$ is the residual (i.e., the difference between predicted and observed) of the $$i$$th feed treatment, 
+on the $$j$$th day, $$k$$th room ($$\sim$$ block) 
+$$l$$th pen, and $$m$$th pig, 
 $$\sigma^2_u$$ is the variance among rooms, 
 $$\sigma^2_v$$ is the variance among pens. 
 
-Note that we didn't specify the distribution for $$w_{ijkl}$$. 
-Normally we would have said $$w_{ijkl} \sim N(0, \sigma^2_w)$$, but now, the observations are 
+Note that we didn't specify the distribution for $$w_{ijklm}$$. 
+Normally we would have said $$w_{ijklm} \sim N(0, \sigma^2_w)$$, but now, the observations are 
 not completely independent because they are following the same experimental unit through time. 
 Assuming a first-order autoregressive structure, we say 
 
-$$\mathbf{w}_{i k l} \sim N(\boldsymbol{\mu}, \Sigma_{w,ikl}), \\
-\Sigma_{w,ikl} = \sigma^2_w \begin{bmatrix} 1 & \rho & \rho^2 \\
+$$\mathbf{w}_{i k lm} \sim N(\boldsymbol{\mu}, \Sigma_{w,ikl}), \\
+\Sigma_{w,iklm} = \sigma^2_w \begin{bmatrix} 1 & \rho & \rho^2 \\
 \rho & 1 & \rho \\
 \rho^2 & \rho & 1\end{bmatrix}.$$
 
