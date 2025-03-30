@@ -336,7 +336,6 @@ This leads to variation in treatment effects, in which individuals or groups var
 in how they respond to the same circumstance. Multilevel models attempt to quantify
 the extent of this variation, as well as identify which units in the data
 responded in which ways.
-
 --[Statistical Rethinking, Richard McElreath](https://civil.colorado.edu/~balajir/CVEN6833/bayes-resources/RM-StatRethink-Bayes.pdf).
 
 
