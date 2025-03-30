@@ -124,14 +124,19 @@ relatively different amon themselves. Some important distributions are:
         <td>Normal distribution  
         $$y \sim N(\mu, \sigma^2)$$
         $$E(y) = \mu$$
-        $$Var(y) = \sigma^2$$</td>
+        $$Var(y) = \sigma^2$$
+        Support (i.e., possible values for y):
+        $$y \in (-\infty, +\infty)$$</td>
         <td><img src="../images/day3/dist1_normal.png" alt="Normal distribution" width="300" height="300"></td>
     </tr>
     <tr>
         <td>Student t  distribution  
         $$y \sim t_{\nu}(\mu, \sigma^2)$$
         $$E(y) = \mu \text{ for } \nu>1 \text{, otherwise undefined}$$
-        $$Var(y) = \frac{\nu}{\nu-2}\sigma^2 \text{ for } \nu>2 \text{, otherwise undefined}$$
+        $$Var(y) = \frac{\nu}{\nu-2}\sigma^2 \text{ for }
+        \\ \nu>2 \text{, otherwise undefined}$$
+        Support (i.e., possible values for y):
+        $$y \in (-\infty, +\infty)$$
         </td>
         <td><img src="../images/day3/dist2_t.png" alt="t distribution" width="300" height="300"></td>
     </tr>
@@ -139,21 +144,27 @@ relatively different amon themselves. Some important distributions are:
         <td>Gamma distribution  
         $$y \sim Gamma(\alpha, \beta)$$
         $$E(y) = \frac{\alpha}{\beta}$$
-        $$Var(y) = \frac{\alpha}{\beta^2}$$</td>
+        $$Var(y) = \frac{\alpha}{\beta^2}$$
+        Support (i.e., possible values for y):
+        $$y \in (0, +\infty)$$</td>
         <td><img src="../images/day3/dist3_gamma.png" alt="Gamma distribution" width="300" height="300"></td>
     </tr>
     <tr>
         <td>Beta distribution  
         $$y \sim Beta(\alpha, \beta)$$
         $$E(y) = \frac{\alpha}{\alpha+\beta}$$
-        $$Var(y) = \frac{\alpha \beta }{(\alpha+\beta)^2(\alpha+\beta+1)}$$</td>
+        $$Var(y) = \frac{\alpha \beta }{(\alpha+\beta)^2(\alpha+\beta+1)}$$
+        Support (i.e., possible values for y):
+        $$y \in (0, 1)$$</td>
         <td><img src="../images/day3/dist4_beta.png" alt="Beta distribution" width="300" height="300"></td>
     </tr>
     <tr>
         <td>Poisson distribution  
         $$y \sim Pois(\lambda)$$
         $$E(y) = \lambda$$
-        $$Var(y) = \lambda$$</td>
+        $$Var(y) = \lambda$$
+        Support (i.e., possible values for y):
+        $$y \in (0, 1, 2, ..., +\infty)$$</td>
         <td><img src="../images/day3/dist5_poisson.png" alt="Poisson distribution" width="300" height="300"></td>
     </tr>
 </table>
