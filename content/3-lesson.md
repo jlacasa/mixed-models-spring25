@@ -316,7 +316,7 @@ summary(m1)
 
 ### Why are mixed models sometimes called 'hierarchical' or 'multilevel' models?  
 
-{% include figure.html img="day3/hierarchical_diagram.jpg" alt="" caption="" width="80%" %}
+{% include figure.html img="day3/hierarchical.jpg" alt="" caption="" width="80%" %}
 
 ### Major benefits we get from mixed models   
 
