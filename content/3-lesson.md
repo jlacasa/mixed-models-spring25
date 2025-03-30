@@ -218,7 +218,7 @@ library(agridat)
 dat <- beall.webworms
 
 m1 <- glmmTMB(y ~ trt + (1|block),
-              family = nbinom1(link = "log"),
+              family = poisson(link = "log"),
               data  = dat)
 
 res1 <- simulateResiduals(m1, plot = T)
@@ -321,7 +321,7 @@ summary(m1)
 ### Major benefits we get from mixed models   
 
 - Information is **shared** across groups  
-- More robust under imbalanced scenarios  
+- More robust under unbalanced scenarios  
 - No need to average across observations - information is preserved!  
 
 >I want to convince the reader of something that appears unreasonable: 
