@@ -389,7 +389,14 @@ summary(m1)
 
 ### Why are mixed models sometimes called 'hierarchical' or 'multilevel' models?  
 
-{% include figure.html img="day3/hierarchical.jpg" alt="" caption="" width="80%" %}
+{% include figure.html img="day3/hierarchical_ag.jpg" alt="" caption="" width="80%" %}
+
+{% capture figure_content_hierarchical_swine %}
+{% include figure.html img="day3/hierarchical_swine.jpg" alt="" caption="Schematic diagram of a Hierarchical Model with repeated measures and subsampling." width="100%" %}
+{% endcapture %}
+
+{% include modal.html button="Example of hierarchical models with animals and subsampling" color="success" id="modal-crd-hierarchical-animal" title="Hierarchical Model Animal Example" text=figure_content_hierarchical_swine %}
+
 
 ### Major benefits we get from mixed models   
 
@@ -412,6 +419,7 @@ the extent of this variation, as well as identify which units in the data
 responded in which ways.
 --[Statistical Rethinking, Richard McElreath](https://civil.colorado.edu/~balajir/CVEN6833/bayes-resources/RM-StatRethink-Bayes.pdf).
 
+[[Also see McEreath's blog post](https://elevanth.org/blog/2017/08/24/multilevel-regression-as-default/)]
 
 ------
 
