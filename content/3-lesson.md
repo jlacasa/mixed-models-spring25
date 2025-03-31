@@ -235,14 +235,12 @@ is actually the mean, we can use the identity link function =
 
 $$\text{logit}(\mu) = \eta.$$
 
-### Why to bother modeling different distributions  
+### Log-transformations  
 
-Issues with log-transformations  
-
-- Changes in the structure of the residuals.  
+- Changes in the structure of the residuals: from normal to log-normal.  
 - What is the target variable we aim to study?  
 - *If the data are not Gaussian, we must make them “act Gaussian”, essentially amounts to the modeling version of the “when you have a hammer, try to make every problem look like a nail”* [(Stroup et al., 2024)](https://www.routledge.com/Generalized-Linear-Mixed-Models-Modern-Concepts-Methods-and-Applications/Stroup-Ptukhina-Garai/p/book/9781498755566?srsltid=AfmBOop80SBSwTFMCIzkiTtYe-5uir_Xnw2KVZxa1oXb4LJWrLRx0Wwq)
-
+- No one-size-fits-all recommendation.   
 
 ------
 
