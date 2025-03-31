@@ -294,6 +294,8 @@ m1 <- glmmTMB(y ~ trt + (1|block),
 res1 <- simulateResiduals(m1, plot = T)
 {% endhighlight %}
 
+{% include figure.html img="day3/DHARMa_example1a.png" alt="" caption="" width="80%" %}
+
 {% highlight r %}
 m2 <- glmmTMB(y ~ trt + (1|block),
               family = nbinom1(link = "log"),
@@ -303,7 +305,7 @@ res2 <- simulateResiduals(m2, plot = T)
 summary(m2)
 {% endhighlight %}
 
-{% include figure.html img="day3/DHARMa_negbinomial.png" alt="" caption="" width="80%" %}
+{% include figure.html img="day3/DHARMa_example1b.png" alt="" caption="" width="80%" %}
 
 
 {% highlight text %}
@@ -325,10 +327,10 @@ summary(m2)
 ## 
 ## Conditional model:
 ##             Estimate Std. Error z value Pr(>|z|)    
-## (Intercept) -0.39272    0.09831  -3.995 6.48e-05 ***
-## trt1         0.66378    0.05459  12.159  < 2e-16 ***
-## trt2        -0.31435    0.07190  -4.372 1.23e-05 ***
-## trt3         0.18729    0.06144   3.048   0.0023 ** 
+## (Intercept)  0.27106    0.10482   2.586  0.00971 ** 
+## trtT2       -0.97814    0.10155  -9.632  < 2e-16 ***
+## trtT3       -0.47650    0.08642  -5.514 3.51e-08 ***
+## trtT4       -1.20051    0.11028 -10.886  < 2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 {% endhighlight %}
@@ -339,11 +341,13 @@ summary(m2)
 
 The following data arise from an experiment studying germination of 
 Orobanche seeds [(Crowder, 1978)](https://www.jstor.org/stable/2346223?origin=crossref&seq=1).  
+The data indicate the total number of seeds (`n`) and the number of germinated seeds (`germ`). 
+
 
 {% highlight r %}
 dat <- crowder.seeds
 
-m1 <- glmmTMB(cbind(germ, n-germ) ~ extract*gen + (1|plate),
+m1 <- glmmTMB(cbind(germ, n-germ) ~ extract*gen,
               family = binomial(link = "logit"),
               data = dat)
 
@@ -356,33 +360,24 @@ res1 <- simulateResiduals(m1, plot = T)
 summary(m1)
 {% endhighlight %}
 
-
-
 {% highlight text %}
 ##  Family: binomial  ( logit )
-## Formula:          cbind(germ, n - germ) ~ extract * gen + (1 | plate)
+## Formula:          cbind(germ, n - germ) ~ extract * gen
 ## Data: dat
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
-##    117.5    122.8    -53.8    107.5       16 
+##    117.9    122.1    -54.9    109.9       17 
 ## 
-## Random effects:
-## 
-## Conditional model:
-##  Groups Name        Variance Std.Dev.
-##  plate  (Intercept) 0.05503  0.2346  
-## Number of obs: 21, groups:  plate, 21
 ## 
 ## Conditional model:
-##               Estimate Std. Error z value Pr(>|z|)    
-## (Intercept)   -0.03388    0.09635  -0.352    0.725    
-## extract1      -0.46590    0.09582  -4.862 1.16e-06 ***
-## gen1          -0.15379    0.09838  -1.563    0.118    
-## extract1:gen1  0.20251    0.09606   2.108    0.035 *  
+##                        Estimate Std. Error z value Pr(>|z|)  
+## (Intercept)             -0.4122     0.1842  -2.238   0.0252 *
+## extractcucumber          0.5401     0.2498   2.162   0.0306 *
+## genO75                  -0.1459     0.2232  -0.654   0.5132  
+## extractcucumber:genO75   0.7781     0.3064   2.539   0.0111 *
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 {% endhighlight %}
-
 
 
 ## Wrap-up - Why hierarchical models are more important than ever  
