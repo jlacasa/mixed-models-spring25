@@ -121,7 +121,7 @@ relatively different amon themselves. Some important distributions are:
 
 <table>
     <tr>
-        <td>Normal distribution  
+        <td>**Normal distribution**  
         $$y \sim N(\mu, \sigma^2)$$
         $$E(y) = \mu$$
         $$Var(y) = \sigma^2$$
@@ -130,7 +130,7 @@ relatively different amon themselves. Some important distributions are:
         <td><img src="../images/day3/dist1_normal.png" alt="Normal distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>Student t  distribution  
+        <td>**Student t  distribution**  
         $$y \sim t_{\nu}(\mu, \sigma^2)$$
         $$E(y) = \mu \text{ for } \nu>1 \text{, otherwise undefined}$$
         $$Var(y) = \frac{\nu}{\nu-2}\sigma^2 \text{ for }
@@ -141,7 +141,7 @@ relatively different amon themselves. Some important distributions are:
         <td><img src="../images/day3/dist2_t.png" alt="t distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>Gamma distribution  
+        <td>**Gamma distribution**  
         $$y \sim Gamma(\alpha, \beta)$$
         $$E(y) = \frac{\alpha}{\beta}$$
         $$Var(y) = \frac{\alpha}{\beta^2}$$
@@ -150,7 +150,7 @@ relatively different amon themselves. Some important distributions are:
         <td><img src="../images/day3/dist3_gamma.png" alt="Gamma distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>Beta distribution  
+        <td>**Beta distribution**  
         $$y \sim Beta(\alpha, \beta)$$
         $$E(y) = \frac{\alpha}{\alpha+\beta}$$
         $$Var(y) = \frac{\alpha \beta }{(\alpha+\beta)^2(\alpha+\beta+1)}$$
@@ -159,7 +159,7 @@ relatively different amon themselves. Some important distributions are:
         <td><img src="../images/day3/dist4_beta.png" alt="Beta distribution" width="300" height="300"></td>
     </tr>
     <tr>
-        <td>Poisson distribution  
+        <td>**Poisson distribution**  
         $$y \sim Pois(\lambda)$$
         $$E(y) = \lambda$$
         $$Var(y) = \lambda$$
