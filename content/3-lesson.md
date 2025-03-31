@@ -391,11 +391,13 @@ summary(m1)
 
 {% include figure.html img="day3/hierarchical_ag.jpg" alt="" caption="" width="80%" %}
 
-{% capture figure_content_hierarchical_swine %}
+{% include modal.html button="Example of hierarchical models with animals and subsampling" 
+color="success" 
+title="Hierarchical Model Animal Example" 
+text="
 {% include figure.html img="day3/hierarchical_swine.jpg" alt="" caption="Schematic diagram of a Hierarchical Model with repeated measures and subsampling. The variance components portrayed here correspond to a designed experiment disposed in a randomized complete block design (i.e., room as blocking factor, $$\sigma^2_u$$ or $$\sigma^2_{rooms}$$). Pens are the experimental units but there is subsampling (thus adding the variance component $$\sigma^2_v$$ or $$\sigma^2_{pens}$$): pig is the observational unit, and there are 3 pigs per pen being observed. In addition, each pig is observed at several points in time, thus adding the variance component $$\sigma^2_w$$ (or $$\sigma^2_{pigs}$$). Last, $$\sigma^2_e$$ is the residual variance." width="100%" %}
-{% endcapture %}
+" %}
 
-{% include modal.html button="Example of hierarchical models with animals and subsampling" color="success" id="modal-crd-hierarchical-animal" title="Hierarchical Model Animal Example" text=figure_content_hierarchical_swine %}
 
 
 ### Major benefits we get from mixed models   
